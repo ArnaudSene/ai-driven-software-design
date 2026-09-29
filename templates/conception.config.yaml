@@ -1,0 +1,21 @@
+# Design session configuration (optional).
+# Place this file at the root of the designed project (PROJECT_DIR).
+# Without it, deliverables go to PROJECT_DIR/conception/ and no source is declared.
+# Relative paths are resolved against PROJECT_DIR; absolute paths are allowed.
+
+# Where the deliverables are written (CONCEPTION_DIR).
+# May point outside the project, e.g. to a dedicated documentation repository.
+output_dir: conception
+
+# Existing documents the agent may read. They are never modified.
+# Each source gets a stable identifier (SRC-n) used to cite it in deliverables.
+sources:
+  - id: SRC-1
+    title: Functional analysis v2
+    path: ../other-repo/docs/functional-analysis.md   # local file or directory
+  # - id: SRC-2
+  #   title: Business rules spreadsheet
+  #   path: /absolute/path/to/rules.xlsx
+  # - id: SRC-3
+  #   title: Product wiki page
+  #   url: https://example.com/wiki/product            # read-only remote document

@@ -4,7 +4,7 @@
 |---|---|
 | Question centrale | Pourquoi ce projet, pour qui, dans quelles limites ? |
 | Agent | [`prompts/analyste-metier.md`](../prompts/analyste-metier.md) |
-| Entrées | Idée ou demande initiale, documents existants (cahier des charges, maquettes, courriels, études) |
+| Entrées | Idée ou demande initiale, documents existants déclarés comme sources `SRC-n` (cahier des charges, analyse fonctionnelle, maquettes, courriels, études) |
 | Sorties | `conception/01-cadrage.md`, `conception/ETAT.md` initialisé, `conception/glossaire.md` amorcé |
 | Identifiants créés | `PP-n`, `OB-n`, `C-n`, premiers `H-n`, `R-n`, `OD-n` |
 | Gabarit | [`templates/01-cadrage.md`](../templates/01-cadrage.md) |

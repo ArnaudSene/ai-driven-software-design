@@ -123,6 +123,8 @@ Selon le projet, la phase couvre aussi :
 
 ## 3. Déroulé de l'atelier
 
+**Si une analyse fonctionnelle existe déjà** (source `SRC-n`), le déroulé ci-dessous s'applique en mode *Proposition* : chaque étape commence par la transposition de la source, et les questions ne portent que sur ses manques. Voir [00-principes § 16](00-principes.md#16-reprise-dun-existant).
+
 | Étape | L'agent | Le décideur |
 |---|---|---|
 | 1 | Liste les acteurs à partir des `PP-n` et propose l'inventaire des `UC-n` (titre, acteur, objectif, `OB-n`). | Complète, priorise. |

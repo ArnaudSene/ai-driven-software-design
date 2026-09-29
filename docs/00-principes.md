@@ -402,6 +402,8 @@ Le décideur dispose souvent de documents rédigés avant d'appliquer le guide, 
 2. Les sources sont en **lecture seule** : l'agent ne les modifie, ne les déplace et ne les copie jamais sans demande explicite.
 3. Une source hors du projet n'est pas versionnée avec lui. On consigne donc sa version (numéro, date, ou identifiant de commit si c'est un dépôt Git) au moment de la lecture. Si la source évolue, on peut ainsi savoir ce qui a été transposé.
 4. Un dépôt distant se clone localement, en lecture seule, avant d'être déclaré par son chemin : l'agent ne dépend pas d'un accès réseau pendant la session.
+5. L'agent est lancé depuis un **dépôt Git** (celui du code ou un dépôt de documentation dédié), jamais depuis un dossier qui regroupe plusieurs dépôts : sinon ni la configuration ni les livrables ne sont versionnés.
+6. Les chemins de `conception.config.yaml` sont de préférence **relatifs** (`../autre-depot/…`), et le fichier est alors versionné : quiconque clone les dépôts côte à côte retrouve la configuration. Un fichier qui contient des chemins absolus propres à une machine ne doit pas être versionné.
 
 ### 16.2 Transposition
 
@@ -409,9 +411,20 @@ Le décideur dispose souvent de documents rédigés avant d'appliquer le guide, 
 2. Le spécialiste de la phase lit les sources **en entier** avant toute question, et extrait ce qui relève de sa phase : cadrage, cas d'utilisation, règles métier, exigences qualité, etc. Une même source alimente souvent plusieurs phases.
 3. Chaque élément extrait porte dans son champ **Source** la référence précise : `SRC-1 § 4.3`, `SRC-2 onglet « Tarifs », ligne 12`. Une reformulation reste fidèle au sens ; en cas de doute, l'agent cite le passage d'origine.
 4. L'agent **ne comble aucun trou en silence**. Tout ce que la source ne dit pas (exemple limite, valeur, cas d'erreur, justification) est demandé au décideur ou marqué [seuil à fixer] avec une OD.
-5. Les contradictions entre sources, ou à l'intérieur d'une source, sont listées avec les deux passages cités, et tranchées par le décideur.
-6. Les questions ne portent que sur ce qui manque, est ambigu ou contradictoire. Ne jamais redemander ce que la source dit clairement.
+5. **Les identifiants existants sont conservés.** Si la source numérote déjà ses éléments dans un format compatible (`BR-720`, `UC-12`), l'agent reprend ces identifiants au lieu de renuméroter, et n'attribue de nouveaux numéros qu'au-delà du plus grand existant. Si le format est incompatible, la correspondance ancien → nouveau identifiant est consignée dans `tracabilite.md`.
+6. Les contradictions entre sources, ou à l'intérieur d'une source, sont listées avec les deux passages cités, et tranchées par le décideur.
+7. Les questions ne portent que sur ce qui manque, est ambigu ou contradictoire. Ne jamais redemander ce que la source dit clairement.
 
-### 16.3 Ce qui fait foi
+### 16.3 Adoption en place
+
+Si une source satisfait déjà, pour l'essentiel, les conventions du guide (règles avec critère de conformité, exemples, source, justification, priorité, identifiants stables), l'agent ne la recopie pas : la dupliquer créerait deux vérités. Le livrable de la phase, par exemple `02-exigences-fonctionnelles.md`, devient alors un **index** qui renvoie à la source, et ne contient que :
+
+- la correspondance entre les conventions de la source et celles du guide (champs, priorités, marqueurs comme [à fixer] ou [à mesurer]) ;
+- les écarts relevés par rapport à la liste de contrôle de la phase, et leur traitement ;
+- les compléments que la source ne couvre pas.
+
+La source adoptée en place devient un livrable : elle est soumise à la gate, et ses modifications ultérieures suivent la procédure de changement. L'adoption en place suppose que la source est versionnée et modifiable par l'équipe ; sinon, on transpose.
+
+### 16.4 Ce qui fait foi
 
 Jusqu'à la gate de la phase concernée, la source fait foi : un écart entre la transposition et la source est une erreur de transposition. Après la gate, **le livrable fait foi**, et la source devient une archive. Si la source est modifiée ensuite, l'agent compare, liste les différences et applique la procédure de changement ([§ 14](#14-retours-en-arrière-et-gestion-du-changement)) ; il ne resynchronise jamais automatiquement.

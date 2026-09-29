@@ -88,6 +88,7 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **SLI** | Service Level Indicator | Indicateur de niveau de service, mesuré du point de vue de l'utilisateur. |
 | **SLO** | Service Level Objective | Objectif de niveau de service. Préfixe `SLO-n`. |
 | **SRE** | Site Reliability Engineering | Ingénierie de la fiabilité des systèmes en production. |
+| **SRC** | Source | Document existant lu sans être modifié, cité par son identifiant `SRC-n` (principes § 16). |
 | **SSO** | Single Sign-On | Authentification unique pour plusieurs applications. |
 | **STRIDE** | Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege | Classification des menaces : usurpation, altération, répudiation, divulgation, déni de service, élévation de privilège. |
 | **TCO** | Total Cost of Ownership | Coût total de possession. |

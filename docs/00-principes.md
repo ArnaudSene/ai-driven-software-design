@@ -232,6 +232,7 @@ Le décideur peut préciser ce critère dans une contrainte de projet (par exemp
 | `SLO-n` | Objectif de niveau de service | 9 | `09-exploitation.md` |
 | `FF-n` | Fonction d'aptitude (test d'architecture) | 10 | `10-strategie-test.md` |
 | `INC-n` | Incrément de réalisation | 11 | `11-plan-realisation.md` |
+| `SRC-n` | Document source existant, lu sans être modifié | 1+ | `conception.config.yaml` et `ETAT.md` |
 
 Chaque préfixe est aussi un acronyme — par exemple BR (Business Rule, règle métier), UC (Use Case, cas d'utilisation), QS (Quality Scenario, scénario qualité). Leur sens complet est donné dans le [glossaire](glossaire.md).
 
@@ -289,7 +290,7 @@ Abréviations du tableau ci-dessous : ATAM (Architecture Tradeoff Analysis Metho
 
 ## 11. Arborescence produite dans le projet cible
 
-Tous les livrables sont écrits dans un répertoire `conception/` à la racine du projet conçu. Les gabarits se trouvent dans [`templates/`](../templates/).
+Tous les livrables sont écrits dans le répertoire de conception, `CONCEPTION_DIR`. Par défaut, c'est `conception/` à la racine du projet conçu ; il peut être placé ailleurs, par exemple dans un dépôt de documentation dédié, via le fichier `conception.config.yaml` à la racine du projet (voir [`AGENTS.md` § 0](../AGENTS.md#0-situer-le-contexte)). Dans tout le guide, `conception/` désigne ce répertoire. Les gabarits se trouvent dans [`templates/`](../templates/).
 
 ```
 conception/
@@ -388,3 +389,29 @@ L'état du processus vit entièrement dans `conception/`. Un nouvel agent, ou le
 - la phase et le temps de boucle en cours ;
 - les questions posées restées sans réponse ;
 - la prochaine action prévue.
+
+---
+
+## 16. Reprise d'un existant
+
+Le décideur dispose souvent de documents rédigés avant d'appliquer le guide, et pas forcément selon ses méthodes : analyse fonctionnelle, cahier des charges, récits utilisateur, spécifications, tableurs de règles. Le guide ne les remplace pas par un interrogatoire : il les **transpose**.
+
+### 16.1 Déclaration des sources
+
+1. Chaque document est déclaré comme source, avec un identifiant stable `SRC-n`, un titre et un emplacement : chemin local (y compris dans un autre dépôt) ou adresse web. La déclaration se fait dans `conception.config.yaml` ou dans le message du décideur, puis elle est recopiée dans le registre des sources de `ETAT.md`.
+2. Les sources sont en **lecture seule** : l'agent ne les modifie, ne les déplace et ne les copie jamais sans demande explicite.
+3. Une source hors du projet n'est pas versionnée avec lui. On consigne donc sa version (numéro, date, ou identifiant de commit si c'est un dépôt Git) au moment de la lecture. Si la source évolue, on peut ainsi savoir ce qui a été transposé.
+4. Un dépôt distant se clone localement, en lecture seule, avant d'être déclaré par son chemin : l'agent ne dépend pas d'un accès réseau pendant la session.
+
+### 16.2 Transposition
+
+1. L'orchestrateur propose le mode *Proposition* ([§ 5.2](#52-modes-dinteraction)).
+2. Le spécialiste de la phase lit les sources **en entier** avant toute question, et extrait ce qui relève de sa phase : cadrage, cas d'utilisation, règles métier, exigences qualité, etc. Une même source alimente souvent plusieurs phases.
+3. Chaque élément extrait porte dans son champ **Source** la référence précise : `SRC-1 § 4.3`, `SRC-2 onglet « Tarifs », ligne 12`. Une reformulation reste fidèle au sens ; en cas de doute, l'agent cite le passage d'origine.
+4. L'agent **ne comble aucun trou en silence**. Tout ce que la source ne dit pas (exemple limite, valeur, cas d'erreur, justification) est demandé au décideur ou marqué [seuil à fixer] avec une OD.
+5. Les contradictions entre sources, ou à l'intérieur d'une source, sont listées avec les deux passages cités, et tranchées par le décideur.
+6. Les questions ne portent que sur ce qui manque, est ambigu ou contradictoire. Ne jamais redemander ce que la source dit clairement.
+
+### 16.3 Ce qui fait foi
+
+Jusqu'à la gate de la phase concernée, la source fait foi : un écart entre la transposition et la source est une erreur de transposition. Après la gate, **le livrable fait foi**, et la source devient une archive. Si la source est modifiée ensuite, l'agent compare, liste les différences et applique la procédure de changement ([§ 14](#14-retours-en-arrière-et-gestion-du-changement)) ; il ne resynchronise jamais automatiquement.

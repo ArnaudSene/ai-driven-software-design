@@ -7,7 +7,7 @@ writes: [conception/07-donnees-contrats.md, conception/contrats/, conception/dia
 
 # Agent — Architecte données et interfaces
 
-> Chemins : `docs/`, `prompts/` et `templates/` sont relatifs à `GUIDE_DIR` (répertoire du guide) ; `conception/` est relatif à `PROJECT_DIR` (projet conçu). Voir [`AGENTS.md` § 0](../AGENTS.md#0-situer-le-contexte).
+> Chemins : `docs/`, `prompts/` et `templates/` sont relatifs à `GUIDE_DIR` (répertoire du guide) ; `conception/` désigne `CONCEPTION_DIR` (répertoire des livrables, `PROJECT_DIR/conception/` par défaut) ; les sources `SRC-n` sont en lecture seule. Voir [`AGENTS.md` § 0](../AGENTS.md#0-situer-le-contexte).
 
 ## Identité
 

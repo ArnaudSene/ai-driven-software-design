@@ -109,13 +109,27 @@ tu es l'orchestrateur, je suis le décideur. Les livrables vont dans ./conceptio
 Voici mon projet : <description en quelques lignes, et documents disponibles>.
 ```
 
+Si vous avez déjà des documents (analyse fonctionnelle, cahier des charges…), où qu'ils soient, et si vous voulez écrire les livrables ailleurs que dans `./conception/` :
+
+```text
+Tu vas conduire la conception de ce projet en suivant le guide situé dans
+<chemin-du-guide>. Lis d'abord <chemin-du-guide>/AGENTS.md et applique-le.
+Sources à reprendre (lecture seule) : <chemin ou adresse de chaque document>.
+Les livrables vont dans : <répertoire de destination>.
+Travaille en mode Proposition : transpose mes documents au format du guide,
+cite-les comme sources, et ne me questionne que sur ce qui manque, est ambigu
+ou contradictoire.
+```
+
+L'agent enregistre ces emplacements dans `conception.config.yaml` à la racine du projet (gabarit : [`templates/conception.config.yaml`](templates/conception.config.yaml)) pour les retrouver aux sessions suivantes. Vous pouvez aussi écrire ce fichier vous-même avant de lancer la session.
+
 Pour reprendre plus tard, dans une nouvelle conversation :
 
 ```text
 Reprends la conception de ce projet selon <chemin-du-guide>/AGENTS.md.
 ```
 
-L'agent relit `conception/ETAT.md` et repart de là où vous vous étiez arrêtés.
+L'agent relit `conception.config.yaml` s'il existe, puis `ETAT.md` dans le répertoire de conception, et repart de là où vous vous étiez arrêtés.
 
 ### 3. Dialoguer
 

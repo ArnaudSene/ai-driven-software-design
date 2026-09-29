@@ -7,7 +7,7 @@ writes: [conception/ETAT.md]  # review report, recorded by the orchestrator
 
 # Agent — Relecteur critique
 
-> Chemins : `docs/`, `prompts/` et `templates/` sont relatifs à `GUIDE_DIR` (répertoire du guide) ; `conception/` est relatif à `PROJECT_DIR` (projet conçu). Voir [`AGENTS.md` § 0](../AGENTS.md#0-situer-le-contexte).
+> Chemins : `docs/`, `prompts/` et `templates/` sont relatifs à `GUIDE_DIR` (répertoire du guide) ; `conception/` désigne `CONCEPTION_DIR` (répertoire des livrables, `PROJECT_DIR/conception/` par défaut) ; les sources `SRC-n` sont en lecture seule. Voir [`AGENTS.md` § 0](../AGENTS.md#0-situer-le-contexte).
 
 ## Identité
 
@@ -35,8 +35,9 @@ Si tu es lancé dans un sous-agent, tu ne disposes **que** de ces fichiers : c'e
 5. **Traçabilité** : cherche les orphelins (éléments sans lien amont ou aval attendu) et les liens vers des identifiants inexistants.
 6. **Cohérence** : contradictions entre éléments de la phase, et avec les phases amont validées.
 7. **Ambiguïté** : termes vagues (« rapide », « simple », « etc. », « notamment », « si nécessaire »), termes hors glossaire, synonymes.
-8. **Cas oubliés** : erreurs, limites, concurrence, pannes, droits, données personnelles.
-9. **Proportionnalité** : signale aussi l'excès (rigueur ou complexité injustifiée pour le profil du projet).
+8. **Fidélité aux sources** : si des sources (`SRC-n`) ont été transposées, vérifie par échantillonnage que chaque élément cite un passage précis et le restitue fidèlement ; un élément présenté comme issu d'une source mais absent de celle-ci est une objection **bloquante**.
+9. **Cas oubliés** : erreurs, limites, concurrence, pannes, droits, données personnelles.
+10. **Proportionnalité** : signale aussi l'excès (rigueur ou complexité injustifiée pour le profil du projet).
 
 ## Gravité des objections
 

@@ -6,12 +6,22 @@
 
 ## 0. Situer le contexte
 
-Deux répertoires sont en jeu :
+Trois emplacements, plus d'éventuelles sources, sont en jeu :
 
 | Nom | Définition |
 |---|---|
 | `GUIDE_DIR` | Répertoire qui contient ce fichier : le guide, les prompts, les gabarits. **Lecture seule** pendant une session de conception. |
-| `PROJECT_DIR` | Répertoire du projet conçu. Les livrables sont écrits dans `PROJECT_DIR/conception/`. |
+| `PROJECT_DIR` | Répertoire du projet conçu. |
+| `CONCEPTION_DIR` | Répertoire où sont écrits les livrables. Par défaut `PROJECT_DIR/conception/` ; configurable, y compris hors du projet (dépôt de documentation dédié). **Partout dans le guide, `conception/` désigne `CONCEPTION_DIR`.** |
+| Sources (`SRC-n`) | Documents existants que l'agent lit sans jamais les modifier : analyse fonctionnelle, spécifications, tableurs, pages web. Ils peuvent se trouver n'importe où (autre dépôt, autre répertoire, adresse web). |
+
+La configuration est lue dans l'ordre suivant ; la première trouvée l'emporte :
+
+1. les indications explicites du décideur dans son message (« les livrables vont dans … », « mon analyse est dans … ») ;
+2. le fichier `PROJECT_DIR/conception.config.yaml` (gabarit : [`templates/conception.config.yaml`](templates/conception.config.yaml)) ;
+3. les valeurs par défaut : `CONCEPTION_DIR = PROJECT_DIR/conception/`, aucune source.
+
+Si le décideur donne ses indications dans le message et qu'elles diffèrent des valeurs par défaut, crée ou mets à jour `conception.config.yaml` pour qu'une session ultérieure les retrouve. Les règles de lecture et de citation des sources sont au [§ 16 des principes](docs/00-principes.md#16-reprise-dun-existant).
 
 Détermine le mode avant toute autre action :
 
@@ -68,12 +78,13 @@ Chemins relatifs à `GUIDE_DIR`. Glossaire des acronymes du guide : `docs/glossa
 ## 4. Démarrage d'une session
 
 1. Lis `docs/00-principes.md` en entier.
-2. Cherche `PROJECT_DIR/conception/ETAT.md`.
+2. Détermine `CONCEPTION_DIR` et les sources (§ 0), puis cherche `CONCEPTION_DIR/ETAT.md`. Vérifie que chaque source déclarée est lisible ; signale immédiatement celles qui ne le sont pas.
    - **Absent** → nouveau projet, phase 1 :
-     1. crée `conception/` et copie les gabarits `ETAT.md`, `glossaire.md`, `tracabilite.md`, `01-cadrage.md` ; supprime les lignes d'exemple des tableaux (signalées par un commentaire) pour ne laisser que les en-têtes ;
+     1. crée `CONCEPTION_DIR` et copie les gabarits `ETAT.md`, `glossaire.md`, `tracabilite.md`, `01-cadrage.md` ; supprime les lignes d'exemple des tableaux (signalées par un commentaire) pour ne laisser que les en-têtes ;
      2. initialise `ETAT.md` : phase 1, temps *Charger*, mode *Atelier*, profil « à choisir », première entrée du journal ;
-     3. demande au décideur, **seulement si ces éléments manquent dans son message** : une présentation du projet, ses documents, le nom du projet ;
-     4. enchaîne directement sur le temps *Questionner* : le premier message peut contenir le résumé du temps *Charger* suivi du premier lot de questions.
+     3. demande au décideur, **seulement si ces éléments manquent dans son message** : une présentation du projet, ses documents existants et leur emplacement, le nom du projet ;
+     4. si des sources existent, propose le mode *Proposition* et applique la procédure de reprise d'un existant ([§ 16 des principes](docs/00-principes.md#16-reprise-dun-existant)) ;
+     5. enchaîne directement sur le temps *Questionner* : le premier message peut contenir le résumé du temps *Charger* suivi du premier lot de questions.
    - **Présent** → reprise : lis-le. Annonce en 5 lignes au plus : phase et temps de boucle en cours, gates validées, OD ouvertes bloquantes, questions restées sans réponse, prochaine action prévue. Demande confirmation pour poursuivre.
 3. Charge la fiche de méthode et le prompt du spécialiste de la phase courante (table du § 3), puis les livrables listés en « Entrées » dans la fiche.
 
@@ -81,9 +92,9 @@ Chemins relatifs à `GUIDE_DIR`. Glossaire des acronymes du guide : `docs/glossa
 
 Applique les sept temps de [`docs/00-principes.md` § 5](docs/00-principes.md#5-la-boucle-dinteraction) : **Charger → Questionner → Proposer → Critiquer → Valider → Consigner → Gate**.
 
-**Endosser le spécialiste.** Pour chaque phase, adopte le rôle et la procédure décrits dans le prompt du spécialiste. Si ton environnement permet de lancer des sous-agents, tu **peux** confier la rédaction d'un brouillon au spécialiste dans un sous-agent : transmets-lui le prompt du spécialiste, la fiche de méthode, les chemins des livrables d'entrée et les réponses du décideur. Transmets toujours `GUIDE_DIR` et `PROJECT_DIR` sous forme de **chemins absolus** : un sous-agent ne connaît pas ton répertoire de travail. Tu restes seul interlocuteur du décideur.
+**Endosser le spécialiste.** Pour chaque phase, adopte le rôle et la procédure décrits dans le prompt du spécialiste. Si ton environnement permet de lancer des sous-agents, tu **peux** confier la rédaction d'un brouillon au spécialiste dans un sous-agent : transmets-lui le prompt du spécialiste, la fiche de méthode, les chemins des livrables d'entrée et les réponses du décideur. Transmets toujours `GUIDE_DIR`, `PROJECT_DIR`, `CONCEPTION_DIR` et les chemins des sources sous forme de **chemins absolus** : un sous-agent ne connaît pas ton répertoire de travail. Tu restes seul interlocuteur du décideur.
 
-**Relecture critique.** Avant chaque gate (profils *Produit* et *Critique*), fais relire les livrables par le relecteur critique (`prompts/relecteur-critique.md`). Si possible, **dans un sous-agent à contexte vierge**, en lui transmettant `GUIDE_DIR` et `PROJECT_DIR` en chemins absolus : un relecteur qui n'a pas participé à la rédaction voit mieux les trous. Sinon, change explicitement de posture et applique son prompt toi-même. Présente au décideur les objections classées par gravité.
+**Relecture critique.** Avant chaque gate (profils *Produit* et *Critique*), fais relire les livrables par le relecteur critique (`prompts/relecteur-critique.md`). Si possible, **dans un sous-agent à contexte vierge**, en lui transmettant `GUIDE_DIR`, `CONCEPTION_DIR` et les sources en chemins absolus : un relecteur qui n'a pas participé à la rédaction voit mieux les trous. Sinon, change explicitement de posture et applique son prompt toi-même. Présente au décideur les objections classées par gravité.
 
 **Gate.** Présente la synthèse de gate :
 

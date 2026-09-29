@@ -47,7 +47,7 @@ Structure attendue de `AGENTS.md` du projet :
 # Consignes de développement
 
 ## Conception
-- La conception fait foi : `conception/`. Avant de coder une fonctionnalité, lire les cas d'utilisation (UC, Use Case), règles métier (BR, Business Rule), critères d'acceptation (CA), décisions d'architecture (ADR, Architecture Decision Record) et fonctions d'aptitude (FF, Fitness Function) concernés.
+- La conception fait foi : `<CONCEPTION_DIR>` (par défaut `conception/`). Avant de coder une fonctionnalité, lire les cas d'utilisation (UC, Use Case), règles métier (BR, Business Rule), critères d'acceptation (CA), décisions d'architecture (ADR, Architecture Decision Record) et fonctions d'aptitude (FF, Fitness Function) concernés.
 - Toute ambiguïté métier : s'arrêter et demander ; proposer une décision ouverte (OD) dans `conception/ETAT.md`.
 - Tout écart avec une décision d'architecture : proposer un nouvel ADR, ne jamais contourner silencieusement.
 - Ne jamais coder en dur une valeur marquée [seuil à fixer] : la rendre configurable et le signaler.

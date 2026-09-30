@@ -2,6 +2,8 @@
 # Place this file at the root of the designed project (PROJECT_DIR).
 # Without it, deliverables go to PROJECT_DIR/conception/ and no source is declared.
 # Relative paths are resolved against PROJECT_DIR; absolute paths are allowed.
+# Prefer relative paths and commit this file; do not commit it if it holds
+# machine-specific absolute paths. PROJECT_DIR must be a Git repository.
 
 # Where the deliverables are written (CONCEPTION_DIR).
 # May point outside the project, e.g. to a dedicated documentation repository.

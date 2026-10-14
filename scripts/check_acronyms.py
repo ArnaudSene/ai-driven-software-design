@@ -31,7 +31,7 @@ ALLOWLIST = {
     "AAAA", "MM", "JJ",  # date placeholder: AAAA-MM-JJ
 }
 ALLOWLIST_PATTERNS = [
-    re.compile(r"^G\d+$"),  # gates: G1..G11
+    re.compile(r"^G\d+$"),  # gates: G1..G12
     re.compile(r"^Q\d+$"),  # session question numbers: Q3.2
     re.compile(r"^E\d+$"),  # example suffix: BR-3.E2
 ]

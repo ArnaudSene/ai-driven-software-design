@@ -1,14 +1,14 @@
-# Phase 6 — Choix technologiques
+# Phase 7 — Choix technologiques
 
 | Clé | Valeur |
 |---|---|
 | Question centrale | Avec quels langages, cadriciels, produits et services construire l'architecture retenue ? |
 | Agent | [`prompts/prescripteur-technique.md`](../prompts/prescripteur-technique.md) |
-| Entrées | `05-architecture.md` et ADR (Architecture Decision Record) validés (G5), `C-n`, `QS-n` |
-| Sorties | `conception/06-choix-techniques.md`, ADR de choix, comptes rendus de preuves de concept |
+| Entrées | `06-architecture.md` et ADR (Architecture Decision Record) validés (G6), `05-interaction.md` (parcours, états, besoins par écran), `C-n`, `QS-n` |
+| Sorties | `conception/07-choix-techniques.md`, ADR de choix, comptes rendus de preuves de concept |
 | Identifiants créés | `ADR-nnnn` |
-| Gabarit | [`templates/06-choix-techniques.md`](../templates/06-choix-techniques.md) |
-| Gate | G6 |
+| Gabarit | [`templates/07-choix-techniques.md`](../templates/07-choix-techniques.md) |
+| Gate | G7 |
 
 ---
 
@@ -29,7 +29,7 @@ Modèles d'hébergement cités : IaaS (Infrastructure as a Service, infrastructu
 | Catégorie | Exemples de décisions |
 |---|---|
 | Langages | Langage du serveur, du client, des scripts |
-| Cadriciels | Cadriciel web serveur, cadriciel d'interface, cadriciel de test |
+| Cadriciels | Cadriciel web serveur, cadriciel d'interface et système de composants, qui fixe l'apparence (couleurs, typographie) à défaut d'une charte imposée (`C-n`), cadriciel de test |
 | Persistance | SGBD (système de gestion de base de données), outil de migration de schéma, couche d'accès aux données |
 | Communication | Format et protocole d'interface, courtier de messages |
 | Services transverses | Fournisseur d'identité, envoi de courriels, stockage de fichiers, recherche plein texte, cache |
@@ -93,7 +93,7 @@ Pour chaque sous-domaine *Générique* identifié en phase 4, l'option par défa
 
 ### 2.6 Politique des dépendances
 
-Consignée dans `06-choix-techniques.md` :
+Consignée dans `07-choix-techniques.md` :
 
 1. Critères d'admission d'une bibliothèque tierce : licence, activité de maintenance, popularité, nombre de dépendances transitives.
 2. Épinglage des versions et outil de mise à jour automatisée.
@@ -113,8 +113,8 @@ Les connaissances d'un modèle d'IA (intelligence artificielle) ont une date lim
 | 3 | Pour chaque choix structurant : filtre, présélection, proposition de grille. | Fixe les poids, discute les notes. |
 | 4 | Propose les preuves de concept nécessaires, avec leur question et leur durée. | Accepte ou refuse. |
 | 5 | Rédige les ADR. | Arbitre. |
-| 6 | Consolide `06-choix-techniques.md` : pile retenue, versions, politique des dépendances. | Relit. |
-| 7 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G6. |
+| 6 | Consolide `07-choix-techniques.md` : pile retenue, versions, politique des dépendances. | Relit. |
+| 7 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G7. |
 
 ## 4. Banque de questions
 
@@ -129,11 +129,11 @@ Les connaissances d'un modèle d'IA (intelligence artificielle) ont une date lim
 
 | Fichier | Contenu minimal |
 |---|---|
-| `06-choix-techniques.md` | Tableau de la pile : catégorie, choix, version, ADR, alternatives écartées ; politique des dépendances |
+| `07-choix-techniques.md` | Tableau de la pile : catégorie, choix, version, ADR, alternatives écartées ; politique des dépendances |
 | `adr/` | Un ADR par choix structurant, avec la grille |
 | `ETAT.md` | Hypothèses et risques techniques |
 
-## 6. Liste de contrôle de la gate G6
+## 6. Liste de contrôle de la gate G7
 
 - [ ] ★ Chaque conteneur du C4 de niveau 2 a une technologie désignée.
 - [ ] ★ Chaque choix structurant a un ADR qui compare au moins deux options.

@@ -1,14 +1,14 @@
-# Phase 10 — Stratégie de test et de qualité
+# Phase 11 — Stratégie de test et de qualité
 
 | Clé | Valeur |
 |---|---|
 | Question centrale | Comment prouver, de façon automatique et répétable, que le système est conforme ? |
 | Agent | [`prompts/ingenieur-qualite.md`](../prompts/ingenieur-qualite.md) |
-| Entrées | Toutes les phases précédentes, en particulier `BR-n.Ek`, `CA-n`, `QS-n`, `M-n`, ADR (Architecture Decision Record), `SLO-n`, contrats |
-| Sorties | `conception/10-strategie-test.md`, `tracabilite.md` complété jusqu'aux tests |
+| Entrées | Toutes les phases précédentes, en particulier `BR-n.Ek`, `AC-n`, `IR-n`, `QS-n`, `T-n`, ADR (Architecture Decision Record), `SLO-n`, contrats |
+| Sorties | `conception/11-strategie-test.md`, `tracabilite.md` complété jusqu'aux tests |
 | Identifiants créés | `FF-n` |
-| Gabarit | [`templates/10-strategie-test.md`](../templates/10-strategie-test.md) |
-| Gate | G10 |
+| Gabarit | [`templates/11-strategie-test.md`](../templates/11-strategie-test.md) |
+| Gate | G11 |
 
 ---
 
@@ -16,7 +16,7 @@
 
 Les phases précédentes ont produit des critères de conformité conçus pour échouer de façon déterministe. Cette phase décide **quel type de test vérifie quoi, où et quand**, pour que chaque exigence ait une preuve automatique.
 
-C'est aussi la phase qui protège l'architecture dans la durée : sans tests d'architecture, les frontières dessinées en phase 5 s'effacent en quelques mois.
+C'est aussi la phase qui protège l'architecture dans la durée : sans tests d'architecture, les frontières dessinées en phase 6 s'effacent en quelques mois.
 
 ## 2. Concepts et méthodes
 
@@ -25,13 +25,15 @@ C'est aussi la phase qui protège l'architecture dans la durée : sans tests d'a
 | Source | Type de test | Niveau | Exécuté |
 |---|---|---|---|
 | `BR-n.Ek` (exemples des règles) | Test unitaire du domaine | Domaine pur, sans entrées-sorties | À chaque modification |
-| `CA-n` (critères d'acceptation) | Test d'acceptation (*Étant donné / Quand / Alors*) | Application, via ses ports ou son API (Application Programming Interface) | À chaque modification |
+| `AC-n` (critères d'acceptation) | Test d'acceptation (*Étant donné / Quand / Alors*) | Application, via ses ports ou son API (Application Programming Interface) | À chaque modification |
 | Contrats (`contrats/`) | Test de contrat (fournisseur et consommateurs) | Frontière entre contextes ou avec les tiers | À chaque modification |
 | Adaptateurs (base, messages, tiers) | Test d'intégration avec de vrais composants (base réelle en conteneur) | Adaptateur | À chaque modification |
 | `QS-n` de performance | Test de charge et d'endurance | Système en préproduction | Avant chaque mise en production, ou chaque nuit |
 | `QS-n` de disponibilité, de reprise | Test de résilience (injection de pannes), test de restauration | Système | Périodiquement |
-| `M-n` (menaces) | Test de sécurité automatisé ; test d'intrusion pour le profil *Critique* | Système | À chaque modification (automatisé), périodiquement (manuel) |
+| `T-n` (menaces) | Test de sécurité automatisé ; test d'intrusion pour le profil *Critique* | Système | À chaque modification (automatisé), périodiquement (manuel) |
 | `QS-n` d'accessibilité | Analyse automatique + audit manuel | Interface | À chaque modification (automatique), avant mise en production (audit) |
+| `IR-n` (exigences d'interaction) | Test de parcours sur l'interface, services simulés ; de bout en bout seulement pour les parcours critiques | Interface | À chaque modification |
+| `QS-n` de capacité d'interaction | Évaluation de l'utilisabilité (§ 2.9) | Prototype, puis interface | En phase 5 sur le prototype, puis avant mise en production |
 | ADR et règles de structure | Fonction d'aptitude (`FF-n`) | Code et système | À chaque modification |
 | `SLO-n` | Supervision en production | Production | En continu |
 | Parcours critiques | Test de bout en bout (peu nombreux) | Système complet | Avant mise en production |
@@ -44,7 +46,7 @@ Pour une architecture hexagonale, on obtient naturellement :
 
 - le domaine testé exhaustivement, sans base ni réseau (exemples des `BR-n`) ;
 - chaque adaptateur testé contre la vraie technologie ;
-- les cas d'utilisation testés via les ports, avec des adaptateurs en mémoire (`CA-n`) ;
+- les cas d'utilisation testés via les ports, avec des adaptateurs en mémoire (`AC-n`) ;
 - quelques parcours de bout en bout pour vérifier l'assemblage.
 
 ### 2.3 Fonctions d'aptitude (`FF-n`)
@@ -55,19 +57,19 @@ Une fonction d'aptitude (*fitness function*, Neal Ford, Rebecca Parsons, Patrick
 |---|---|---|
 | `FF-1` : le paquet `domain` n'importe rien de `infrastructure` | Règle de dépendance hexagonale (ADR de stratégie) | ArchUnit, import-linter, dependency-cruiser |
 | `FF-2` : aucun cycle de dépendance entre modules | Frontières des `BC-n` | Mêmes outils |
-| `FF-3` : un module n'accède qu'à ses propres tables | Propriété des données (phase 7) | Test sur les requêtes, droits de base par module |
+| `FF-3` : un module n'accède qu'à ses propres tables | Propriété des données (phase 8) | Test sur les requêtes, droits de base par module |
 | `FF-4` : 95ᵉ centile de `POST /bookings` < [seuil de QS-3] sous charge nominale | `QS-3` | Outil de test de charge dans la chaîne |
-| `FF-5` : aucune modification incompatible des contrats publiés | Règles de compatibilité (phase 7) | Comparateur de contrats OpenAPI / AsyncAPI |
-| `FF-6` : aucune dépendance avec vulnérabilité critique connue | Politique des dépendances (phases 6 et 8) | Analyse des dépendances |
+| `FF-5` : aucune modification incompatible des contrats publiés | Règles de compatibilité (phase 8) | Comparateur de contrats OpenAPI / AsyncAPI |
+| `FF-6` : aucune dépendance avec vulnérabilité critique connue | Politique des dépendances (phases 7 et 9) | Analyse des dépendances |
 
 Fiche `FF-n` : exigence vérifiée (`QS-n`, ADR), règle, outil, moment d'exécution, seuil d'échec.
 
 ### 2.4 Tests pilotés par les exigences
 
-- **Le nom ou l'étiquette de chaque test cite l'identifiant qu'il vérifie** : `test_BR_7_E2_late_cancellation_at_exact_limit` ou `@CA-11`. La matrice de traçabilité peut alors être générée à partir du code.
+- **Le nom ou l'étiquette de chaque test cite l'identifiant qu'il vérifie** : `test_BR_7_E2_late_cancellation_at_exact_limit` ou `@AC-11`. La matrice de traçabilité peut alors être générée à partir du code.
 - Les tests d'acceptation peuvent être écrits en Gherkin (en français, avec la directive `# language: fr` en première ligne de chaque fichier de scénarios) et exécutés par un outil de BDD (Behavior-Driven Development, développement piloté par le comportement), ou écrits directement dans le langage de test, en gardant la structure *Étant donné / Quand / Alors*.
 - Le TDD (Test-Driven Development, développement piloté par les tests) est recommandé pour le domaine des contextes *Cœur* : les exemples des `BR-n` sont déjà les premiers tests.
-- **Tests écrits par une IA (intelligence artificielle)** : ils doivent être dérivés de la spécification (`BR-n.Ek`, `CA-n`), **pas** du code existant. Un test déduit du code confirme le code, y compris ses erreurs.
+- **Tests écrits par une IA (intelligence artificielle)** : ils doivent être dérivés de la spécification (`BR-n.Ek`, `AC-n`), **pas** du code existant. Un test déduit du code confirme le code, y compris ses erreurs.
 
 ### 2.5 Déterminisme
 
@@ -83,7 +85,7 @@ Un test qui échoue « parfois » détruit la confiance dans toute la suite. Rè
 
 - Jeux de données synthétiques, construits par des fabriques ou des constructeurs de test lisibles.
 - Données limites issues des exemples des `BR-n`.
-- Jamais de données personnelles réelles, sauf anonymisation vérifiée (phase 8).
+- Jamais de données personnelles réelles, sauf anonymisation vérifiée (phase 9).
 
 ### 2.7 Contrôles de qualité dans la chaîne
 
@@ -100,21 +102,32 @@ La couverture mesure ce qui a été **exécuté**, pas ce qui a été **vérifi�
 
 ### 2.8 Définition de « terminé » et de « prêt »
 
-- **DoR** (Definition of Ready, définition de « prêt ») : un incrément peut démarrer quand ses `UC-n`, `BR-n` et `CA-n` sont validés, ses OD (décisions ouvertes) bloquantes tranchées et ses contrats écrits.
-- **DoD** (Definition of Done, définition de « terminé ») : un incrément est terminé quand ses tests (exemples, `CA-n`, `FF-n` concernés) passent dans la chaîne, que la traçabilité est à jour, que la documentation modifiée est relue, et qu'il est déployé en préproduction.
+- **DoR** (Definition of Ready, définition de « prêt ») : un incrément peut démarrer quand ses `UC-n`, `BR-n` et `AC-n` sont validés, ses OD (décisions ouvertes) bloquantes tranchées et ses contrats écrits.
+- **DoD** (Definition of Done, définition de « terminé ») : un incrément est terminé quand ses tests (exemples, `AC-n`, `FF-n` concernés) passent dans la chaîne, que la traçabilité est à jour, que la documentation modifiée est relue, et qu'il est déployé en préproduction.
+
+### 2.9 Évaluation de l'utilisabilité
+
+| Méthode | Ce qu'elle apporte | Référence |
+|---|---|---|
+| Évaluation heuristique | Trois à cinq évaluateurs, chacun de son côté, confrontent l'interface aux dix heuristiques de Jakob Nielsen | Nielsen Norman Group |
+| Test avec des utilisateurs | Un animateur, des tâches, un participant : on observe où il bute | ISO (International Organization for Standardization) 9241-210, § 7.5.4 |
+| Questionnaire SUS (System Usability Scale) | Score de satisfaction de 0 à 100, à comparer à la cible du `QS-n` ; d'usage courant, jamais normalisé | John Brooke |
+| Audit d'accessibilité | Analyse automatique et revue manuelle au niveau visé | WCAG (Web Content Accessibility Guidelines) 2.2 |
+
+Les premières évaluations se font sur le prototype de la phase 5, quand corriger ne coûte presque rien. Le compte rendu d'une évaluation peut suivre le format commun de la norme ISO 25062:2025.
 
 ## 3. Déroulé de l'atelier
 
 | Étape | L'agent | Le décideur |
 |---|---|---|
 | 1 | Construit le tableau exigence → type de test (§ 2.1) pour le projet. | Valide. |
-| 2 | Fixe la répartition des tests et les outils par niveau (en cohérence avec la phase 6). | Valide. |
+| 2 | Fixe la répartition des tests et les outils par niveau (en cohérence avec la phase 7). | Valide. |
 | 3 | Rédige les `FF-n` à partir des ADR et des `QS-n` significatifs. | Valide. |
 | 4 | Définit les règles de déterminisme et de données de test. | — |
 | 5 | Définit les contrôles de la chaîne et leurs seuils. | Fixe les seuils. |
 | 6 | Rédige la DoR et la DoD. | Valide. |
 | 7 | Complète `tracabilite.md` jusqu'à la colonne « test prévu ». | — |
-| 8 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G10. |
+| 8 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G11. |
 
 ## 4. Banque de questions
 
@@ -128,20 +141,21 @@ La couverture mesure ce qui a été **exécuté**, pas ce qui a été **vérifi�
 
 | Fichier | Contenu minimal |
 |---|---|
-| `10-strategie-test.md` | Tableau exigence → test, répartition et outils, `FF-n`, déterminisme, données, contrôles de la chaîne, DoR, DoD |
-| `tracabilite.md` | Colonne « test prévu » renseignée pour chaque `BR-n.Ek`, `CA-n`, `QS-n` *Must*, `M-n` |
+| `11-strategie-test.md` | Tableau exigence → test, répartition et outils, `FF-n`, déterminisme, données, contrôles de la chaîne, DoR, DoD |
+| `tracabilite.md` | Colonne « test prévu » renseignée pour chaque `BR-n.Ek`, `AC-n`, `IR-n`, `QS-n` *Must*, `T-n` |
 
-## 6. Liste de contrôle de la gate G10
+## 6. Liste de contrôle de la gate G11
 
-- [ ] ★ Chaque `CA-n` et chaque exemple de `BR-n` *Must* a un test prévu.
+- [ ] ★ Chaque `AC-n` et chaque exemple de `BR-n` *Must* a un test prévu.
 - [ ] ★ Les règles de dépendance de l'architecture sont vérifiées par au moins une `FF-n`.
 - [ ] ★ La DoD est écrite.
 - [ ] Chaque `QS-n` *Must* est couvert par un test, une `FF-n` ou un `SLO-n`.
-- [ ] Chaque `M-n` mitigée a une vérification.
+- [ ] Chaque `T-n` mitigée a une vérification.
 - [ ] Les contrats sont vérifiés par des tests de contrat.
 - [ ] Les règles de déterminisme sont écrites.
 - [ ] Les contrôles bloquants de la chaîne sont listés avec leurs seuils.
-- [ ] Un test de restauration est prévu (phase 9).
+- [ ] Un test de restauration est prévu (phase 10).
+- [ ] Chaque `IR-n` a un test de parcours prévu ; chaque `QS-n` de capacité d'interaction a sa méthode d'évaluation.
 
 ## 7. Anti-patterns
 

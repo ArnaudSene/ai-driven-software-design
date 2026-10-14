@@ -1,14 +1,14 @@
-# Phase 8 — Sécurité et conformité
+# Phase 9 — Sécurité et conformité
 
 | Clé | Valeur |
 |---|---|
 | Question centrale | Contre quoi le système doit-il se protéger, et quelles obligations doit-il respecter ? |
 | Agent | [`prompts/specialiste-securite.md`](../prompts/specialiste-securite.md) |
-| Entrées | `01-cadrage.md` (`C-n` légales), `02` (matrice rôle × action), `03` (`QS-n` de sécurité), `05` (C4 (Context, Containers, Components, Code) de niveau 2), `06`, `07` (classification des données, contrats) |
-| Sorties | `conception/08-securite.md`, ADR (Architecture Decision Record) de sécurité, `BR-n` et `QS-n` complémentaires |
-| Identifiants créés | `M-n` |
-| Gabarit | [`templates/08-securite.md`](../templates/08-securite.md) |
-| Gate | G8 |
+| Entrées | `01-cadrage.md` (`C-n` légales), `02` (matrice rôle × action), `03` (`QS-n` de sécurité), `06` (C4 (Context, Containers, Components, Code) de niveau 2), `07`, `08` (classification des données, contrats) |
+| Sorties | `conception/09-securite.md`, ADR (Architecture Decision Record) de sécurité, `BR-n` et `QS-n` complémentaires |
+| Identifiants créés | `T-n` |
+| Gabarit | [`templates/09-securite.md`](../templates/09-securite.md) |
+| Gate | G9 |
 
 ---
 
@@ -27,7 +27,7 @@ Méthode fondée sur les quatre questions d'Adam Shostack :
 1. **Sur quoi travaille-t-on ?** Diagramme de flux de données, construit à partir du C4 de niveau 2 : processus, stockages, flux, acteurs externes et **frontières de confiance** (tout point où l'on passe d'un niveau de confiance à un autre : Internet → application, application → base, application → tiers).
 2. **Qu'est-ce qui peut mal tourner ?** Application de STRIDE (classification des menaces détaillée ci-dessous) à chaque élément et à chaque flux qui traverse une frontière.
 3. **Que fait-on contre ?** Une mesure par menace retenue : éviter, réduire, transférer ou accepter.
-4. **A-t-on bien travaillé ?** Revue et tests de sécurité (phase 10).
+4. **A-t-on bien travaillé ?** Revue et tests de sécurité (phase 11).
 
 STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege) :
 
@@ -40,7 +40,7 @@ STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of serv
 | **D**enial of service | Déni de service | Disponibilité | Peut-on épuiser une ressource ou bloquer le service ? |
 | **E**levation of privilege | Élévation de privilège | Autorisation | Un utilisateur peut-il faire ce que son rôle n'autorise pas ? |
 
-### 2.2 Fiche de menace (`M-n`)
+### 2.2 Fiche de menace (`T-n`)
 
 | Rubrique | Contenu |
 |---|---|
@@ -48,7 +48,7 @@ STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of serv
 | Catégorie STRIDE | S, T, R, I, D ou E |
 | Scénario | Comment l'attaque se déroule, concrètement |
 | Vraisemblance | Faible, Moyenne, Élevée |
-| Impact | Faible, Moyen, Élevé, en citant les données (classification de la phase 7) |
+| Impact | Faible, Moyen, Élevé, en citant les données (classification de la phase 8) |
 | Réponse | Éviter, Réduire, Transférer, Accepter (avec la signature du décideur) |
 | Mesure | Contrôle retenu, avec renvoi vers `ADR`, `BR-n` ou `QS-n` |
 | Vérification | Test ou contrôle qui prouve que la mesure fonctionne |
@@ -85,13 +85,13 @@ Chaque décision structurante fait l'objet d'un ADR.
 
 ### 2.5 Protection des données personnelles
 
-Si le système traite des données personnelles (classification de la phase 7), le RGPD (Règlement général sur la protection des données) s'applique. L'agent vérifie avec le décideur :
+Si le système traite des données personnelles (classification de la phase 8), le RGPD (Règlement général sur la protection des données) s'applique. L'agent vérifie avec le décideur :
 
 | Point | Livrable ou décision |
 |---|---|
 | Finalités et base légale | Pour chaque traitement : pourquoi, et sur quel fondement (contrat, obligation légale, consentement, intérêt légitime…) |
 | Minimisation | Chaque donnée collectée est-elle nécessaire à une finalité ? |
-| Durées de conservation | Reprises de la phase 7 |
+| Durées de conservation | Reprises de la phase 8 |
 | Droits des personnes | Accès, rectification, effacement, portabilité, opposition : quel `UC-n` les met en œuvre ? |
 | Sous-traitants | Hébergeur, prestataires : contrats, localisation, transferts hors de l'Union européenne |
 | Registre des traitements | Entrée à créer ou à mettre à jour par le responsable de traitement |
@@ -118,14 +118,14 @@ L'agent **ne donne pas d'avis juridique** : il signale les obligations probables
 | Étape | L'agent | Le décideur |
 |---|---|---|
 | 1 | Construit le diagramme de flux de données et marque les frontières de confiance. | Valide. |
-| 2 | Applique STRIDE à chaque élément et chaque flux traversant une frontière ; rédige les `M-n`. | Évalue l'impact métier. |
-| 3 | Propose une réponse et une mesure pour chaque `M-n`. | Accepte ou refuse ; signe les risques acceptés. |
+| 2 | Applique STRIDE à chaque élément et chaque flux traversant une frontière ; rédige les `T-n`. | Évalue l'impact métier. |
+| 3 | Propose une réponse et une mesure pour chaque `T-n`. | Accepte ou refuse ; signe les risques acceptés. |
 | 4 | Fixe le niveau ASVS et en extrait les exigences applicables sous forme de `QS-n` ou de `BR-n`. | Valide. |
 | 5 | Fait trancher les décisions de sécurité (§ 2.4) et rédige les ADR. | Arbitre. |
 | 6 | Conduit la revue de protection des données personnelles (§ 2.5). | Répond ; consulte le juriste si nécessaire. |
 | 7 | Recense les autres conformités (§ 2.6) et les ajoute en `C-n`. | Confirme. |
 | 8 | Signale les phases amont à rouvrir, le cas échéant. | Décide. |
-| 9 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G8. |
+| 9 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G9. |
 
 ## 4. Banque de questions
 
@@ -142,18 +142,18 @@ L'agent **ne donne pas d'avis juridique** : il signale les obligations probables
 
 | Fichier | Contenu minimal |
 |---|---|
-| `08-securite.md` | Diagramme de flux et frontières de confiance, registre des `M-n`, niveau ASVS, décisions de sécurité, revue de protection des données, conformités |
+| `09-securite.md` | Diagramme de flux et frontières de confiance, registre des `T-n`, niveau ASVS, décisions de sécurité, revue de protection des données, conformités |
 | `adr/` | Authentification, autorisation, gestion des secrets, chiffrement |
-| `02`, `03`, `01` | `BR-n`, `QS-n` et `C-n` ajoutées, marquées « issues de la phase 8 » |
+| `02`, `03`, `01` | `BR-n`, `QS-n` et `C-n` ajoutées, marquées « issues de la phase 9 » |
 
-## 6. Liste de contrôle de la gate G8
+## 6. Liste de contrôle de la gate G9
 
 - [ ] ★ Les frontières de confiance sont identifiées sur un diagramme.
 - [ ] ★ Le modèle d'autorisation couvre toute la matrice rôle × action et le contrôle est fait côté serveur.
 - [ ] ★ La gestion des secrets est décidée ; aucun secret n'est prévu dans le code ou la configuration versionnée.
 - [ ] ★ La présence de données personnelles est établie et, le cas échéant, la revue RGPD est faite.
 - [ ] Chaque flux traversant une frontière a été passé au crible de STRIDE.
-- [ ] Chaque `M-n` a une réponse ; chaque risque accepté porte la décision explicite du décideur.
+- [ ] Chaque `T-n` a une réponse ; chaque risque accepté porte la décision explicite du décideur.
 - [ ] Chaque mesure a une vérification prévue (test, analyse, revue).
 - [ ] Le niveau ASVS est fixé et ses exigences applicables sont reprises.
 - [ ] La journalisation de sécurité et la gestion des incidents sont définies.
@@ -168,5 +168,5 @@ L'agent **ne donne pas d'avis juridique** : il signale les obligations probables
 | Authentification maison | Stockage et vérification de mots de passe développés sur mesure | Déléguer à un fournisseur d'identité éprouvé, sauf justification par ADR. |
 | Journaux bavards | Jetons, mots de passe ou données personnelles dans les journaux | Liste explicite des champs interdits, filtrage automatique. |
 | Risque accepté par défaut | Menaces sans réponse | Une réponse par menace ; l'acceptation est une décision signée. |
-| Conformité supposée | « Nous ne sommes pas concernés par le RGPD » sans analyse | Parcourir la classification des données de la phase 7. |
+| Conformité supposée | « Nous ne sommes pas concernés par le RGPD » sans analyse | Parcourir la classification des données de la phase 8. |
 | Agent juriste | Avis juridique définitif rendu par l'IA (intelligence artificielle) | Signaler, recommander un juriste ou le délégué à la protection des données. |

@@ -9,7 +9,7 @@
 
 | Terme | Contexte | Définition | Nom dans le code | Synonymes proscrits | Source |
 |---|---|---|---|---|---|
-| | BC-n (à partir de la phase 4) | | | | PP-n |
+| | BC-n (à partir de la phase 4) | | | | SH-n |
 
 ## 2. Acronymes du projet
 

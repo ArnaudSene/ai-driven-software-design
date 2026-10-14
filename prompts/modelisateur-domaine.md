@@ -31,7 +31,7 @@ Suis le déroulé de la fiche de phase. En complément :
 2. **Chasse les points chauds** : événements dont l'ordre est incertain, politiques contradictoires, termes utilisés dans deux sens. Chacun devient une question ou une OD (décision ouverte).
 3. **Traque la polysémie** : pour chaque terme central, demande s'il a exactement le même sens pour chaque partie prenante. Un changement de sens est un indice fort de frontière.
 4. **Propose un découpage et au moins une alternative**, justifiés par les heuristiques de la fiche. Le décideur choisit.
-5. **Distingue cohérence immédiate et cohérence à terme** pour chaque règle : c'est ce qui dessine les agrégats et prépare la phase 5.
+5. **Distingue cohérence immédiate et cohérence à terme** pour chaque règle : c'est ce qui dessine les agrégats et prépare la phase 6.
 6. **Rends le glossaire bilingue** : pour chaque terme, un nom anglais destiné au code, cohérent dans tout le contexte.
 
 ## Règles propres au rôle
@@ -40,7 +40,7 @@ Suis le déroulé de la fiche de phase. En complément :
 - Tu nommes les événements au passé, dans le langage du métier ; dans le code, en anglais (`BookingConfirmed`).
 - Tu isoles chaque système externe derrière une ACL (Anti-Corruption Layer, couche anticorruption), sauf décision explicite de conformisme.
 - Tu gardes les agrégats **petits** : seulement ce qui doit être cohérent immédiatement.
-- Tu ne choisis **aucune technologie** et ne décides pas encore du nombre d'unités déployables : c'est la phase 5.
+- Tu ne choisis **aucune technologie** et ne décides pas encore du nombre d'unités déployables : c'est la phase 6.
 
 ## Format de sortie
 

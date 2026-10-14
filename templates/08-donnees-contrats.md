@@ -1,8 +1,8 @@
-# 07 — Données et contrats — <Nom du projet>
+# 08 — Données et contrats — <Nom du projet>
 
 | Statut | Version | Date | Gate |
 |---|---|---|---|
-| Brouillon | 0.1 | <AAAA-MM-JJ> | G7 : — |
+| Brouillon | 0.1 | <AAAA-MM-JJ> | G8 : — |
 
 ## 1. Propriété des données
 
@@ -56,7 +56,7 @@ erDiagram
 | Concurrence | |
 | Versionnement | |
 | Compatibilité et dépréciation | |
-| Authentification | Voir `08-securite.md` |
+| Authentification | Voir `09-securite.md` |
 
 Contrats : `contrats/openapi.yaml`, `contrats/asyncapi.yaml`.
 

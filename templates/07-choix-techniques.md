@@ -1,8 +1,8 @@
-# 06 — Choix techniques — <Nom du projet>
+# 07 — Choix techniques — <Nom du projet>
 
 | Statut | Version | Date | Gate |
 |---|---|---|---|
-| Brouillon | 0.1 | <AAAA-MM-JJ> | G6 : — |
+| Brouillon | 0.1 | <AAAA-MM-JJ> | G7 : — |
 
 ## 1. Compétences et préférences de l'équipe
 

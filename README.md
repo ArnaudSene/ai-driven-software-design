@@ -1,11 +1,11 @@
 # Conception logicielle pilotée par l'IA
 
-Un guide complet pour **concevoir une application de A à Z en dialogue avec une IA (intelligence artificielle)** : du besoin métier jusqu'au premier incrément de code, en passant par les exigences qualité, le domaine, l'architecture, les technologies, les données, la sécurité, l'exploitation et les tests.
+Un guide complet pour **concevoir une application de A à Z en dialogue avec une IA (intelligence artificielle)** : du besoin métier jusqu'au premier incrément de code, en passant par les exigences qualité, le domaine, l'interaction avec l'utilisateur, l'architecture, les technologies, les données, la sécurité, l'exploitation et les tests.
 
 Le guide est à la fois :
 
 - une **convention de conception** lisible par un humain : méthode, livrables, listes de contrôle ;
-- un **programme de travail pour un agent IA** : un orchestrateur ([`AGENTS.md`](AGENTS.md)), onze prompts de spécialistes ([`prompts/`](prompts/)) et des gabarits de livrables ([`templates/`](templates/)).
+- un **programme de travail pour un agent IA** : un orchestrateur ([`AGENTS.md`](AGENTS.md)), douze prompts de spécialistes ([`prompts/`](prompts/)) et des gabarits de livrables ([`templates/`](templates/)).
 
 L'IA structure, questionne, rédige, vérifie la cohérence et propose. **L'humain — le décideur — connaît le métier, arbitre et valide.**
 
@@ -22,10 +22,10 @@ flowchart LR
         P4["4 · Modélisation<br/>du domaine"]
     end
     subgraph S["Solution"]
-        P5["5 · Architecture"] --> P6["6 · Technologies"] --> P7["7 · Données<br/>et contrats"] --> P8["8 · Sécurité"] --> P9["9 · Exploitation"] --> P10["10 · Tests"] --> P11["11 · Plan et<br/>squelette ambulant"]
+        P5["5 · Conception<br/>de l'interaction"] --> P6["6 · Architecture"] --> P7["7 · Technologies"] --> P8["8 · Données<br/>et contrats"] --> P9["9 · Sécurité"] --> P10["10 · Exploitation"] --> P11["11 · Tests"] --> P12["12 · Plan et<br/>squelette ambulant"]
     end
     P3 --> P4 --> P5
-    P11 --> P12["12 · Évolution<br/>(continue)"]
+    P12 --> P13["13 · Évolution<br/>(continue)"]
 ```
 
 | # | Phase | Question centrale | Méthodes de référence |
@@ -34,14 +34,15 @@ flowchart LR
 | 2 | [Analyse fonctionnelle](docs/02-analyse-fonctionnelle.md) | Que doit faire le système ? | Volere, Example Mapping, cas d'utilisation |
 | 3 | [Exigences qualité](docs/03-exigences-qualite.md) | Avec quel niveau de qualité ? | Scénarios qualité, ISO (International Organization for Standardization) 25010 |
 | 4 | [Modélisation du domaine](docs/04-modelisation-domaine.md) | Comment le métier est-il structuré ? | DDD (Domain-Driven Design) stratégique, Event Storming |
-| 5 | [Architecture logicielle](docs/05-architecture-logicielle.md) | Comment organiser le système ? | arc42, C4 (Context, Containers, Components, Code), ADR (Architecture Decision Record) |
-| 6 | [Choix technologiques](docs/06-choix-technologiques.md) | Avec quels outils ? | Grille pondérée, preuves de concept |
-| 7 | [Données et contrats](docs/07-donnees-contrats.md) | Quelles données, quelles interfaces ? | OpenAPI, AsyncAPI, propriété des données |
-| 8 | [Sécurité et conformité](docs/08-securite-conformite.md) | Contre quoi se protéger ? | STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege), ASVS (Application Security Verification Standard), RGPD (Règlement général sur la protection des données) |
-| 9 | [Infrastructure et exploitation](docs/09-infrastructure-exploitation.md) | Où et comment tourne-t-il ? | SLO (Service Level Objective), infrastructure décrite par du code, observabilité |
-| 10 | [Stratégie de test](docs/10-strategie-test.md) | Comment prouver la conformité ? | Pyramide des tests, fonctions d'aptitude |
-| 11 | [Plan de réalisation](docs/11-plan-realisation.md) | Dans quel ordre construire ? | Squelette ambulant, tranches verticales |
-| 12 | [Évolution](docs/12-evolution.md) | Comment la conception reste-t-elle vraie ? | Gestion du changement, garde-fous automatiques |
+| 5 | [Conception de l'interaction](docs/05-conception-interaction.md) | Comment l'utilisateur accomplit-il ses tâches ? | Conception centrée sur l'humain (ISO 9241-210), scénarios d'utilisabilité du SEI (Software Engineering Institute), prototype jetable |
+| 6 | [Architecture logicielle](docs/06-architecture-logicielle.md) | Comment organiser le système ? | arc42, C4 (Context, Containers, Components, Code), ADR (Architecture Decision Record) |
+| 7 | [Choix technologiques](docs/07-choix-technologiques.md) | Avec quels outils ? | Grille pondérée, preuves de concept |
+| 8 | [Données et contrats](docs/08-donnees-contrats.md) | Quelles données, quelles interfaces ? | OpenAPI, AsyncAPI, propriété des données |
+| 9 | [Sécurité et conformité](docs/09-securite-conformite.md) | Contre quoi se protéger ? | STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege), ASVS (Application Security Verification Standard), RGPD (Règlement général sur la protection des données) |
+| 10 | [Infrastructure et exploitation](docs/10-infrastructure-exploitation.md) | Où et comment tourne-t-il ? | SLO (Service Level Objective), infrastructure décrite par du code, observabilité |
+| 11 | [Stratégie de test](docs/11-strategie-test.md) | Comment prouver la conformité ? | Pyramide des tests, fonctions d'aptitude |
+| 12 | [Plan de réalisation](docs/12-plan-realisation.md) | Dans quel ordre construire ? | Squelette ambulant, tranches verticales |
+| 13 | [Évolution](docs/13-evolution.md) | Comment la conception reste-t-elle vraie ? | Gestion du changement, garde-fous automatiques |
 
 Chaque phase suit la même boucle — **Charger → Questionner → Proposer → Critiquer → Valider → Consigner → Gate** — et se termine par une **gate** que seul le décideur peut valider.
 
@@ -66,7 +67,7 @@ Détails : [`docs/00-principes.md`](docs/00-principes.md).
 ├── CLAUDE.md             # Import de AGENTS.md pour Claude Code
 ├── docs/
 │   ├── 00-principes.md   # Normatif : rôles, boucle, règles d'or, identifiants, gates
-│   ├── 01 … 12-*.md      # Une fiche de méthode par phase
+│   ├── 01 … 13-*.md      # Une fiche de méthode par phase
 │   ├── glossaire.md      # Acronymes et termes
 │   └── bibliographie.md  # Ouvrages et références
 ├── prompts/              # Un prompt par spécialiste + relecteur critique
@@ -80,8 +81,8 @@ Dans le projet conçu, l'agent produit :
 ```
 conception/
 ├── ETAT.md  glossaire.md  tracabilite.md
-├── 01-cadrage.md … 11-plan-realisation.md
-├── adr/  contrats/  diagrammes/
+├── 01-cadrage.md … 12-plan-realisation.md
+├── adr/  contrats/  diagrammes/  prototypes/
 ```
 
 ## Démarrage rapide

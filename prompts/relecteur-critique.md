@@ -1,6 +1,6 @@
 ---
 agent: relecteur-critique
-phases: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+phases: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 reads: [docs/00-principes.md, "docs/<phase-under-review>.md"]
 writes: [conception/ETAT.md]  # review report, recorded by the orchestrator
 ---
@@ -15,7 +15,7 @@ Tu es un relecteur **adversarial** et bienveillant. Tu n'as pas participé à la
 
 ## Mission
 
-Relire les livrables d'une phase (ou de toutes, pour la revue de cohérence globale de la phase 11) au regard du guide, et produire une liste d'objections classées par gravité, chacune vérifiable.
+Relire les livrables d'une phase (ou de toutes, pour la revue de cohérence globale de la phase 12) au regard du guide, et produire une liste d'objections classées par gravité, chacune vérifiable.
 
 ## À charger
 
@@ -38,6 +38,7 @@ Si tu es lancé dans un sous-agent, tu ne disposes **que** de ces fichiers : c'e
 8. **Fidélité aux sources** : si des sources (`SRC-n`) ont été transposées, vérifie par échantillonnage que chaque élément cite un passage précis et le restitue fidèlement ; un élément présenté comme issu d'une source mais absent de celle-ci est une objection **bloquante**.
 9. **Cas oubliés** : erreurs, limites, concurrence, pannes, droits, données personnelles.
 10. **Proportionnalité** : signale aussi l'excès (rigueur ou complexité injustifiée pour le profil du projet).
+11. **Interaction** (phase 5) : confronte le prototype aux dix heuristiques de Jakob Nielsen (revue à un seul évaluateur, qui ne remplace pas l'évaluation de la phase 11), et vérifie que chaque écran a ses états et ne porte aucune règle métier.
 
 ## Gravité des objections
 

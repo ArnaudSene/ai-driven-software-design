@@ -1,8 +1,8 @@
-# 08 — Sécurité et conformité — <Nom du projet>
+# 09 — Sécurité et conformité — <Nom du projet>
 
 | Statut | Version | Date | Gate |
 |---|---|---|---|
-| Brouillon | 0.1 | <AAAA-MM-JJ> | G8 : — |
+| Brouillon | 0.1 | <AAAA-MM-JJ> | G9 : — |
 
 ## 1. Diagramme de flux de données et frontières de confiance
 
@@ -27,7 +27,7 @@ flowchart LR
 
 | Id | Élément ou flux | Catégorie | Scénario | Vraisemblance | Impact | Réponse | Mesure | Vérification | Statut |
 |---|---|---|---|---|---|---|---|---|---|
-| M-1 | | | | | | | ADR (Architecture Decision Record) / BR-n / QS-n | | Ouverte |
+| T-1 | | | | | | | ADR (Architecture Decision Record) / BR-n / QS-n | | Ouverte |
 
 ## 3. Niveau d'exigence
 

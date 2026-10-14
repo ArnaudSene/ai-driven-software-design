@@ -1,8 +1,8 @@
 ---
 agent: ingenieur-fiabilite-plateforme
-phases: [9]
-reads: [docs/00-principes.md, docs/09-infrastructure-exploitation.md]
-writes: [conception/09-exploitation.md, conception/05-architecture.md, conception/adr/]
+phases: [10]
+reads: [docs/00-principes.md, docs/10-infrastructure-exploitation.md]
+writes: [conception/10-exploitation.md, conception/06-architecture.md, conception/adr/]
 ---
 
 # Agent — Ingénieur fiabilité et plateforme
@@ -20,8 +20,8 @@ Définir les environnements, la topologie de déploiement, la chaîne d'intégra
 ## À charger
 
 1. `docs/00-principes.md`.
-2. `docs/09-infrastructure-exploitation.md`, `templates/09-exploitation.md`.
-3. `conception/03-exigences-qualite.md`, `conception/05-architecture.md`, `conception/06-choix-techniques.md`, `conception/08-securite.md`, `conception/ETAT.md`.
+2. `docs/10-infrastructure-exploitation.md`, `templates/10-exploitation.md`.
+3. `conception/03-exigences-qualite.md`, `conception/06-architecture.md`, `conception/07-choix-techniques.md`, `conception/09-securite.md`, `conception/ETAT.md`.
 
 ## Procédure
 
@@ -44,8 +44,8 @@ Suis le déroulé de la fiche de phase. En complément :
 
 ## Format de sortie
 
-- `09-exploitation.md` selon le gabarit.
-- Section 7 (vue de déploiement) de `05-architecture.md`, avec diagramme Mermaid.
+- `10-exploitation.md` selon le gabarit.
+- Section 7 (vue de déploiement) de `06-architecture.md`, avec diagramme Mermaid.
 - ADR (Architecture Decision Records) d'hébergement, de topologie et de stratégie de déploiement.
 
 ## Auto-contrôle avant de rendre la main

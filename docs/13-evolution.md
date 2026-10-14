@@ -1,4 +1,4 @@
-# Phase 12 — Évolution de la conception
+# Phase 13 — Évolution de la conception
 
 | Clé | Valeur |
 |---|---|
@@ -15,7 +15,7 @@
 
 Une conception qui n'est pas maintenue devient **fausse**, et une documentation fausse est pire qu'une absence de documentation : elle trompe les humains comme les agents IA (intelligence artificielle), qui la suivront à la lettre.
 
-La phase 12 commence avec la première ligne de code et ne s'arrête qu'au retrait du système.
+La phase 13 commence avec la première ligne de code et ne s'arrête qu'au retrait du système.
 
 ## 2. Concepts et méthodes
 
@@ -23,16 +23,17 @@ La phase 12 commence avec la première ligne de code et ne s'arrête qu'au retra
 
 | Déclencheur | Action |
 |---|---|
-| Nouvelle demande métier | Reprise en mode allégé des phases 2 (nouveaux `UC-n` et `BR-n`), puis 3 à 10 selon l'impact |
+| Nouvelle demande métier | Reprise en mode allégé des phases 2 (nouveaux `UC-n` et `BR-n`), puis 3 à 11 selon l'impact |
 | Règle métier découverte pendant le développement | Nouvelle `BR-n` validée par le décideur **avant** d'être codée |
 | Écart nécessaire avec un ADR | Nouvel ADR qui remplace l'ancien ; l'ancien passe à *Remplacé par* |
 | OD (décision ouverte) tranchée | Mise à jour des éléments marqués [seuil à fixer] et des tests associés |
 | Échec d'une fonction d'aptitude (`FF-n`) | Corriger le code, **ou** décider par ADR que la règle change ; jamais désactiver silencieusement |
-| Incident de production | Analyse ; vérification des `QS-n`, `SLO-n` et `M-n` concernés ; mise à jour si l'exigence ou la mesure était fausse |
+| Incident de production | Analyse ; vérification des `QS-n`, `SLO-n` et `T-n` concernés ; mise à jour si l'exigence ou la mesure était fausse |
 | `SLO-n` régulièrement manqué ou toujours largement tenu | Revoir le `QS-n` d'origine avec le décideur |
-| Mesure des `OB-n` après mise en production | Retour en phase 1 si l'objectif n'est pas atteint : le problème était-il bien compris ? |
-| Nouvelle vulnérabilité ou nouvelle obligation légale | Phase 8, puis impacts |
-| Fin de support d'une technologie | Phase 6, nouvel ADR |
+| Mesure des `BO-n` après mise en production | Retour en phase 1 si l'objectif n'est pas atteint : le problème était-il bien compris ? |
+| Nouvelle vulnérabilité ou nouvelle obligation légale | Phase 9, puis impacts |
+| Fin de support d'une technologie | Phase 7, nouvel ADR |
+| Retours des utilisateurs, mesures d'usage en production | Phase 5, et phase 2 si une `IR-n` change. La norme ISO (International Organization for Standardization) 9241-210 prévoit ce suivi dans la durée (§ 7.5.6). |
 
 ### 2.2 Procédure de changement
 
@@ -52,7 +53,7 @@ La conception reste vraie d'autant plus facilement qu'une partie est **vérifié
 |---|---|
 | Règles de dépendance, frontières de modules | `FF-n` bloquantes dans la chaîne |
 | Contrats d'interface | Tests de contrat, comparaison de compatibilité |
-| `BR-n` et `CA-n` | Tests qui citent les identifiants ; matrice de traçabilité générée à partir des étiquettes de test |
+| `BR-n` et `AC-n` | Tests qui citent les identifiants ; matrice de traçabilité générée à partir des étiquettes de test |
 | `QS-n` de performance | Tests de charge périodiques, `SLO-n` en production |
 | Diagrammes | Générés à partir du code ou du modèle quand c'est possible ; sinon, revue à chaque incrément |
 
@@ -60,7 +61,7 @@ La conception reste vraie d'autant plus facilement qu'une partie est **vérifié
 
 Pendant la réalisation, un agent de code qui applique ce guide **doit** :
 
-1. Avant de coder une fonctionnalité, lire les `UC-n`, `BR-n`, `CA-n`, ADR et `FF-n` qui la concernent.
+1. Avant de coder une fonctionnalité, lire les `UC-n`, `BR-n`, `AC-n`, ADR et `FF-n` qui la concernent.
 2. Utiliser les noms du glossaire.
 3. Écrire d'abord les tests dérivés des exemples et critères d'acceptation.
 4. Citer les identifiants dans les tests, les messages de commit et la description de la pull request.

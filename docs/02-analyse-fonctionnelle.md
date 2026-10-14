@@ -6,7 +6,7 @@
 | Agent | [`prompts/analyste-metier.md`](../prompts/analyste-metier.md) |
 | Entrées | `01-cadrage.md` validé (G1), `glossaire.md`, documents métier |
 | Sorties | `conception/02-exigences-fonctionnelles.md`, `glossaire.md` enrichi, `tracabilite.md` |
-| Identifiants créés | `UC-n`, `BR-n`, `BR-n.Ek`, `CA-n`, `OD-n` |
+| Identifiants créés | `UC-n`, `BR-n`, `BR-n.Ek`, `AC-n`, `IR-n`, `OD-n` |
 | Gabarit | [`templates/02-exigences-fonctionnelles.md`](../templates/02-exigences-fonctionnelles.md) |
 | Gate | G2 |
 
@@ -26,7 +26,7 @@ Le critère de réussite est simple : si deux équipes lisent les exigences, ell
 |---|---|---|---|
 | Cas d'utilisation | `UC-n` | Quel objectif un acteur atteint-il avec le système ? | `UC-3` : un client annule une réservation. |
 | Règle métier | `BR-n` | Quelle règle le système applique-t-il, quel que soit le cas ? | `BR-7` : une annulation à moins de 24 h du créneau n'est pas remboursée. |
-| Critère d'acceptation | `CA-n` | À quelle condition considère-t-on le cas d'utilisation livré ? | `CA-11` : étant donné une réservation à J+3, quand le client annule, alors il reçoit un avoir et le créneau redevient libre. |
+| Critère d'acceptation | `AC-n` | À quelle condition considère-t-on le cas d'utilisation livré ? | `AC-11` : étant donné une réservation à J+3, quand le client annule, alors il reçoit un avoir et le créneau redevient libre. |
 
 Une règle métier est **transverse** : `BR-7` s'applique aussi bien à l'annulation par le client (`UC-3`) qu'à l'annulation par un conseiller (`UC-8`). On l'écrit donc une seule fois et on la référence depuis les cas d'utilisation.
 
@@ -36,9 +36,9 @@ Format inspiré d'Alistair Cockburn, au niveau « objectif utilisateur » (une t
 
 | Rubrique | Contenu |
 |---|---|
-| Acteur principal | Une `PP-n` ou un système externe |
+| Acteur principal | Une `SH-n` ou un système externe |
 | Objectif | Ce que l'acteur veut obtenir, en une phrase |
-| Objectif métier | `OB-n` servi |
+| Objectif métier | `BO-n` servi |
 | Préconditions | Ce qui est vrai avant |
 | Garanties en cas de succès | Ce qui est vrai après un succès |
 | Garanties minimales | Ce qui reste vrai même en cas d'échec (rien n'est à moitié enregistré, par exemple) |
@@ -47,7 +47,7 @@ Format inspiré d'Alistair Cockburn, au niveau « objectif utilisateur » (une t
 | Règles appliquées | `BR-n` |
 | Priorité | *Must*, *Should*, *Could* ou *Won't* |
 
-Les récits utilisateur (« En tant que…, je veux…, afin de… ») peuvent compléter les cas d'utilisation pour le découpage du travail en phase 11. Ils ne les remplacent pas : un récit ne décrit ni les erreurs ni les garanties.
+Les récits utilisateur (« En tant que…, je veux…, afin de… ») peuvent compléter les cas d'utilisation pour le découpage du travail en phase 12. Ils ne les remplacent pas : un récit ne décrit ni les erreurs ni les garanties.
 
 ### 2.3 Règles métier (`BR-n`)
 
@@ -66,7 +66,7 @@ Exemple complet :
   - BR-7.E1 (nominal) — Créneau le 10/03 à 14:00, annulation le 09/03 à 13:59 → avoir intégral.
   - BR-7.E2 (limite) — Même créneau, annulation le 09/03 à 14:00:00 → avoir intégral (borne incluse ?) → OD-3
   - BR-7.E3 (échec) — Annulation le 10/03 à 09:00 → aucun avoir.
-- **Source** : PP-2 (responsable d'agence), entretien du 2026-10-01 ; conditions générales § 4.
+- **Source** : SH-2 (responsable d'agence), entretien du 2026-10-01 ; conditions générales § 4.
 - **Justification** : un créneau libéré tardivement ne peut plus être revendu.
 - **Priorité** : Must — une erreur de remboursement est financière et silencieuse (C-4).
 - **Cas d'utilisation** : UC-3, UC-8.
@@ -82,7 +82,7 @@ Technique de Matt Wynne pour faire émerger règles et exemples en atelier. On t
 |---|---|---|
 | Le récit ou cas étudié | Jaune | `UC-n` |
 | Une règle | Bleue | `BR-n` |
-| Un exemple concret, avec des valeurs réelles | Verte | `BR-n.Ek` ou `CA-n` |
+| Un exemple concret, avec des valeurs réelles | Verte | `BR-n.Ek` ou `AC-n` |
 | Une question sans réponse | Rouge | `OD-n` |
 
 Heuristiques de lecture :
@@ -93,13 +93,13 @@ Heuristiques de lecture :
 
 L'IA simule l'atelier : pour chaque `UC-n`, elle **propose** des règles et des exemples concrets, et surtout des **exemples limites** (bornes, valeurs nulles, doublons, concurrence, annulation au milieu d'un traitement), puis le décideur confirme, corrige ou transforme en question.
 
-### 2.5 Critères d'acceptation (`CA-n`)
+### 2.5 Critères d'acceptation (`AC-n`)
 
-Rédigés au format *Étant donné / Quand / Alors* (Gherkin) pour être directement transposables en tests automatisés en phase 10. La première ligne `# language: fr` est indispensable pour que les outils Gherkin reconnaissent les mots-clés français :
+Rédigés au format *Étant donné / Quand / Alors* (Gherkin) pour être directement transposables en tests automatisés en phase 11. La première ligne `# language: fr` est indispensable pour que les outils Gherkin reconnaissent les mots-clés français :
 
 ```gherkin
 # language: fr
-# CA-11 — vérifie UC-3, BR-7
+# AC-11 — vérifie UC-3, BR-7
 Étant donné une réservation confirmée pour le 10/03 à 14:00
   Et nous sommes le 07/03 à 10:00
 Quand le client annule la réservation
@@ -115,11 +115,33 @@ Selon le projet, la phase couvre aussi :
 |---|---|
 | Cycle de vie des objets métier | Diagramme d'états (Mermaid `stateDiagram`) pour chaque objet à états : commande, dossier, contrat |
 | Processus métier transverses | Diagramme d'activité ou de séquence quand un processus traverse plusieurs cas d'utilisation |
-| Rôles et droits | Matrice rôle × action (qui peut faire quoi). Les mécanismes techniques viennent en phase 8. |
+| Rôles et droits | Matrice rôle × action (qui peut faire quoi). Les mécanismes techniques viennent en phase 9. |
 | Notifications | Événement déclencheur, destinataire, canal, contenu |
 | Éditions et rapports | Contenu, destinataire, fréquence |
-| Parcours et écrans | Liste des écrans ou maquettes fil de fer, rattachés aux `UC-n` |
+| Parcours utilisateur | Pour chaque groupe d'utilisateurs, l'enchaînement de ses activités, rattaché aux `UC-n`, à la manière d'une *story map* (Jeff Patton). Les écrans et leurs schémas se conçoivent en phase 5. |
 | Reprise de données | Données existantes à migrer et règles de transformation |
+
+### 2.7 Exigences d'interaction (`IR-n`)
+
+Pour chaque cas d'utilisation dont l'acteur est humain, on écrit ce que l'utilisateur **doit pouvoir faire ou voir**, jamais à quoi ressemble l'écran. Format et règles : [00-principes § 7.4](00-principes.md#74-exigences-dinteraction-ir-n).
+
+Exemple :
+
+```markdown
+### IR-4 — Interrompre un calcul long
+
+- **Exigence** : Tant qu'un calcul est en cours, l'utilisateur doit pouvoir l'interrompre.
+- **Critère de conformité** : après la demande d'interruption, l'utilisateur voit le calcul arrêté en moins de [seuil à fixer] secondes.
+- **Exemples** :
+  - IR-4.E1 (nominal) — Étant donné un calcul en cours, quand l'utilisateur l'interrompt, alors le calcul s'arrête et l'utilisateur retrouve la situation d'avant le calcul.
+  - IR-4.E2 (limite) — Étant donné un calcul qui se termine au moment où l'utilisateur l'interrompt, quand l'interruption arrive, alors le résultat est conservé et l'utilisateur en est informé.
+- **Source** : SH-3 (utilisateur principal), atelier du 2026-10-01.
+- **Justification** : un calcul peut durer plusieurs minutes ; sans interruption, une erreur de paramètre bloque l'utilisateur.
+- **Priorité** : Should — une erreur coûteuse, mais visible.
+- **Cas d'utilisation** : UC-6
+```
+
+Voir la progression du calcul est une autre exigence (`IR-5`) : une `IR-n` n'en contient qu'une. Que rien de partiel ne soit enregistré relève des garanties minimales de `UC-6`, pas de l'`IR-n`. Ce besoin engage aussi l'architecture : la phase 3 en fait un `QS-n`, la phase 5 conçoit l'interaction, la phase 6 la rend possible.
 
 ## 3. Déroulé de l'atelier
 
@@ -127,15 +149,16 @@ Selon le projet, la phase couvre aussi :
 
 | Étape | L'agent | Le décideur |
 |---|---|---|
-| 1 | Liste les acteurs à partir des `PP-n` et propose l'inventaire des `UC-n` (titre, acteur, objectif, `OB-n`). | Complète, priorise. |
+| 1 | Liste les acteurs à partir des `SH-n` et propose l'inventaire des `UC-n` (titre, acteur, objectif, `BO-n`). | Complète, priorise. |
 | 2 | Pour chaque `UC-n` *Must*, par ordre de priorité : rédige le scénario nominal et les extensions. | Corrige le déroulé. |
 | 3 | Pour ce même `UC-n`, conduit l'Example Mapping : règles, exemples nominaux et limites, questions. | Donne les valeurs réelles, tranche ou laisse ouvert. |
 | 4 | Factorise les règles communes à plusieurs cas en `BR-n` uniques. | — |
-| 5 | Rédige les `CA-n`. | Valide. |
-| 6 | Traite les compléments (§ 2.6) pertinents pour le projet. | Répond. |
-| 7 | Reprend les `UC-n` *Should* et *Could* avec un niveau de détail proportionné. | Priorise. |
-| 8 | Enrichit le glossaire avec chaque terme métier apparu. | Corrige. |
-| 9 | Met à jour la traçabilité, passe la liste de contrôle, invoque le relecteur critique. | Valide G2. |
+| 5 | Rédige les `AC-n`. | Valide. |
+| 6 | Pour chaque `UC-n` dont l'acteur est humain, en commençant par les *Must*, rédige les `IR-n` (§ 2.7). | Valide. |
+| 7 | Traite les compléments (§ 2.6) pertinents pour le projet, dont les parcours utilisateur. | Répond. |
+| 8 | Reprend les `UC-n` *Should* et *Could* avec un niveau de détail proportionné. | Priorise. |
+| 9 | Enrichit le glossaire avec chaque terme métier apparu. | Corrige. |
+| 10 | Met à jour la traçabilité, passe la liste de contrôle, invoque le relecteur critique. | Valide G2. |
 
 ## 4. Banque de questions
 
@@ -153,6 +176,11 @@ Selon le projet, la phase couvre aussi :
 4. D'où vient cette règle (loi, contrat, habitude) ? Peut-elle changer, et à quelle fréquence ?
 5. Si le système l'appliquait mal, comment et quand s'en apercevrait-on ? *(sert à fixer la priorité)*
 
+**Pour chaque cas d'utilisation dont l'acteur est humain**
+1. Que doit voir l'utilisateur pour décider à cette étape ?
+2. Doit-il parfois attendre ? Que doit-il pouvoir faire pendant ce temps : suivre, continuer ailleurs, interrompre ?
+3. Quelles erreurs de saisie ou de manipulation sont probables, et comment doit-il pouvoir les corriger ?
+
 **Transverses**
 1. Faut-il garder l'historique des modifications ? Qui a fait quoi, quand ?
 2. Quels montants, dates, fuseaux horaires, devises, arrondis, langues ?
@@ -163,17 +191,18 @@ Selon le projet, la phase couvre aussi :
 
 | Fichier | Contenu minimal |
 |---|---|
-| `02-exigences-fonctionnelles.md` | Acteurs, inventaire des `UC-n`, fiches `UC-n`, `BR-n` complètes, `CA-n`, compléments pertinents |
+| `02-exigences-fonctionnelles.md` | Acteurs, inventaire des `UC-n`, fiches `UC-n`, `BR-n` complètes, `AC-n`, `IR-n`, parcours utilisateur, compléments pertinents |
 | `ETAT.md` | `OD-n` issues des cartes rouges |
 | `glossaire.md` | Termes métier ajoutés |
-| `tracabilite.md` | Liens `OB-n` → `UC-n` → `BR-n` / `CA-n` |
+| `tracabilite.md` | Liens `BO-n` → `UC-n` → `BR-n` / `AC-n` / `IR-n` |
 
 ## 6. Liste de contrôle de la gate G2
 
-- [ ] ★ Chaque `UC-n` remonte à un `OB-n`.
+- [ ] ★ Chaque `UC-n` remonte à un `BO-n`.
 - [ ] ★ Chaque `BR-n` *Must* porte les six champs, dont au moins un exemple nominal et un exemple limite ou d'échec.
 - [ ] ★ Aucune valeur métier n'a été inventée : chaque seuil est confirmé ou marqué [seuil à fixer] avec une OD.
-- [ ] ★ Chaque `UC-n` *Must* a au moins un `CA-n`.
+- [ ] ★ Chaque `UC-n` *Must* a au moins un `AC-n`.
+- [ ] ★ Chaque `IR-n` cite le `UC-n` qu'elle sert, et chaque `UC-n` *Must* dont l'acteur est humain a au moins une `IR-n`.
 - [ ] Chaque `UC-n` a des extensions d'erreur et des garanties minimales.
 - [ ] Chaque `BR-n` a une justification et une source.
 - [ ] Les accès concurrents et l'annulation en cours de traitement ont été examinés pour chaque `UC-n` *Must*.
@@ -181,6 +210,7 @@ Selon le projet, la phase couvre aussi :
 - [ ] La matrice rôle × action est remplie.
 - [ ] Aucun terme métier n'est employé sans figurer dans le glossaire.
 - [ ] Aucune exigence ne mentionne une technologie (base, cadriciel, protocole).
+- [ ] Aucune `IR-n` ne décrit une apparence (couleur, position, composant).
 
 ## 7. Anti-patterns
 
@@ -190,5 +220,5 @@ Selon le projet, la phase couvre aussi :
 | Règle composée | « … et … et … » dans un même énoncé | Scinder en plusieurs `BR-n`. |
 | Critère invérifiable | « Le système doit être intuitif » | C'est un attribut qualité : le déplacer en phase 3 avec une mesure. |
 | Chemin heureux seulement | Aucune extension d'erreur | Poser systématiquement les questions 3 à 5 du bloc « cas d'utilisation ». |
-| Interface déguisée en exigence | « Un bouton vert en haut à droite » | Remonter à l'intention ; la maquette est un complément, pas une règle. |
+| Interface déguisée en exigence | « Un bouton vert en haut à droite » | Remonter à l'intention et l'écrire en `IR-n` ; l'écran se conçoit en phase 5. |
 | Borne tranchée au hasard | « ≤ » ou « < » choisi par l'IA | Ouvrir une OD. |

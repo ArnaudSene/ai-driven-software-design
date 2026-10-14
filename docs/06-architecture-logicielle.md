@@ -1,14 +1,14 @@
-# Phase 5 — Architecture logicielle
+# Phase 6 — Architecture logicielle
 
 | Clé | Valeur |
 |---|---|
 | Question centrale | Comment organiser le système pour satisfaire les exigences qualité ? |
 | Agent | [`prompts/architecte-logiciel.md`](../prompts/architecte-logiciel.md) |
-| Entrées | Phases 1 à 4 validées ; en priorité les `QS-n` architecturalement significatifs et les `BC-n` |
-| Sorties | `conception/05-architecture.md` (structure arc42), `conception/adr/`, `diagrammes/` |
+| Entrées | Phases 1 à 5 validées ; en priorité les `QS-n` architecturalement significatifs, les `BC-n` et les réponses d'interaction de la phase 5 |
+| Sorties | `conception/06-architecture.md` (structure arc42), `conception/adr/`, `diagrammes/` |
 | Identifiants créés | `ADR-nnnn` |
-| Gabarits | [`templates/05-architecture.md`](../templates/05-architecture.md), [`templates/adr.md`](../templates/adr.md) |
-| Gate | G5 |
+| Gabarits | [`templates/06-architecture.md`](../templates/06-architecture.md), [`templates/adr.md`](../templates/adr.md) |
+| Gate | G6 |
 
 ---
 
@@ -31,6 +31,7 @@ On confond souvent des réponses à des questions différentes. Clean Architectu
 | Découpage et déploiement | Combien d'unités déployables ? | Monolithe, monolithe modulaire, services, microservices, fonctions serverless |
 | Communication | Comment les modules se parlent-ils ? | Appel direct en mémoire, requête-réponse synchrone, messages ou événements asynchrones |
 | Données | Qui possède quelles données ? Quelle cohérence ? | Base partagée, base par module, cohérence forte ou à terme |
+| Interfaces utilisateur | Comment chaque interface obtient-elle ses données ? | Une API (Application Programming Interface) commune ; un BFF (Backend for Frontend) par interface quand leurs besoins divergent |
 | Lecture et écriture | Un seul modèle pour lire et écrire ? | Modèle unique, CQRS (Command Query Responsibility Segregation, séparation des commandes et des requêtes), sourcing d'événements |
 
 La modélisation peut **varier d'un contexte à l'autre** : modèle riche et architecture hexagonale pour un contexte *Cœur*, simple CRUD pour un contexte *Support*.
@@ -61,9 +62,10 @@ Pour chaque `QS-n` architecturalement significatif, l'agent propose des **tactiq
 | Modifiabilité | Encapsulation, inversion des dépendances, configuration externe, règles paramétrables, frontières de modules |
 | Sécurité | Défense en profondeur, moindre privilège, validation aux frontières, chiffrement, journalisation d'audit |
 | Testabilité | Injection de dépendances, domaine pur sans entrées-sorties, horloge injectable, données de test reproductibles |
+| Utilisabilité (capacité d'interaction) | Soutenir l'initiative de l'utilisateur : annuler, défaire, suspendre et reprendre, agréger. Soutenir l'initiative du système : tenir un modèle de la tâche, de l'utilisateur et du système (*Software Architecture in Practice*, 3ᵉ édition) |
 | Cohérence entre modules | Transaction locale, patron *outbox* transactionnel, saga avec compensation, idempotence des consommateurs |
 
-Chaque tactique retenue est justifiée dans un ADR (Architecture Decision Record, registre de décision d'architecture).
+Chaque tactique retenue est justifiée dans un ADR (Architecture Decision Record, registre de décision d'architecture). Les besoins d'interaction significatifs (phase 3), dont la phase 5 a décrit l'interaction, se traitent comme tout `QS-n` significatif.
 
 ### 2.4 Registres de décision d'architecture (`ADR-nnnn`)
 
@@ -96,7 +98,7 @@ Les diagrammes sont écrits en Mermaid (ou Structurizr DSL (Domain-Specific Lang
 
 ### 2.6 Document d'architecture arc42
 
-`05-architecture.md` suit la structure arc42 (Gernot Starke, Peter Hruschka), dont plusieurs sections sont alimentées par d'autres phases :
+`06-architecture.md` suit la structure arc42 (Gernot Starke, Peter Hruschka), dont plusieurs sections sont alimentées par d'autres phases :
 
 | § arc42 | Section | Alimentée par |
 |---|---|---|
@@ -106,7 +108,7 @@ Les diagrammes sont écrits en Mermaid (ou Structurizr DSL (Domain-Specific Lang
 | 4 | Stratégie de solution | **Cette phase** : style, découpage, choix clés |
 | 5 | Vue des blocs de construction | C4 niveaux 2 et 3, `BC-n` → modules |
 | 6 | Vue d'exécution | Diagrammes de séquence des `UC-n` *Must* et des scénarios d'erreur |
-| 7 | Vue de déploiement | Phase 9 |
+| 7 | Vue de déploiement | Phase 10 |
 | 8 | Concepts transverses | **Cette phase** : erreurs, transactions, idempotence, journalisation, configuration, temps, internationalisation |
 | 9 | Décisions d'architecture | Index des ADR |
 | 10 | Exigences qualité | Renvoi à `03-exigences-qualite.md` |
@@ -123,10 +125,10 @@ L'agent **doit** examiner chacun de ces sujets et le trancher (dans la section 8
 4. **Concurrence** : verrouillage optimiste ou pessimiste pour les accès concurrents identifiés en phase 2.
 5. **Temps** : horloge injectable, fuseaux horaires, stockage en temps universel coordonné.
 6. **Configuration et secrets** : séparation code / configuration / secrets.
-7. **Journalisation, métriques, traces** : préparation de la phase 9.
+7. **Journalisation, métriques, traces** : préparation de la phase 10.
 8. **Validation** : où valide-t-on les entrées (frontière) et les invariants (domaine) ?
 9. **Internationalisation**, si requise par un `QS-n`.
-10. **Règles de dépendance** entre modules et couches : lesquelles seront vérifiées automatiquement (phase 10, `FF-n`).
+10. **Règles de dépendance** entre modules et couches : lesquelles seront vérifiées automatiquement (phase 11, `FF-n`).
 
 ### 2.8 Revue ATAM allégée (profil *Critique*, recommandée en *Produit*)
 
@@ -148,9 +150,9 @@ L'ATAM (Architecture Tradeoff Analysis Method, méthode d'analyse des compromis 
 | 5 | Dessine les vues d'exécution des `UC-n` *Must* et d'au moins un scénario de panne. | Relit. |
 | 6 | Tranche les concepts transverses (§ 2.7). | Arbitre si nécessaire. |
 | 7 | Conduit la revue ATAM allégée si le profil l'exige. | Arbitre les risques. |
-| 8 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G5. |
+| 8 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G6. |
 
-Les choix de **produits** (quelle base de données, quel cadriciel) ne sont **pas** faits ici. On décide « une base relationnelle transactionnelle » ou « un courtier de messages avec garantie d'ordre par clé », et la phase 6 choisit le produit. Exception : les contraintes `C-n` qui imposent déjà un produit.
+Les choix de **produits** (quelle base de données, quel cadriciel) ne sont **pas** faits ici. On décide « une base relationnelle transactionnelle » ou « un courtier de messages avec garantie d'ordre par clé », et la phase 7 choisit le produit. Exception : les contraintes `C-n` qui imposent déjà un produit.
 
 ## 4. Banque de questions
 
@@ -165,21 +167,22 @@ Les choix de **produits** (quelle base de données, quel cadriciel) ne sont **pa
 
 | Fichier | Contenu minimal |
 |---|---|
-| `05-architecture.md` | Sections arc42 1 à 6, 8, 9, 11 remplies ; 7 en attente de la phase 9 |
+| `06-architecture.md` | Sections arc42 1 à 6, 8, 9, 11 remplies ; 7 en attente de la phase 10 |
 | `adr/ADR-0001-*.md` … | Stratégie de solution, une décision par `QS-n` significatif, concepts transverses structurants |
 | `diagrammes/` | C4 niveaux 1, 2, (3), séquences |
 
-## 6. Liste de contrôle de la gate G5
+## 6. Liste de contrôle de la gate G6
 
 - [ ] ★ La stratégie de solution fait l'objet d'un ADR qui compare au moins deux options.
 - [ ] ★ Chaque `QS-n` significatif est traité par un ADR ou une section nommée du document.
+- [ ] Chaque besoin d'interaction significatif, dont la phase 5 a décrit l'interaction, a son ADR.
 - [ ] ★ Les diagrammes C4 de niveaux 1 et 2 existent et sont cohérents avec la carte des contextes.
 - [ ] Chaque ADR cite les exigences qui le motivent et indique comment il sera vérifié.
 - [ ] Chaque `BC-n` correspond à un module ou à un service identifié.
 - [ ] Les dix concepts transverses du § 2.7 sont tranchés ou explicitement reportés.
 - [ ] Au moins un scénario de panne est déroulé en vue d'exécution.
 - [ ] Toute complexité distribuée (plusieurs unités déployables, asynchronisme, plusieurs bases) est justifiée par un `QS-n` ou un `C-n`.
-- [ ] Aucun produit n'est choisi sans `C-n` qui l'impose (les produits relèvent de la phase 6).
+- [ ] Aucun produit n'est choisi sans `C-n` qui l'impose (les produits relèvent de la phase 7).
 - [ ] Revue ATAM allégée faite si le profil est *Critique*.
 
 ## 7. Anti-patterns

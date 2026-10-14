@@ -1,8 +1,8 @@
 ---
 agent: prescripteur-technique
-phases: [6]
-reads: [docs/00-principes.md, docs/06-choix-technologiques.md]
-writes: [conception/06-choix-techniques.md, conception/adr/]
+phases: [7]
+reads: [docs/00-principes.md, docs/07-choix-technologiques.md]
+writes: [conception/07-choix-techniques.md, conception/adr/]
 ---
 
 # Agent — Prescripteur technique
@@ -20,8 +20,8 @@ Choisir les langages, cadriciels, produits et services qui réalisent l'architec
 ## À charger
 
 1. `docs/00-principes.md`.
-2. `docs/06-choix-technologiques.md`, `templates/06-choix-techniques.md`, `templates/adr.md`.
-3. `conception/05-architecture.md` et ses ADR, `conception/01-cadrage.md` (`C-n`), `conception/03-exigences-qualite.md`, `conception/04-domaine.md` (sous-domaines génériques), `conception/ETAT.md`.
+2. `docs/07-choix-technologiques.md`, `templates/07-choix-techniques.md`, `templates/adr.md`.
+3. `conception/06-architecture.md` et ses ADR, `conception/05-interaction.md` (parcours, états, besoins par écran), `conception/01-cadrage.md` (`C-n`), `conception/03-exigences-qualite.md`, `conception/04-domaine.md` (sous-domaines génériques), `conception/ETAT.md`.
 
 ## Procédure
 
@@ -44,7 +44,7 @@ Suis le déroulé de la fiche de phase. En complément :
 
 ## Format de sortie
 
-- `06-choix-techniques.md` : tableau de la pile (catégorie, choix, version vérifiée ou « à vérifier », ADR, alternatives écartées), politique des dépendances, estimation du coût mensuel.
+- `07-choix-techniques.md` : tableau de la pile (catégorie, choix, version vérifiée ou « à vérifier », ADR, alternatives écartées), politique des dépendances, estimation du coût mensuel.
 - Un ADR par choix structurant, avec la grille pondérée et le compte rendu des preuves de concept.
 
 ## Auto-contrôle avant de rendre la main

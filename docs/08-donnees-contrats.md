@@ -1,14 +1,14 @@
-# Phase 7 — Données et contrats d'interface
+# Phase 8 — Données et contrats d'interface
 
 | Clé | Valeur |
 |---|---|
 | Question centrale | Quelles données, détenues par qui, et quelles interfaces entre les parties du système et avec l'extérieur ? |
 | Agent | [`prompts/architecte-donnees-interfaces.md`](../prompts/architecte-donnees-interfaces.md) |
-| Entrées | `02-exigences-fonctionnelles.md`, `04-domaine.md`, `05-architecture.md`, `06-choix-techniques.md` |
-| Sorties | `conception/07-donnees-contrats.md`, `conception/contrats/` |
+| Entrées | `02-exigences-fonctionnelles.md`, `04-domaine.md`, `05-interaction.md` (besoins par écran), `06-architecture.md`, `07-choix-techniques.md` |
+| Sorties | `conception/08-donnees-contrats.md`, `conception/contrats/` |
 | Identifiants créés | Aucun nouveau préfixe ; les contrats sont identifiés par leur nom et leur version |
-| Gabarit | [`templates/07-donnees-contrats.md`](../templates/07-donnees-contrats.md) |
-| Gate | G7 |
+| Gabarit | [`templates/08-donnees-contrats.md`](../templates/08-donnees-contrats.md) |
+| Gate | G8 |
 
 ---
 
@@ -66,7 +66,7 @@ Chaque ensemble de données reçoit :
 | Fin de vie | Archivage, anonymisation ou purge, et qui la déclenche |
 | Volume estimé | Repris du profil de charge de la phase 3 |
 
-Cette classification alimente directement la phase 8.
+Cette classification alimente directement la phase 9.
 
 ### 2.5 Évolution du schéma
 
@@ -101,7 +101,14 @@ Règles de conception d'une API (Application Programming Interface, interface de
 5. **Concurrence** : contrôle optimiste (en-têtes `ETag` / `If-Match`) sur les ressources modifiables par plusieurs acteurs.
 6. **Versionnement** : stratégie unique (dans le chemin, un en-tête, ou pas de version et évolutions uniquement compatibles).
 7. **Compatibilité** : ajouter un champ optionnel est compatible ; supprimer, renommer ou rendre obligatoire ne l'est pas et exige une nouvelle version et une période de dépréciation annoncée.
-8. **Sécurité** : mécanisme d'authentification de chaque point d'accès, précisé en phase 8.
+8. **Sécurité** : mécanisme d'authentification de chaque point d'accès, précisé en phase 9.
+
+**Contrats pilotés par les écrans.** Les besoins par écran de la phase 5 (données lues, actions envoyées) sont une entrée des contrats, au même titre que les cas d'utilisation :
+
+- quand un écran a besoin d'une forme de données très différente du modèle du domaine, on lui sert un **modèle de lecture** taillé pour sa vue (Udi Dahan) ; c'est une forme de CQRS (Command Query Responsibility Segregation, séparation des commandes et des requêtes), à réserver aux parties du système où elle se justifie (Martin Fowler) ;
+- les erreurs ont un **modèle pensé pour l'utilisateur** : chaque code d'erreur métier correspond à un message et à l'action possible ensuite, conformes aux états d'erreur de la phase 5 ;
+- un **BFF** (Backend for Frontend : un service d'accès par interface, d'après Sam Newman) ne se justifie que si plusieurs interfaces ont des besoins qui divergent, et se décide en phase 6 ;
+- ce que l'écran doit voir changer sans le demander (progression, donnée modifiée) a son contrat, d'événements ou d'interrogation, selon le mécanisme décidé en phase 6.
 
 ### 2.8 Événements
 
@@ -128,10 +135,10 @@ Pour chaque système externe : contrat utilisé (fourni par le tiers ou à négo
 | 3 | Fait trancher les choix transverses (§ 2.3). | Arbitre. |
 | 4 | Classe les données et fixe leur cycle de vie (§ 2.4). | Donne les durées légales ou ouvre des OD (décisions ouvertes). |
 | 5 | Conçoit la reprise des données si nécessaire. | Fournit les échantillons. |
-| 6 | Rédige les règles de conception des API, puis les contrats des `UC-n` *Must*. | Relit. |
+| 6 | Rédige les règles de conception des API, puis les contrats des `UC-n` *Must* et des besoins par écran (phase 5). | Relit. |
 | 7 | Rédige le catalogue des événements et le contrat AsyncAPI. | Relit. |
 | 8 | Décrit chaque intégration externe. | Fournit la documentation des tiers. |
-| 9 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G7. |
+| 9 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G8. |
 
 ## 4. Banque de questions
 
@@ -146,17 +153,18 @@ Pour chaque système externe : contrat utilisé (fourni par le tiers ou à négo
 
 | Fichier | Contenu minimal |
 |---|---|
-| `07-donnees-contrats.md` | Propriété, modèles logiques, choix transverses, classification et cycle de vie, stratégie de migration, reprise, règles d'API, catalogue d'événements, intégrations |
+| `08-donnees-contrats.md` | Propriété, modèles logiques, choix transverses, classification et cycle de vie, stratégie de migration, reprise, règles d'API, catalogue d'événements, intégrations |
 | `contrats/openapi.yaml` | Points d'accès des `UC-n` *Must* |
 | `contrats/asyncapi.yaml` | Événements publiés entre contextes |
 | `diagrammes/` | Modèles de données Mermaid |
 
-## 6. Liste de contrôle de la gate G7
+## 6. Liste de contrôle de la gate G8
 
 - [ ] ★ Chaque donnée a un contexte propriétaire unique.
 - [ ] ★ Montants, dates et identifiants suivent les choix transverses tranchés.
 - [ ] ★ Chaque ensemble de données personnelles a une durée de conservation et une fin de vie.
 - [ ] ★ Les contrats des `UC-n` *Must* existent au format standard et sont valides selon leur schéma.
+- [ ] Chaque écran des `UC-n` *Must* (phase 5) trouve ses données lues et ses actions dans un contrat.
 - [ ] Les contraintes d'intégrité citent les `BR-n` qu'elles garantissent.
 - [ ] Les règles de conception des API sont écrites (erreurs, pagination, idempotence, versionnement, compatibilité).
 - [ ] Chaque événement a une enveloppe, un propriétaire, une garantie de livraison et des consommateurs identifiés.

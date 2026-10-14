@@ -235,28 +235,28 @@ Règles :
 
 ### 8.1 Registre des préfixes
 
-| Préfixe | Objet | Créé en phase | Fichier |
-|---|---|---|---|
-| `PP-n` | Partie prenante | 1 | `01-cadrage.md` |
-| `OB-n` | Objectif métier mesurable | 1 | `01-cadrage.md` |
-| `C-n` | Contrainte (imposée, non négociable par l'équipe) | 1+ | `01-cadrage.md` |
-| `H-n` | Hypothèse | toutes | `ETAT.md` (registre) |
-| `R-n` | Risque | toutes | `ETAT.md` (registre) |
-| `OD-n` | Décision ouverte | toutes | `ETAT.md` (registre) |
-| `UC-n` | Cas d'utilisation | 2 | `02-exigences-fonctionnelles.md` |
-| `BR-n` | Règle métier | 2 | `02-exigences-fonctionnelles.md` |
-| `CA-n` | Critère d'acceptation | 2 | `02-exigences-fonctionnelles.md` |
-| `IR-n` | Exigence d'interaction | 2 | `02-exigences-fonctionnelles.md` |
-| `QS-n` | Scénario d'attribut qualité | 3 | `03-exigences-qualite.md` |
-| `BC-n` | Contexte délimité | 4 | `04-domaine.md` |
-| `ADR-nnnn` | Décision d'architecture | 6+ | `adr/ADR-nnnn-titre.md` |
-| `M-n` | Menace | 9 | `09-securite.md` |
-| `SLO-n` | Objectif de niveau de service | 10 | `10-exploitation.md` |
-| `FF-n` | Fonction d'aptitude (test d'architecture) | 11 | `11-strategie-test.md` |
-| `INC-n` | Incrément de réalisation | 12 | `12-plan-realisation.md` |
-| `SRC-n` | Document source existant, lu sans être modifié | 1+ | `conception.config.yaml` et `ETAT.md` |
+| Préfixe | Objet | Terme anglais | Créé en phase | Fichier |
+|---|---|---|---|---|
+| `PP-n` | Partie prenante | Stakeholder *(sigle tiré du français)* | 1 | `01-cadrage.md` |
+| `OB-n` | Objectif métier mesurable | Business Objective | 1 | `01-cadrage.md` |
+| `C-n` | Contrainte (imposée, non négociable par l'équipe) | Constraint | 1+ | `01-cadrage.md` |
+| `H-n` | Hypothèse | Assumption *(sigle tiré du français)* | toutes | `ETAT.md` (registre) |
+| `R-n` | Risque | Risk | toutes | `ETAT.md` (registre) |
+| `OD-n` | Décision ouverte | Open Decision | toutes | `ETAT.md` (registre) |
+| `UC-n` | Cas d'utilisation | Use Case | 2 | `02-exigences-fonctionnelles.md` |
+| `BR-n` | Règle métier | Business Rule | 2 | `02-exigences-fonctionnelles.md` |
+| `CA-n` | Critère d'acceptation | Acceptance Criterion *(sigle tiré du français)* | 2 | `02-exigences-fonctionnelles.md` |
+| `IR-n` | Exigence d'interaction | Interaction Requirement | 2 | `02-exigences-fonctionnelles.md` |
+| `QS-n` | Scénario d'attribut qualité | Quality Scenario | 3 | `03-exigences-qualite.md` |
+| `BC-n` | Contexte délimité | Bounded Context | 4 | `04-domaine.md` |
+| `ADR-nnnn` | Décision d'architecture | Architecture Decision Record | 6+ | `adr/ADR-nnnn-titre.md` |
+| `M-n` | Menace | Threat *(sigle tiré du français)* | 9 | `09-securite.md` |
+| `SLO-n` | Objectif de niveau de service | Service Level Objective | 10 | `10-exploitation.md` |
+| `FF-n` | Fonction d'aptitude (test d'architecture) | Fitness Function | 11 | `11-strategie-test.md` |
+| `INC-n` | Incrément de réalisation | Increment | 12 | `12-plan-realisation.md` |
+| `SRC-n` | Document source existant, lu sans être modifié | Source | 1+ | `conception.config.yaml` et `ETAT.md` |
 
-Chaque préfixe est aussi un acronyme — par exemple BR (Business Rule, règle métier), UC (Use Case, cas d'utilisation), QS (Quality Scenario, scénario qualité). Leur sens complet est donné dans le [glossaire](glossaire.md).
+Chaque préfixe est aussi un acronyme — par exemple BR (Business Rule, règle métier), UC (Use Case, cas d'utilisation), QS (Quality Scenario, scénario qualité) — dont le sens complet est donné dans le [glossaire](glossaire.md). La colonne « Terme anglais » donne le terme à employer dans le code (règle d'or 13). Quatre sigles viennent du français et ne correspondent pas à leur terme anglais : `PP`, `H`, `CA` et `M`.
 
 ### 8.2 Règles de format
 

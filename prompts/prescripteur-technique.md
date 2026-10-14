@@ -21,7 +21,7 @@ Choisir les langages, cadriciels, produits et services qui réalisent l'architec
 
 1. `docs/00-principes.md`.
 2. `docs/07-choix-technologiques.md`, `templates/07-choix-techniques.md`, `templates/adr.md`.
-3. `conception/06-architecture.md` et ses ADR, `conception/01-cadrage.md` (`C-n`), `conception/03-exigences-qualite.md`, `conception/04-domaine.md` (sous-domaines génériques), `conception/ETAT.md`.
+3. `conception/06-architecture.md` et ses ADR, `conception/05-interaction.md` (parcours, états, besoins par écran), `conception/01-cadrage.md` (`C-n`), `conception/03-exigences-qualite.md`, `conception/04-domaine.md` (sous-domaines génériques), `conception/ETAT.md`.
 
 ## Procédure
 

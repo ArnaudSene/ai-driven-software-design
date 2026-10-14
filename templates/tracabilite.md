@@ -12,19 +12,25 @@
 |---|---|---|---|---|---|---|---|---|
 | OB-n (exemple) | UC-n | BR-n.Ek | CA-n | BC-n | | Unitaire domaine | | INC-n |
 
-## 2. Exigences qualité
+## 2. Exigences d'interaction
 
-| Scénario (QS) | Priorité | Origine (OB, C, BR) | ADR | Fonction d'aptitude (FF) | Objectif de service (SLO) | Test prévu | Statut |
+| Exigence (IR) | Cas d'utilisation (UC) | Écran (phase 5) | Test prévu | Test réel | Incrément |
+|---|---|---|---|---|---|
+| IR-n (exemple) | UC-n | | Parcours | | INC-n |
+
+## 3. Exigences qualité
+
+| Scénario (QS) | Priorité | Origine (OB, C, BR, IR) | ADR | Fonction d'aptitude (FF) | Objectif de service (SLO) | Test prévu | Statut |
 |---|---|---|---|---|---|---|---|
 | QS-n (exemple) | Must | | | | | | |
 
-## 3. Menaces
+## 4. Menaces
 
 | Menace (M) | Mesure | ADR / BR / QS | Vérification | Statut |
 |---|---|---|---|---|
 | M-n (exemple) | | | | Ouverte |
 
-## 4. Orphelins détectés
+## 5. Orphelins détectés
 
 | Date | Élément | Lien manquant | Action |
 |---|---|---|---|

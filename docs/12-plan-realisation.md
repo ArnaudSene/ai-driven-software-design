@@ -34,6 +34,7 @@ Contenu type de `INC-0` :
 |---|---|
 | Un cas d'utilisation minimal | Créer et relire une réservation, sans règle complexe |
 | Toutes les couches | Interface → API (Application Programming Interface) → domaine → base de données |
+| Un écran minimal | Si le système a des utilisateurs finaux, un écran d'un parcours *Must* de la phase 5, sans finition |
 | Structure des modules | Un module par `BC-n`, même vides, avec leurs frontières |
 | Chaîne d'intégration continue (CI) et de livraison continue (CD) | Compilation, tests, analyses, déploiement automatique en préproduction |
 | Observabilité | Journaux structurés, une métrique, une trace, un tableau de bord |
@@ -62,7 +63,7 @@ Fiche d'incrément :
 |---|---|
 | Identifiant et titre | `INC-3` Annulation et avoirs |
 | Objectif | Valeur apportée, `OB-n` servi |
-| Contenu | `UC-n`, `BR-n`, `CA-n`, `FF-n` et `SLO-n` concernés |
+| Contenu | `UC-n`, `BR-n`, `CA-n`, `IR-n`, `FF-n` et `SLO-n` concernés |
 | Risques réduits | `R-n`, `H-n` vérifiées |
 | Prérequis | Incréments, `OD-n` à trancher avant de démarrer |
 | Critère de fin | DoD (Definition of Done, définition de « terminé ») de la phase 11 + critère propre à l'incrément |
@@ -91,7 +92,7 @@ Avant G12, le relecteur critique conduit une revue transverse :
 
 | Contrôle | Méthode |
 |---|---|
-| Éléments orphelins | Parcours de `tracabilite.md` : `UC-n` sans `OB-n`, `BR-n` *Must* sans test, `QS-n` *Must* sans ADR, `FF-n` ni `SLO-n`, ADR sans exigence |
+| Éléments orphelins | Parcours de `tracabilite.md` : `UC-n` sans `OB-n`, `BR-n` *Must* sans test, `IR-n` sans écran ni test, `QS-n` *Must* sans ADR, `FF-n` ni `SLO-n`, ADR sans exigence |
 | Contradictions | Entre `BR-n` et ADR, entre `QS-n` et topologie, entre classification des données et mesures de sécurité |
 | OD en attente | Chaque OD ouverte a un responsable, une échéance, et l'incrément qu'elle bloque |
 | Risques | Chaque `R-n` ouvert a une réponse et un incrément qui le traite |

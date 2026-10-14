@@ -75,6 +75,19 @@ Une contrainte se distingue d'un choix : « nous devons utiliser le nuage de l'e
 
 Systèmes, données, processus manuels ou tableurs que le projet remplace ou avec lesquels il cohabite. L'existant est la meilleure source de règles métier implicites : un tableur utilisé depuis dix ans contient des règles que personne n'a jamais écrites.
 
+### 2.8 Contexte d'usage (esquisse)
+
+Pour chaque groupe d'utilisateurs finaux, on esquisse le **contexte d'usage**, à la manière de la norme ISO (International Organization for Standardization) / IEC (International Electrotechnical Commission) 25063 (§ 4.2) :
+
+| Élément | Question |
+|---|---|
+| Caractéristiques | Qui sont-ils ? Quelle aisance avec le métier et avec le numérique ? |
+| Objectifs | Que cherchent-ils à obtenir ? |
+| Tâches principales | Que font-ils, à quelle fréquence ? |
+| Environnement | Où, sur quel appareil, dans quelles conditions : au bureau, en mobilité, sous pression, souvent interrompus ? |
+
+L'esquisse dimensionne la phase 5 (conception de l'interaction). Si le système n'a aucun utilisateur final (il ne sert que d'autres systèmes, ou des développeurs par une API (Application Programming Interface, interface de programmation) ou une ligne de commande), on l'écrit : la phase 5 se réduira à l'ergonomie de cette API ou de cette ligne de commande.
+
 ## 3. Déroulé de l'atelier
 
 | Étape | L'IA (intelligence artificielle) | Le décideur |
@@ -82,7 +95,7 @@ Systèmes, données, processus manuels ou tableurs que le projet remplace ou ave
 | 1 | Crée `conception/` à partir des gabarits, initialise `ETAT.md` (phase 1, temps *Charger*). | — |
 | 2 | Lit tous les documents fournis et en fait un résumé factuel : faits, zones floues, contradictions. | Fournit les documents, corrige le résumé. |
 | 3 | Pose les questions sur le problème et la vision (§ 4, bloc A). Propose un énoncé de vision. | Répond, reformule la vision. |
-| 4 | Fait l'inventaire des parties prenantes (bloc B) et propose une liste `PP-n`. | Complète et nomme les représentants. |
+| 4 | Fait l'inventaire des parties prenantes (bloc B) et propose une liste `PP-n`, puis esquisse le contexte d'usage de chaque groupe d'utilisateurs (§ 2.8). | Complète et nomme les représentants. |
 | 5 | Transforme les attentes exprimées en objectifs `OB-n` mesurables (bloc C). | Fixe les cibles ou les laisse [seuil à fixer]. |
 | 6 | Délimite le périmètre et dessine le diagramme de contexte (bloc D). | Tranche ce qui entre et ce qui sort. |
 | 7 | Recense les contraintes, l'existant, les hypothèses et les risques (blocs E et F). | Confirme. |
@@ -107,6 +120,7 @@ L'IA choisit dans cette banque les questions encore sans réponse et les pose pa
 3. Qui exploitera le système et assurera le support ?
 4. Des tiers (partenaires, régulateurs, clients de vos clients) sont-ils affectés ?
 5. Qui peut répondre aux questions métier détaillées ?
+6. Dans quelles conditions les utilisateurs se servent-ils du système : au bureau, en mobilité, sous pression, souvent interrompus ?
 
 **C. Objectifs**
 1. Quels indicateurs suivez-vous déjà, et lesquels le projet doit-il faire bouger ?
@@ -132,7 +146,7 @@ L'IA choisit dans cette banque les questions encore sans réponse et les pose pa
 
 | Fichier | Contenu minimal |
 |---|---|
-| `01-cadrage.md` | Vision, `PP-n`, `OB-n`, périmètre (dans, hors, plus tard), diagramme de contexte, `C-n`, existant, profil choisi et sa justification |
+| `01-cadrage.md` | Vision, `PP-n`, contexte d'usage, `OB-n`, périmètre (dans, hors, plus tard), diagramme de contexte, `C-n`, existant, profil choisi et sa justification |
 | `ETAT.md` | Phase courante, profil, registres `H-n`, `R-n`, `OD-n`, journal |
 | `glossaire.md` | Premiers termes métier (terme, définition, synonymes à proscrire) |
 
@@ -145,6 +159,7 @@ Les items marqués ★ suffisent en profil allégé.
 - [ ] ★ Le hors-périmètre est explicite (au moins 3 éléments).
 - [ ] ★ Le profil du projet est choisi et justifié.
 - [ ] Chaque `PP-n` a un rôle, un intérêt, une influence et un représentant (ou « à identifier »).
+- [ ] Le contexte d'usage de chaque groupe d'utilisateurs finaux est esquissé, ou l'absence d'utilisateur final est écrite.
 - [ ] Le diagramme de contexte montre tous les acteurs et systèmes externes cités.
 - [ ] Les contraintes légales ont été explicitement interrogées, même si la réponse est « aucune ».
 - [ ] Chaque `R-n` a une probabilité, un impact et une réponse.

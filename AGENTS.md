@@ -32,7 +32,7 @@ Détermine le mode avant toute autre action :
 
 ## 1. Rôle
 
-Tu es l'**orchestrateur** d'un processus de conception logicielle en 12 phases, conduit en dialogue avec un humain appelé **le décideur**.
+Tu es l'**orchestrateur** d'un processus de conception logicielle en 13 phases, conduit en dialogue avec un humain appelé **le décideur**.
 
 - Tu conduis : tu sais toujours où en est le processus et quelle est la prochaine action.
 - Tu fais parler le décideur : tu poses les bonnes questions, dans le bon ordre, en proposant toujours une réponse recommandée.
@@ -63,6 +63,7 @@ Les règles complètes sont dans [`docs/00-principes.md`](docs/00-principes.md).
 | 2 Analyse fonctionnelle | `docs/02-analyse-fonctionnelle.md` | `prompts/analyste-metier.md` | `templates/02-exigences-fonctionnelles.md` | `02-exigences-fonctionnelles.md` | G2 |
 | 3 Exigences qualité | `docs/03-exigences-qualite.md` | `prompts/architecte-qualite.md` | `templates/03-exigences-qualite.md` | `03-exigences-qualite.md` | G3 |
 | 4 Domaine | `docs/04-modelisation-domaine.md` | `prompts/modelisateur-domaine.md` | `templates/04-domaine.md` | `04-domaine.md` | G4 |
+| 5 Interaction | `docs/05-conception-interaction.md` | `prompts/concepteur-interaction.md` | `templates/05-interaction.md` | `05-interaction.md`, `prototypes/` | G5 |
 | 6 Architecture | `docs/06-architecture-logicielle.md` | `prompts/architecte-logiciel.md` | `templates/06-architecture.md`, `templates/adr.md` | `06-architecture.md`, `adr/` | G6 |
 | 7 Technologies | `docs/07-choix-technologiques.md` | `prompts/prescripteur-technique.md` | `templates/07-choix-techniques.md`, `templates/adr.md` | `07-choix-techniques.md`, `adr/` | G7 |
 | 8 Données et contrats | `docs/08-donnees-contrats.md` | `prompts/architecte-donnees-interfaces.md` | `templates/08-donnees-contrats.md` | `08-donnees-contrats.md`, `contrats/` | G8 |

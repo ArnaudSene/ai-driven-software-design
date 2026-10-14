@@ -4,7 +4,7 @@
 |---|---|
 | Question centrale | Avec quels langages, cadriciels, produits et services construire l'architecture retenue ? |
 | Agent | [`prompts/prescripteur-technique.md`](../prompts/prescripteur-technique.md) |
-| Entrées | `06-architecture.md` et ADR (Architecture Decision Record) validés (G6), `C-n`, `QS-n` |
+| Entrées | `06-architecture.md` et ADR (Architecture Decision Record) validés (G6), `05-interaction.md` (parcours, états, besoins par écran), `C-n`, `QS-n` |
 | Sorties | `conception/07-choix-techniques.md`, ADR de choix, comptes rendus de preuves de concept |
 | Identifiants créés | `ADR-nnnn` |
 | Gabarit | [`templates/07-choix-techniques.md`](../templates/07-choix-techniques.md) |
@@ -29,7 +29,7 @@ Modèles d'hébergement cités : IaaS (Infrastructure as a Service, infrastructu
 | Catégorie | Exemples de décisions |
 |---|---|
 | Langages | Langage du serveur, du client, des scripts |
-| Cadriciels | Cadriciel web serveur, cadriciel d'interface, cadriciel de test |
+| Cadriciels | Cadriciel web serveur, cadriciel d'interface et système de composants, qui fixe l'apparence (couleurs, typographie) à défaut d'une charte imposée (`C-n`), cadriciel de test |
 | Persistance | SGBD (système de gestion de base de données), outil de migration de schéma, couche d'accès aux données |
 | Communication | Format et protocole d'interface, courtier de messages |
 | Services transverses | Fournisseur d'identité, envoi de courriels, stockage de fichiers, recherche plein texte, cache |

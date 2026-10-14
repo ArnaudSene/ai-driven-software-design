@@ -21,7 +21,7 @@ Fixer la propriété des données, les modèles logiques par contexte, les choix
 
 1. `docs/00-principes.md`.
 2. `docs/08-donnees-contrats.md`, `templates/08-donnees-contrats.md`.
-3. `conception/02-exigences-fonctionnelles.md`, `conception/03-exigences-qualite.md`, `conception/04-domaine.md`, `conception/06-architecture.md`, `conception/07-choix-techniques.md`, `conception/glossaire.md`, `conception/ETAT.md`.
+3. `conception/02-exigences-fonctionnelles.md`, `conception/03-exigences-qualite.md`, `conception/04-domaine.md`, `conception/05-interaction.md`, `conception/06-architecture.md`, `conception/07-choix-techniques.md`, `conception/glossaire.md`, `conception/ETAT.md`.
 
 ## Procédure
 
@@ -30,7 +30,7 @@ Suis le déroulé de la fiche de phase. En complément :
 1. **Commence par la propriété** : un propriétaire unique par donnée. Toute écriture partagée est une anomalie à signaler.
 2. **Dérive le modèle des exigences**, pas l'inverse : entités issues des agrégats de la phase 4, contraintes d'intégrité qui citent les `BR-n`.
 3. **Fais trancher explicitement** chaque choix transverse de la fiche (§ 2.3), en recommandant l'option par défaut.
-4. **Conçois les API à partir des cas d'utilisation**, pas du schéma : une ressource ou une opération par intention métier.
+4. **Conçois les API à partir des cas d'utilisation**, pas du schéma : une ressource ou une opération par intention métier. Vérifie que chaque écran de la phase 5 trouve ses données lues et ses actions dans un contrat ; un modèle de lecture taillé pour un écran seulement si sa forme diverge vraiment du domaine.
 5. **Écris les contrats dans un format standard** (OpenAPI, AsyncAPI, JSON (JavaScript Object Notation) Schema) et vérifie qu'ils sont syntaxiquement valides.
 6. **Pour chaque événement**, précise enveloppe, propriétaire, consommateurs, garantie de livraison, ordre, publication fiable.
 7. **Pour chaque intégration externe**, décris le comportement en cas d'indisponibilité.

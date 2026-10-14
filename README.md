@@ -1,11 +1,11 @@
 # Conception logicielle pilotée par l'IA
 
-Un guide complet pour **concevoir une application de A à Z en dialogue avec une IA (intelligence artificielle)** : du besoin métier jusqu'au premier incrément de code, en passant par les exigences qualité, le domaine, l'architecture, les technologies, les données, la sécurité, l'exploitation et les tests.
+Un guide complet pour **concevoir une application de A à Z en dialogue avec une IA (intelligence artificielle)** : du besoin métier jusqu'au premier incrément de code, en passant par les exigences qualité, le domaine, l'interaction avec l'utilisateur, l'architecture, les technologies, les données, la sécurité, l'exploitation et les tests.
 
 Le guide est à la fois :
 
 - une **convention de conception** lisible par un humain : méthode, livrables, listes de contrôle ;
-- un **programme de travail pour un agent IA** : un orchestrateur ([`AGENTS.md`](AGENTS.md)), onze prompts de spécialistes ([`prompts/`](prompts/)) et des gabarits de livrables ([`templates/`](templates/)).
+- un **programme de travail pour un agent IA** : un orchestrateur ([`AGENTS.md`](AGENTS.md)), douze prompts de spécialistes ([`prompts/`](prompts/)) et des gabarits de livrables ([`templates/`](templates/)).
 
 L'IA structure, questionne, rédige, vérifie la cohérence et propose. **L'humain — le décideur — connaît le métier, arbitre et valide.**
 
@@ -22,9 +22,9 @@ flowchart LR
         P4["4 · Modélisation<br/>du domaine"]
     end
     subgraph S["Solution"]
-        P6["6 · Architecture"] --> P7["7 · Technologies"] --> P8["8 · Données<br/>et contrats"] --> P9["9 · Sécurité"] --> P10["10 · Exploitation"] --> P11["11 · Tests"] --> P12["12 · Plan et<br/>squelette ambulant"]
+        P5["5 · Conception<br/>de l'interaction"] --> P6["6 · Architecture"] --> P7["7 · Technologies"] --> P8["8 · Données<br/>et contrats"] --> P9["9 · Sécurité"] --> P10["10 · Exploitation"] --> P11["11 · Tests"] --> P12["12 · Plan et<br/>squelette ambulant"]
     end
-    P3 --> P4 --> P6
+    P3 --> P4 --> P5
     P12 --> P13["13 · Évolution<br/>(continue)"]
 ```
 
@@ -34,6 +34,7 @@ flowchart LR
 | 2 | [Analyse fonctionnelle](docs/02-analyse-fonctionnelle.md) | Que doit faire le système ? | Volere, Example Mapping, cas d'utilisation |
 | 3 | [Exigences qualité](docs/03-exigences-qualite.md) | Avec quel niveau de qualité ? | Scénarios qualité, ISO (International Organization for Standardization) 25010 |
 | 4 | [Modélisation du domaine](docs/04-modelisation-domaine.md) | Comment le métier est-il structuré ? | DDD (Domain-Driven Design) stratégique, Event Storming |
+| 5 | [Conception de l'interaction](docs/05-conception-interaction.md) | Comment l'utilisateur accomplit-il ses tâches ? | Conception centrée sur l'humain (ISO 9241-210), scénarios d'utilisabilité du SEI (Software Engineering Institute), prototype jetable |
 | 6 | [Architecture logicielle](docs/06-architecture-logicielle.md) | Comment organiser le système ? | arc42, C4 (Context, Containers, Components, Code), ADR (Architecture Decision Record) |
 | 7 | [Choix technologiques](docs/07-choix-technologiques.md) | Avec quels outils ? | Grille pondérée, preuves de concept |
 | 8 | [Données et contrats](docs/08-donnees-contrats.md) | Quelles données, quelles interfaces ? | OpenAPI, AsyncAPI, propriété des données |
@@ -81,7 +82,7 @@ Dans le projet conçu, l'agent produit :
 conception/
 ├── ETAT.md  glossaire.md  tracabilite.md
 ├── 01-cadrage.md … 12-plan-realisation.md
-├── adr/  contrats/  diagrammes/
+├── adr/  contrats/  diagrammes/  prototypes/
 ```
 
 ## Démarrage rapide

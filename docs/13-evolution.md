@@ -23,7 +23,7 @@ La phase 13 commence avec la première ligne de code et ne s'arrête qu'au retra
 
 | Déclencheur | Action |
 |---|---|
-| Nouvelle demande métier | Reprise en mode allégé des phases 2 (nouveaux `UC-n` et `BR-n`), puis 3 à 10 selon l'impact |
+| Nouvelle demande métier | Reprise en mode allégé des phases 2 (nouveaux `UC-n` et `BR-n`), puis 3 à 11 selon l'impact |
 | Règle métier découverte pendant le développement | Nouvelle `BR-n` validée par le décideur **avant** d'être codée |
 | Écart nécessaire avec un ADR | Nouvel ADR qui remplace l'ancien ; l'ancien passe à *Remplacé par* |
 | OD (décision ouverte) tranchée | Mise à jour des éléments marqués [seuil à fixer] et des tests associés |
@@ -33,6 +33,7 @@ La phase 13 commence avec la première ligne de code et ne s'arrête qu'au retra
 | Mesure des `OB-n` après mise en production | Retour en phase 1 si l'objectif n'est pas atteint : le problème était-il bien compris ? |
 | Nouvelle vulnérabilité ou nouvelle obligation légale | Phase 9, puis impacts |
 | Fin de support d'une technologie | Phase 7, nouvel ADR |
+| Retours des utilisateurs, mesures d'usage en production | Phase 5, et phase 2 si une `IR-n` change. La norme ISO (International Organization for Standardization) 9241-210 prévoit ce suivi dans la durée (§ 7.5.6). |
 
 ### 2.2 Procédure de changement
 

@@ -4,7 +4,7 @@
 |---|---|
 | Question centrale | Comment prouver, de façon automatique et répétable, que le système est conforme ? |
 | Agent | [`prompts/ingenieur-qualite.md`](../prompts/ingenieur-qualite.md) |
-| Entrées | Toutes les phases précédentes, en particulier `BR-n.Ek`, `CA-n`, `QS-n`, `M-n`, ADR (Architecture Decision Record), `SLO-n`, contrats |
+| Entrées | Toutes les phases précédentes, en particulier `BR-n.Ek`, `CA-n`, `IR-n`, `QS-n`, `M-n`, ADR (Architecture Decision Record), `SLO-n`, contrats |
 | Sorties | `conception/11-strategie-test.md`, `tracabilite.md` complété jusqu'aux tests |
 | Identifiants créés | `FF-n` |
 | Gabarit | [`templates/11-strategie-test.md`](../templates/11-strategie-test.md) |
@@ -32,6 +32,8 @@ C'est aussi la phase qui protège l'architecture dans la durée : sans tests d'a
 | `QS-n` de disponibilité, de reprise | Test de résilience (injection de pannes), test de restauration | Système | Périodiquement |
 | `M-n` (menaces) | Test de sécurité automatisé ; test d'intrusion pour le profil *Critique* | Système | À chaque modification (automatisé), périodiquement (manuel) |
 | `QS-n` d'accessibilité | Analyse automatique + audit manuel | Interface | À chaque modification (automatique), avant mise en production (audit) |
+| `IR-n` (exigences d'interaction) | Test de parcours sur l'interface, services simulés ; de bout en bout seulement pour les parcours critiques | Interface | À chaque modification |
+| `QS-n` de capacité d'interaction | Évaluation de l'utilisabilité (§ 2.9) | Prototype, puis interface | En phase 5 sur le prototype, puis avant mise en production |
 | ADR et règles de structure | Fonction d'aptitude (`FF-n`) | Code et système | À chaque modification |
 | `SLO-n` | Supervision en production | Production | En continu |
 | Parcours critiques | Test de bout en bout (peu nombreux) | Système complet | Avant mise en production |
@@ -103,6 +105,17 @@ La couverture mesure ce qui a été **exécuté**, pas ce qui a été **vérifi�
 - **DoR** (Definition of Ready, définition de « prêt ») : un incrément peut démarrer quand ses `UC-n`, `BR-n` et `CA-n` sont validés, ses OD (décisions ouvertes) bloquantes tranchées et ses contrats écrits.
 - **DoD** (Definition of Done, définition de « terminé ») : un incrément est terminé quand ses tests (exemples, `CA-n`, `FF-n` concernés) passent dans la chaîne, que la traçabilité est à jour, que la documentation modifiée est relue, et qu'il est déployé en préproduction.
 
+### 2.9 Évaluation de l'utilisabilité
+
+| Méthode | Ce qu'elle apporte | Référence |
+|---|---|---|
+| Évaluation heuristique | Trois à cinq évaluateurs, chacun de son côté, confrontent l'interface aux dix heuristiques de Jakob Nielsen | Nielsen Norman Group |
+| Test avec des utilisateurs | Un animateur, des tâches, un participant : on observe où il bute | ISO (International Organization for Standardization) 9241-210, § 7.5.4 |
+| Questionnaire SUS (System Usability Scale) | Score de satisfaction de 0 à 100, à comparer à la cible du `QS-n` ; d'usage courant, jamais normalisé | John Brooke |
+| Audit d'accessibilité | Analyse automatique et revue manuelle au niveau visé | WCAG (Web Content Accessibility Guidelines) 2.2 |
+
+Les premières évaluations se font sur le prototype de la phase 5, quand corriger ne coûte presque rien. Le compte rendu d'une évaluation peut suivre le format commun de la norme ISO 25062:2025.
+
 ## 3. Déroulé de l'atelier
 
 | Étape | L'agent | Le décideur |
@@ -129,7 +142,7 @@ La couverture mesure ce qui a été **exécuté**, pas ce qui a été **vérifi�
 | Fichier | Contenu minimal |
 |---|---|
 | `11-strategie-test.md` | Tableau exigence → test, répartition et outils, `FF-n`, déterminisme, données, contrôles de la chaîne, DoR, DoD |
-| `tracabilite.md` | Colonne « test prévu » renseignée pour chaque `BR-n.Ek`, `CA-n`, `QS-n` *Must*, `M-n` |
+| `tracabilite.md` | Colonne « test prévu » renseignée pour chaque `BR-n.Ek`, `CA-n`, `IR-n`, `QS-n` *Must*, `M-n` |
 
 ## 6. Liste de contrôle de la gate G11
 
@@ -142,6 +155,7 @@ La couverture mesure ce qui a été **exécuté**, pas ce qui a été **vérifi�
 - [ ] Les règles de déterminisme sont écrites.
 - [ ] Les contrôles bloquants de la chaîne sont listés avec leurs seuils.
 - [ ] Un test de restauration est prévu (phase 10).
+- [ ] Chaque `IR-n` a un test de parcours prévu ; chaque `QS-n` de capacité d'interaction a sa méthode d'évaluation.
 
 ## 7. Anti-patterns
 

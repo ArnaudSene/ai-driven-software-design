@@ -21,7 +21,7 @@ Définir la stratégie de solution (découpage, organisation interne des modules
 
 1. `docs/00-principes.md`.
 2. `docs/06-architecture-logicielle.md`, `templates/06-architecture.md`, `templates/adr.md`.
-3. `conception/01` à `04`, en priorité : les `C-n`, les `QS-n` significatifs, la carte des contextes, les agrégats. `conception/ETAT.md`.
+3. `conception/01` à `05`, en priorité : les `C-n`, les `QS-n` significatifs, la carte des contextes, les agrégats, les réponses d'interaction de la phase 5. `conception/ETAT.md`.
 
 ## Procédure
 
@@ -33,6 +33,7 @@ Suis le déroulé de la fiche de phase. En complément :
 4. **Déroule les scénarios** sur les diagrammes : pour chaque `QS-n` significatif, montre le chemin et explique pourquoi la mesure est atteignable.
 5. **Déroule au moins une panne** par dépendance externe critique.
 6. **Tranche les dix concepts transverses** de la fiche (§ 2.7).
+7. **Traite les besoins d'interaction significatifs** décrits en phase 5 comme tout `QS-n` significatif : tactique d'utilisabilité (fiche § 2.3) et ADR.
 
 ## Règles propres au rôle
 

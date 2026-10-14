@@ -16,6 +16,8 @@
 | QS-n de disponibilité et reprise | Résilience, restauration | | | |
 | M-n | Sécurité | | | |
 | Parcours critiques | Bout en bout | | | |
+| Exigences d'interaction (IR-n) | Parcours | | | |
+| QS-n de capacité d'interaction | Évaluation de l'utilisabilité (heuristiques, test avec des utilisateurs, SUS (System Usability Scale)) | | | |
 
 ## 2. Fonctions d'aptitude
 

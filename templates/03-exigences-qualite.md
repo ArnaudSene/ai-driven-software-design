@@ -44,7 +44,7 @@
 - **Mesure de la réponse** : <valeur chiffrée ou [seuil à fixer]>
 - **Justification** :
 - **Priorité** : Must / Should / Could / Won't
-- **Liens** : OB-n, C-n, BR-n
+- **Liens** : OB-n, C-n, BR-n, IR-n
 - **OD** (décision ouverte) : OD-n
 
 ## 4. Arbre d'utilité
@@ -58,3 +58,17 @@
 | Scénarios en tension | Nature du conflit | Options | Arbitrage ou OD |
 |---|---|---|---|
 | | | | |
+
+## 6. Besoins d'interaction significatifs pour l'architecture
+
+<!-- Si le système a des utilisateurs finaux : liste des scénarios d'utilisabilité du SEI (Software Engineering Institute),
+     rapport `CMU/SEI-2001-TR-005`. Chaque besoin retenu devient un QS-n.
+     Une ligne par scénario du rapport (vingt-six) ; les cinq lignes ci-dessous sont des exemples. -->
+
+| Scénario du SEI | Retenu (oui / non) | Scénario qualité (QS) | Justification |
+|---|---|---|---|
+| Annuler une opération en cours | | | |
+| Défaire | | | |
+| Observer l'état du système | | | |
+| Agréger des données | | | |
+| Rester cohérent entre les vues | | | |

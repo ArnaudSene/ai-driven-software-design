@@ -16,6 +16,15 @@
 |---|---|---|---|---|---|
 | PP-1 | | | | Haute / Moyenne / Basse | |
 
+### Contexte d'usage (esquisse)
+
+<!-- Pour chaque groupe d'utilisateurs finaux (ISO (International Organization for Standardization) / IEC (International Electrotechnical Commission) 25063, § 4.2).
+     Sans utilisateur final, l'écrire : la phase 5 se réduira à l'ergonomie de l'API (Application Programming Interface) ou de la ligne de commande. -->
+
+| Groupe d'utilisateurs (PP) | Caractéristiques | Objectifs | Tâches principales | Environnement d'usage |
+|---|---|---|---|---|
+| PP-n | | | | |
+
 ## 3. Objectifs métier
 
 | Id | Objectif | Indicateur | Valeur de départ | Cible | Échéance | Source |
@@ -66,6 +75,7 @@ Consignés dans les registres de `ETAT.md` : H-1…, R-1…
 ## 9. Pistes de solution exprimées
 
 <!-- Solutions évoquées par les parties prenantes pendant le cadrage : conservées
-     ici pour la phase 6, sans valeur de décision (règle d'or 11). -->
+     ici pour la phase 6, ou pour la phase 5 si elles décrivent un écran, sans valeur
+     de décision (règle d'or 11). -->
 
 - …

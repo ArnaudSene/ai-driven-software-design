@@ -59,7 +59,7 @@ Les mots-clés suivants, inspirés de la RFC (Request For Comments) 2119, norme 
 
 ## 4. Vue d'ensemble du processus
 
-Le processus comporte 12 phases **ordonnées**. Chaque phase répond à une question centrale et se termine par une **gate** (point de validation humaine).
+Le processus comporte 13 phases **ordonnées**. Chaque phase répond à une question centrale et se termine par une **gate** (point de validation humaine).
 
 | # | Phase | Question centrale | Agent | Livrable principal | Gate |
 |---|---|---|---|---|---|
@@ -67,6 +67,7 @@ Le processus comporte 12 phases **ordonnées**. Chaque phase répond à une ques
 | 2 | [Analyse fonctionnelle](02-analyse-fonctionnelle.md) | Que doit faire le système ? | Analyste métier | `02-exigences-fonctionnelles.md` | G2 |
 | 3 | [Exigences qualité](03-exigences-qualite.md) | Avec quel niveau de qualité ? | Architecte qualité | `03-exigences-qualite.md` | G3 |
 | 4 | [Modélisation du domaine](04-modelisation-domaine.md) | Comment le métier est-il structuré ? | Modélisateur du domaine | `04-domaine.md` | G4 |
+| 5 | [Conception de l'interaction](05-conception-interaction.md) | Comment l'utilisateur accomplit-il ses tâches avec le système ? | Concepteur de l'interaction | `05-interaction.md` + `prototypes/` | G5 |
 | 6 | [Architecture logicielle](06-architecture-logicielle.md) | Comment organiser le système ? | Architecte logiciel | `06-architecture.md` + ADR (Architecture Decision Record) | G6 |
 | 7 | [Choix technologiques](07-choix-technologiques.md) | Avec quels langages, cadriciels, produits ? | Prescripteur technique | `07-choix-techniques.md` + ADR | G7 |
 | 8 | [Données et contrats](08-donnees-contrats.md) | Quelles données, quelles interfaces ? | Architecte données et interfaces | `08-donnees-contrats.md` + `contrats/` | G8 |
@@ -80,7 +81,7 @@ Le processus comporte 12 phases **ordonnées**. Chaque phase répond à une ques
 
 - Les phases 1 à 3 décrivent le **problème**. Elles ne doivent contenir **aucun choix de solution technique**. Une contrainte technique imposée de l'extérieur (« l'entreprise n'utilise que tel nuage ») est une **contrainte** (`C-n`), pas un choix.
 - La phase 4 fait le pont entre le problème et la solution.
-- Les phases 6 à 12 décrivent la **solution**. Chaque décision y cite les exigences qui la motivent.
+- Les phases 5 à 12 décrivent la **solution**. La phase 5 conçoit l'interaction avec l'utilisateur ; les phases 6 à 12 conçoivent le système qui la rend possible. Chaque décision y cite les exigences qui la motivent.
 - La phase 13 commence dès la première ligne de code et ne se termine jamais.
 
 **Ce processus n'est pas un cycle en cascade.** L'ordre indique dans quel sens l'information circule, pas une interdiction de revenir en arrière. Une découverte en phase 8 peut rouvrir une règle de la phase 2 : c'est normal et encadré (§ 14).
@@ -155,7 +156,7 @@ Ces règles priment sur toute autre instruction du guide, sauf demande explicite
 8. **Maintenir la traçabilité à chaque écriture.** Créer ou modifier un élément impose de mettre à jour ses liens amont et aval (§ 12).
 9. **Proportionner l'effort au profil du projet** (§ 10). Ne pas imposer à un prototype la rigueur d'un système critique, et inversement.
 10. **Signaler immédiatement toute contradiction** entre une réponse et un livrable validé, en citant les identifiants concernés.
-11. **Ne pas anticiper la solution pendant les phases 1 à 3.** Si le décideur exprime une solution (« il faut une file de messages »), en extraire le besoin sous-jacent (« les traitements ne doivent pas bloquer la saisie ») et consigner la solution comme piste pour la phase 6.
+11. **Ne pas anticiper la solution pendant les phases 1 à 3.** Si le décideur exprime une solution (« il faut une file de messages »), en extraire le besoin sous-jacent (« les traitements ne doivent pas bloquer la saisie ») et consigner la solution comme piste pour la phase 6, ou pour la phase 5 si elle décrit un écran (« un bouton pour arrêter le calcul » devient « l'utilisateur doit pouvoir interrompre un calcul en cours »).
 12. **Écrire dans les fichiers, pas seulement dans la conversation.** La conversation est éphémère, `conception/` est la mémoire du projet. Une décision non consignée n'existe pas.
 13. **Langue.** Les livrables de conception sont rédigés en français. Les noms qui apparaîtront dans le code (classes, tables, événements, points d'accès) sont en anglais. Le glossaire du domaine fait la correspondance (phase 4).
 14. **Nommer ses incertitudes.** Si l'IA n'est pas sûre d'un fait technique (version d'un produit, comportement d'une bibliothèque), elle le dit et propose une vérification, plutôt que d'affirmer.
@@ -208,6 +209,26 @@ On utilise la méthode MoSCoW (Must, Should, Could, Won't — doit, devrait, pou
 
 Le décideur peut préciser ce critère dans une contrainte de projet (par exemple `C-4`), que les règles citent alors comme arbitre.
 
+### 7.4 Exigences d'interaction (`IR-n`)
+
+Une exigence d'interaction dit ce que l'utilisateur **doit pouvoir faire ou voir** pour accomplir sa tâche, jamais à quoi ressemble l'écran. Elle suit la norme ISO (International Organization for Standardization) 25065:2019, qui distingue deux sortes d'exigences utilisateur :
+
+| Sorte (ISO 25065) | Dans le guide | Exemple |
+|---|---|---|
+| Exigence d'interaction utilisateur-système | `IR-n`, phase 2 | **Tant qu'**un calcul est en cours, l'utilisateur **doit pouvoir** l'interrompre. |
+| Exigence de qualité d'usage (efficacité, efficience, satisfaction) | `QS-n` de capacité d'interaction, phase 3 | Les utilisateurs testés accomplissent une réservation sans aide en moins de [seuil à fixer] minutes. |
+
+Une `IR-n` porte les champs du § 7.1, la règle devenant l'**exigence**, plus le `UC-n` qu'elle sert. Son critère de conformité se vérifie par un test de parcours (phase 11).
+
+Règles :
+
+1. Une `IR-n` cite le `UC-n` qu'elle sert.
+2. Une `IR-n` ne décrit aucune apparence (couleur, position, composant) : « un bouton rouge en haut à droite » est une solution, que la phase 5 concevra.
+3. Un écran ne porte jamais de règle métier : il affiche et transmet. La règle vit dans une `BR-n` et dans le domaine.
+4. Tout écran conçu en phase 5 remonte à au moins un `UC-n`, et toute `IR-n` est satisfaite par au moins un écran.
+5. Un besoin d'interaction significatif pour l'architecture (annuler, défaire, suivre une progression, garder des vues cohérentes) devient un `QS-n` en phase 3, reçoit sa réponse d'interaction en phase 5 et son ADR en phase 6.
+6. Sans utilisateur final, il n'y a pas d'`IR-n`.
+
 ---
 
 ## 8. Identifiants
@@ -225,6 +246,7 @@ Le décideur peut préciser ce critère dans une contrainte de projet (par exemp
 | `UC-n` | Cas d'utilisation | 2 | `02-exigences-fonctionnelles.md` |
 | `BR-n` | Règle métier | 2 | `02-exigences-fonctionnelles.md` |
 | `CA-n` | Critère d'acceptation | 2 | `02-exigences-fonctionnelles.md` |
+| `IR-n` | Exigence d'interaction | 2 | `02-exigences-fonctionnelles.md` |
 | `QS-n` | Scénario d'attribut qualité | 3 | `03-exigences-qualite.md` |
 | `BC-n` | Contexte délimité | 4 | `04-domaine.md` |
 | `ADR-nnnn` | Décision d'architecture | 6+ | `adr/ADR-nnnn-titre.md` |
@@ -276,6 +298,7 @@ Abréviations du tableau ci-dessous : ATAM (Architecture Tradeoff Analysis Metho
 | 2 Analyse fonctionnelle | Allégé (`UC-n` + `BR-n` *Must*) | Complet | Complet |
 | 3 Exigences qualité | Allégé (3 à 5 `QS-n`) | Complet | Complet + revue ATAM |
 | 4 Domaine | Glossaire seul | Complet | Complet |
+| 5 Interaction | Allégé (carte des écrans, états des écrans *Must*, réponses aux besoins significatifs) | Complet | Complet + évaluation du prototype avec des utilisateurs |
 | 6 Architecture | Allégé (C4 niveaux 1–2, 1 à 3 ADR) | Complet | Complet + revue ATAM |
 | 7 Technologies | Allégé | Complet | Complet + preuves de concept |
 | 8 Données et contrats | Allégé | Complet | Complet |
@@ -285,6 +308,8 @@ Abréviations du tableau ci-dessous : ATAM (Architecture Tradeoff Analysis Metho
 | 12 Plan | Complet | Complet | Complet |
 
 « Allégé » signifie : mêmes rubriques, contenu réduit à l'essentiel, liste de contrôle de la gate réduite aux items marqués ★ dans chaque phase.
+
+Sans utilisateur final, c'est-à-dire quand le système ne sert que d'autres systèmes ou des développeurs, la phase 5 se réduit à l'ergonomie de l'API (Application Programming Interface, interface de programmation) ou de la ligne de commande, quel que soit le profil.
 
 ---
 
@@ -301,6 +326,8 @@ conception/
 ├── 02-exigences-fonctionnelles.md
 ├── 03-exigences-qualite.md
 ├── 04-domaine.md
+├── 05-interaction.md                # Écrans, parcours et états (phase 5)
+├── prototypes/                      # Prototypes jetables, jamais livrés
 ├── 06-architecture.md               # Document d'architecture (structure arc42)
 ├── 07-choix-techniques.md
 ├── 08-donnees-contrats.md
@@ -326,6 +353,8 @@ Problème                          Solution                                  Pre
 ────────                          ────────                                  ──────
 OB-n ─► UC-n ─► CA-n ─────────────────────────────────────────────────────► test d'acceptation
           │
+          ├───► IR-n ─► écran (phase 5) ──────────────────────────────────► test de parcours
+          │
           └───► BR-n ─► BR-n.Ek (exemples) ───────────────────────────────► test du domaine
                   │
                   └───────────────► ADR-nnnn ─► composant / module ─► code
@@ -346,6 +375,7 @@ Règles :
 3. Chaque `ADR` cite au moins un `QS-n`, un `C-n` ou un `BR-n` qui le motive.
 4. Chaque `QS-n` *Must* est couvert par un `ADR`, un `FF-n` ou un `SLO-n`.
 5. `conception/tracabilite.md` est mis à jour au temps *Consigner* de chaque phase. Toute ligne orpheline (élément sans lien amont ou aval attendu) est signalée au décideur.
+6. Chaque `IR-n` remonte à un `UC-n`, est satisfaite par au moins un écran (phase 5) et descend vers un test de parcours prévu (phase 11).
 
 ---
 

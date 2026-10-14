@@ -14,7 +14,7 @@
 
 ## 1. Pourquoi cette phase
 
-Elle fait le pont entre le problème (phases 1 à 3) et la solution (phases 6 à 12). Elle répond à trois questions qui conditionnent toute l'architecture :
+Elle fait le pont entre le problème (phases 1 à 3) et la solution (phases 5 à 12). Elle répond à trois questions qui conditionnent toute l'architecture :
 
 1. **Quels mots** utilise-t-on, avec quel sens exact ? (langage omniprésent)
 2. **Où sont les frontières** naturelles du métier ? (contextes délimités)

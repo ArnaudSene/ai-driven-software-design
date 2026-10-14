@@ -4,7 +4,7 @@
 |---|---|
 | Question centrale | Comment organiser le système pour satisfaire les exigences qualité ? |
 | Agent | [`prompts/architecte-logiciel.md`](../prompts/architecte-logiciel.md) |
-| Entrées | Phases 1 à 4 validées ; en priorité les `QS-n` architecturalement significatifs et les `BC-n` |
+| Entrées | Phases 1 à 5 validées ; en priorité les `QS-n` architecturalement significatifs, les `BC-n` et les réponses d'interaction de la phase 5 |
 | Sorties | `conception/06-architecture.md` (structure arc42), `conception/adr/`, `diagrammes/` |
 | Identifiants créés | `ADR-nnnn` |
 | Gabarits | [`templates/06-architecture.md`](../templates/06-architecture.md), [`templates/adr.md`](../templates/adr.md) |
@@ -31,6 +31,7 @@ On confond souvent des réponses à des questions différentes. Clean Architectu
 | Découpage et déploiement | Combien d'unités déployables ? | Monolithe, monolithe modulaire, services, microservices, fonctions serverless |
 | Communication | Comment les modules se parlent-ils ? | Appel direct en mémoire, requête-réponse synchrone, messages ou événements asynchrones |
 | Données | Qui possède quelles données ? Quelle cohérence ? | Base partagée, base par module, cohérence forte ou à terme |
+| Interfaces utilisateur | Comment chaque interface obtient-elle ses données ? | Une API (Application Programming Interface) commune ; un BFF (Backend for Frontend) par interface quand leurs besoins divergent |
 | Lecture et écriture | Un seul modèle pour lire et écrire ? | Modèle unique, CQRS (Command Query Responsibility Segregation, séparation des commandes et des requêtes), sourcing d'événements |
 
 La modélisation peut **varier d'un contexte à l'autre** : modèle riche et architecture hexagonale pour un contexte *Cœur*, simple CRUD pour un contexte *Support*.
@@ -61,9 +62,10 @@ Pour chaque `QS-n` architecturalement significatif, l'agent propose des **tactiq
 | Modifiabilité | Encapsulation, inversion des dépendances, configuration externe, règles paramétrables, frontières de modules |
 | Sécurité | Défense en profondeur, moindre privilège, validation aux frontières, chiffrement, journalisation d'audit |
 | Testabilité | Injection de dépendances, domaine pur sans entrées-sorties, horloge injectable, données de test reproductibles |
+| Utilisabilité (capacité d'interaction) | Soutenir l'initiative de l'utilisateur : annuler, défaire, suspendre et reprendre, agréger. Soutenir l'initiative du système : tenir un modèle de la tâche, de l'utilisateur et du système (*Software Architecture in Practice*, 3ᵉ édition) |
 | Cohérence entre modules | Transaction locale, patron *outbox* transactionnel, saga avec compensation, idempotence des consommateurs |
 
-Chaque tactique retenue est justifiée dans un ADR (Architecture Decision Record, registre de décision d'architecture).
+Chaque tactique retenue est justifiée dans un ADR (Architecture Decision Record, registre de décision d'architecture). Les besoins d'interaction significatifs (phase 3), dont la phase 5 a décrit l'interaction, se traitent comme tout `QS-n` significatif.
 
 ### 2.4 Registres de décision d'architecture (`ADR-nnnn`)
 
@@ -173,6 +175,7 @@ Les choix de **produits** (quelle base de données, quel cadriciel) ne sont **pa
 
 - [ ] ★ La stratégie de solution fait l'objet d'un ADR qui compare au moins deux options.
 - [ ] ★ Chaque `QS-n` significatif est traité par un ADR ou une section nommée du document.
+- [ ] Chaque besoin d'interaction significatif, dont la phase 5 a décrit l'interaction, a son ADR.
 - [ ] ★ Les diagrammes C4 de niveaux 1 et 2 existent et sont cohérents avec la carte des contextes.
 - [ ] Chaque ADR cite les exigences qui le motivent et indique comment il sera vérifié.
 - [ ] Chaque `BC-n` correspond à un module ou à un service identifié.

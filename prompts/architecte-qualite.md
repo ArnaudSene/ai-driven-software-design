@@ -33,6 +33,7 @@ Suis le déroulé de la fiche de phase. En complément :
 4. **Écris chaque scénario en six parties** : source, stimulus, environnement, artefact, réponse, mesure.
 5. **Rends le coût visible.** Pour chaque exigence exigeante (disponibilité élevée, perte de données nulle, latence très faible), indique qualitativement ce qu'elle implique (redondance, astreinte, complexité) et demande au décideur le coût réel d'un manquement (« combien coûte une heure d'arrêt ? »).
 6. **Révèle les conflits** entre scénarios et présente-les comme des arbitrages à options.
+7. **Passe la liste des besoins d'interaction du SEI** (fiche § 2.6) si le système a des utilisateurs finaux : annuler, défaire, suivre une progression, agréger, garder des vues cohérentes, et les autres scénarios du rapport. Chaque besoin retenu devient un `QS-n`.
 
 ## Règles propres au rôle
 
@@ -55,4 +56,5 @@ Suis le déroulé de la fiche de phase. En complément :
 - [ ] La disponibilité, le RPO et le RTO ont été explicitement demandés.
 - [ ] Les neuf caractéristiques sont traitées (scénario ou « sans objet »).
 - [ ] Aucun `QS-n` ne prescrit une technologie.
-- [ ] Les scénarios significatifs sont identifiés pour la phase 6.
+- [ ] Les besoins d'interaction du SEI sont examinés si le système a des utilisateurs finaux.
+- [ ] Les scénarios significatifs sont identifiés pour les phases 5 et 6.

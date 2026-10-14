@@ -20,6 +20,7 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **ATAM** | Architecture Tradeoff Analysis Method | Méthode du SEI d'évaluation d'une architecture face à ses scénarios qualité. |
 | **BC** | Bounded Context | Contexte délimité : frontière à l'intérieur de laquelle un modèle et son langage sont cohérents. Préfixe `BC-n`. |
 | **BDD** | Behavior-Driven Development | Développement piloté par le comportement : spécifications sous forme d'exemples exécutables. |
+| **BFF** | Backend for Frontend | Patron qui donne à chaque interface utilisateur son propre service d'accès aux données, quand leurs besoins divergent (Sam Newman). |
 | **BR** | Business Rule | Règle métier. Préfixe `BR-n`. |
 | **C4** | Context, Containers, Components, Code | Modèle de diagrammes d'architecture de Simon Brown, en quatre niveaux de zoom. |
 | **CA** | Critère d'acceptation | Condition, exprimée en *Étant donné / Quand / Alors*, à laquelle un cas d'utilisation est considéré comme livré. Préfixe `CA-n`. |
@@ -39,6 +40,7 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **FF** | Fitness Function | Fonction d'aptitude : test automatisé d'une caractéristique de l'architecture. Préfixe `FF-n`. |
 | **gRPC** | gRPC Remote Procedure Calls | Protocole d'appel de procédure distante fondé sur HTTP/2 et Protocol Buffers. |
 | **HDS** | Hébergeur de données de santé | Certification française exigée pour héberger des données de santé. |
+| **HTML** | HyperText Markup Language | Langage de description des pages web ; format des prototypes jetables de la phase 5. |
 | **HTTP** | Hypertext Transfer Protocol | Protocole de transfert du web. |
 | **IA** | Intelligence artificielle | Ici : l'agent, fondé sur un grand modèle de langage, qui conduit le processus. |
 | **IaaS** | Infrastructure as a Service | Infrastructure (machines, réseau, stockage) louée à la demande. |
@@ -47,6 +49,7 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **IETF** | Internet Engineering Task Force | Organisme de normalisation des protocoles de l'Internet. |
 | **INC** | Incrément | Tranche verticale de réalisation. Préfixe `INC-n`. |
 | **INVEST** | Independent, Negotiable, Valuable, Estimable, Small, Testable | Critères de qualité d'un récit utilisateur. |
+| **IR** | Interaction Requirement | Exigence d'interaction : ce que l'utilisateur doit pouvoir faire ou voir, sans rien dire de l'apparence de l'écran. Préfixe `IR-n`. |
 | **ISO** | International Organization for Standardization | Organisation internationale de normalisation. |
 | **JSON** | JavaScript Object Notation | Format texte d'échange de données structurées. |
 | **LTS** | Long-Term Support | Version bénéficiant d'un support prolongé. |
@@ -91,9 +94,11 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **SRC** | Source | Document existant lu sans être modifié, cité par son identifiant `SRC-n` (principes § 16). |
 | **SSO** | Single Sign-On | Authentification unique pour plusieurs applications. |
 | **STRIDE** | Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege | Classification des menaces : usurpation, altération, répudiation, divulgation, déni de service, élévation de privilège. |
+| **SUS** | System Usability Scale | Questionnaire de dix questions qui donne un score de satisfaction de 0 à 100 (John Brooke) ; d'usage courant, jamais normalisé. |
 | **TCO** | Total Cost of Ownership | Coût total de possession. |
 | **TDD** | Test-Driven Development | Développement piloté par les tests : le test est écrit avant le code. |
 | **TLS** | Transport Layer Security | Protocole de chiffrement des communications. |
+| **TR** | Technical Report | Rapport technique de l'ISO : document de référence qui n'a pas le statut de norme. |
 | **UC** | Use Case | Cas d'utilisation. Préfixe `UC-n`. |
 | **URL** | Uniform Resource Locator | Adresse d'une ressource sur le web. |
 | **USE** | Utilization, Saturation, Errors | Méthode de supervision d'une ressource : utilisation, saturation, erreurs. |
@@ -122,12 +127,16 @@ Le registre complet des préfixes est dans [00-principes § 8](00-principes.md#8
 | **arc42** | Gabarit de documentation d'architecture en douze sections (Gernot Starke, Peter Hruschka). |
 | **Architecture hexagonale** | Organisation du code où le domaine ne dépend de rien et communique avec l'extérieur par des *ports* implémentés par des *adaptateurs* (Alistair Cockburn). Aussi appelée « ports et adaptateurs ». |
 | **Clean Architecture** | Variante de l'architecture hexagonale formalisée par Robert C. Martin, fondée sur la règle de dépendance vers le centre. |
+| **Besoins par écran** | Les données qu'un écran lit et les actions qu'il envoie ; décrits en phase 5, ils alimentent les contrats de la phase 8. |
 | **Budget d'erreur** | Part d'indisponibilité ou d'erreurs tolérée par un SLO (Service Level Objective) sur une fenêtre de temps. |
 | **Carte des contextes** | Diagramme des contextes délimités et des patrons de relation entre eux. |
+| **Carte des écrans** | Les écrans d'un système, ce qu'on peut y faire et les liens entre eux ; établie en phase 5. |
 | **Critère de conformité** | Condition mesurable qui permet d'écrire un test échouant de façon déterministe quand une règle est violée. |
+| **Contexte d'usage** | Les utilisateurs, leurs objectifs, leurs tâches et l'environnement dans lequel ils se servent du système (ISO/IEC 25063). Esquissé en phase 1. |
 | **Décideur** | Humain qui porte la vision du produit, arbitre et valide les gates. |
 | **Event Storming** | Atelier de modélisation par les événements métier (Alberto Brandolini). |
 | **Example Mapping** | Atelier de découverte des règles et des exemples à l'aide de quatre types de cartes (Matt Wynne). |
+| **États d'un écran** | Ce que montre un écran quand il est vide, en chargement, en erreur, partiel, périmé, sans droits suffisants ou après un succès. Décrits en phase 5. |
 | **Frontière de confiance** | Point où une donnée ou une requête passe d'un niveau de confiance à un autre. |
 | **Gate** | Point de validation humaine qui clôt une phase. |
 | **Gherkin** | Syntaxe *Given / When / Then* (*Étant donné / Quand / Alors*) de description de scénarios de test. |
@@ -136,7 +145,9 @@ Le registre complet des préfixes est dans [00-principes § 8](00-principes.md#8
 | **Monolithe modulaire** | Application déployée d'un seul bloc mais découpée en modules aux frontières strictes. |
 | **Orchestrateur** | Agent IA (intelligence artificielle) qui conduit le processus de conception. |
 | **Outbox transactionnel** | Patron qui enregistre un événement dans la même transaction que la modification métier, puis le publie de façon fiable. |
+| **Prototype jetable** | Prototype cliquable des parcours, généré en phase 5 pour valider l'interaction, jamais repris dans le produit. |
 | **Saga** | Enchaînement de transactions locales avec des actions de compensation en cas d'échec. |
+| **Schéma d'écran** | Esquisse d'un écran en basse fidélité, sans couleur ni style, qui montre ce qu'on y voit et ce qu'on peut y faire. |
 | **Seuil à fixer** | Marqueur « [seuil à fixer] » d'une valeur attendue du décideur ; toujours rattaché à une OD (Open Decision). |
 | **Sourcing d'événements** | Persistance de l'état sous la forme de la suite des événements qui l'ont produit (*event sourcing*). |
 | **Sous-domaine** | Partie du métier, classée *Cœur*, *Support* ou *Générique*. |

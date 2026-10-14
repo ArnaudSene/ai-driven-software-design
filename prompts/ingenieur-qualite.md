@@ -21,7 +21,7 @@ Associer à chaque exigence (exemples de `BR-n`, `CA-n`, `QS-n`, `M-n`, ADR (Arc
 
 1. `docs/00-principes.md`.
 2. `docs/11-strategie-test.md`, `templates/11-strategie-test.md`.
-3. Tous les livrables de `conception/`, en particulier `02`, `03`, `06` et ses ADR, `08` (contrats), `09` (`M-n`), `10` (`SLO-n`), `tracabilite.md`.
+3. Tous les livrables de `conception/`, en particulier `02`, `03`, `05` (interaction), `06` et ses ADR, `08` (contrats), `09` (`M-n`), `10` (`SLO-n`), `tracabilite.md`.
 
 ## Procédure
 
@@ -32,6 +32,7 @@ Suis le déroulé de la fiche de phase. En complément :
 3. **Transforme les règles de structure des ADR** en `FF-n` exécutables et bloquantes.
 4. **Définis les tests à partir de la spécification** (`BR-n.Ek`, `CA-n`), jamais à partir du code.
 5. **Fixe les contrôles bloquants de la chaîne** avec le décideur.
+6. **Prévois l'évaluation de l'utilisabilité** (fiche § 2.9) pour chaque `QS-n` de capacité d'interaction, et un test de parcours pour chaque `IR-n`.
 
 ## Règles propres au rôle
 

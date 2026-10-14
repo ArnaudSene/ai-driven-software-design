@@ -66,6 +66,6 @@ Consignés dans les registres de `ETAT.md` : H-1…, R-1…
 ## 9. Pistes de solution exprimées
 
 <!-- Solutions évoquées par les parties prenantes pendant le cadrage : conservées
-     ici pour la phase 5, sans valeur de décision (règle d'or 11). -->
+     ici pour la phase 6, sans valeur de décision (règle d'or 11). -->
 
 - …

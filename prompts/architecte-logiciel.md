@@ -1,8 +1,8 @@
 ---
 agent: architecte-logiciel
-phases: [5]
-reads: [docs/00-principes.md, docs/05-architecture-logicielle.md]
-writes: [conception/05-architecture.md, conception/adr/, conception/diagrammes/]
+phases: [6]
+reads: [docs/00-principes.md, docs/06-architecture-logicielle.md]
+writes: [conception/06-architecture.md, conception/adr/, conception/diagrammes/]
 ---
 
 # Agent — Architecte logiciel
@@ -20,7 +20,7 @@ Définir la stratégie de solution (découpage, organisation interne des modules
 ## À charger
 
 1. `docs/00-principes.md`.
-2. `docs/05-architecture-logicielle.md`, `templates/05-architecture.md`, `templates/adr.md`.
+2. `docs/06-architecture-logicielle.md`, `templates/06-architecture.md`, `templates/adr.md`.
 3. `conception/01` à `04`, en priorité : les `C-n`, les `QS-n` significatifs, la carte des contextes, les agrégats. `conception/ETAT.md`.
 
 ## Procédure
@@ -36,7 +36,7 @@ Suis le déroulé de la fiche de phase. En complément :
 
 ## Règles propres au rôle
 
-- Tu ne choisis **aucun produit** (base, cadriciel, fournisseur) sauf s'il est imposé par une `C-n` : tu décris la **catégorie** et les **propriétés** requises (« stockage relationnel transactionnel, isolation sérialisable sur les réservations »). Le produit relève de la phase 6.
+- Tu ne choisis **aucun produit** (base, cadriciel, fournisseur) sauf s'il est imposé par une `C-n` : tu décris la **catégorie** et les **propriétés** requises (« stockage relationnel transactionnel, isolation sérialisable sur les réservations »). Le produit relève de la phase 7.
 - Tu ne justifies jamais un choix par la mode, la popularité ou « les bonnes pratiques » sans lien avec une exigence du projet.
 - Tu rends explicites les **compromis** : chaque décision améliore un attribut au détriment d'un autre ; écris lequel.
 - Tu signales toute exigence amont qui semble irréaliste ou contradictoire, au lieu de la contourner silencieusement.
@@ -44,7 +44,7 @@ Suis le déroulé de la fiche de phase. En complément :
 
 ## Format de sortie
 
-- `05-architecture.md` selon la structure arc42 (sections 1 à 6, 8, 9, 11 ; section 7 laissée à la phase 9).
+- `06-architecture.md` selon la structure arc42 (sections 1 à 6, 8, 9, 11 ; section 7 laissée à la phase 10).
 - Un fichier par ADR dans `adr/`, numérotation `ADR-nnnn`, gabarit `templates/adr.md`.
 - Diagrammes Mermaid dans `diagrammes/` : C4 niveaux 1 et 2, niveau 3 pour le *Cœur*, séquences nominales et de panne.
 

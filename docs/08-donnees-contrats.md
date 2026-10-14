@@ -1,14 +1,14 @@
-# Phase 7 — Données et contrats d'interface
+# Phase 8 — Données et contrats d'interface
 
 | Clé | Valeur |
 |---|---|
 | Question centrale | Quelles données, détenues par qui, et quelles interfaces entre les parties du système et avec l'extérieur ? |
 | Agent | [`prompts/architecte-donnees-interfaces.md`](../prompts/architecte-donnees-interfaces.md) |
-| Entrées | `02-exigences-fonctionnelles.md`, `04-domaine.md`, `05-architecture.md`, `06-choix-techniques.md` |
-| Sorties | `conception/07-donnees-contrats.md`, `conception/contrats/` |
+| Entrées | `02-exigences-fonctionnelles.md`, `04-domaine.md`, `06-architecture.md`, `07-choix-techniques.md` |
+| Sorties | `conception/08-donnees-contrats.md`, `conception/contrats/` |
 | Identifiants créés | Aucun nouveau préfixe ; les contrats sont identifiés par leur nom et leur version |
-| Gabarit | [`templates/07-donnees-contrats.md`](../templates/07-donnees-contrats.md) |
-| Gate | G7 |
+| Gabarit | [`templates/08-donnees-contrats.md`](../templates/08-donnees-contrats.md) |
+| Gate | G8 |
 
 ---
 
@@ -66,7 +66,7 @@ Chaque ensemble de données reçoit :
 | Fin de vie | Archivage, anonymisation ou purge, et qui la déclenche |
 | Volume estimé | Repris du profil de charge de la phase 3 |
 
-Cette classification alimente directement la phase 8.
+Cette classification alimente directement la phase 9.
 
 ### 2.5 Évolution du schéma
 
@@ -101,7 +101,7 @@ Règles de conception d'une API (Application Programming Interface, interface de
 5. **Concurrence** : contrôle optimiste (en-têtes `ETag` / `If-Match`) sur les ressources modifiables par plusieurs acteurs.
 6. **Versionnement** : stratégie unique (dans le chemin, un en-tête, ou pas de version et évolutions uniquement compatibles).
 7. **Compatibilité** : ajouter un champ optionnel est compatible ; supprimer, renommer ou rendre obligatoire ne l'est pas et exige une nouvelle version et une période de dépréciation annoncée.
-8. **Sécurité** : mécanisme d'authentification de chaque point d'accès, précisé en phase 8.
+8. **Sécurité** : mécanisme d'authentification de chaque point d'accès, précisé en phase 9.
 
 ### 2.8 Événements
 
@@ -131,7 +131,7 @@ Pour chaque système externe : contrat utilisé (fourni par le tiers ou à négo
 | 6 | Rédige les règles de conception des API, puis les contrats des `UC-n` *Must*. | Relit. |
 | 7 | Rédige le catalogue des événements et le contrat AsyncAPI. | Relit. |
 | 8 | Décrit chaque intégration externe. | Fournit la documentation des tiers. |
-| 9 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G7. |
+| 9 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G8. |
 
 ## 4. Banque de questions
 
@@ -146,12 +146,12 @@ Pour chaque système externe : contrat utilisé (fourni par le tiers ou à négo
 
 | Fichier | Contenu minimal |
 |---|---|
-| `07-donnees-contrats.md` | Propriété, modèles logiques, choix transverses, classification et cycle de vie, stratégie de migration, reprise, règles d'API, catalogue d'événements, intégrations |
+| `08-donnees-contrats.md` | Propriété, modèles logiques, choix transverses, classification et cycle de vie, stratégie de migration, reprise, règles d'API, catalogue d'événements, intégrations |
 | `contrats/openapi.yaml` | Points d'accès des `UC-n` *Must* |
 | `contrats/asyncapi.yaml` | Événements publiés entre contextes |
 | `diagrammes/` | Modèles de données Mermaid |
 
-## 6. Liste de contrôle de la gate G7
+## 6. Liste de contrôle de la gate G8
 
 - [ ] ★ Chaque donnée a un contexte propriétaire unique.
 - [ ] ★ Montants, dates et identifiants suivent les choix transverses tranchés.

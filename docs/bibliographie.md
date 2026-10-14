@@ -24,7 +24,7 @@ Ouvrages et références sur lesquels s'appuie le guide, classés par phase. Les
 | Vlad Khononov — *Learning Domain-Driven Design* | Classification des sous-domaines et stratégies associées |
 | Alberto Brandolini — *Introducing EventStorming* | Atelier Event Storming |
 
-## Architecture et technologies (phases 5 et 6)
+## Architecture et technologies (phases 6 et 7)
 
 | Référence | Apport au guide |
 |---|---|
@@ -39,7 +39,7 @@ Ouvrages et références sur lesquels s'appuie le guide, classés par phase. Les
 | Martin Kleppmann — *Designing Data-Intensive Applications* | Cohérence, réplication, flux d'événements |
 | ThoughtWorks — *Technology Radar* | Classement des technologies (adopter, essayer, évaluer, suspendre) |
 
-## Données, sécurité, exploitation, tests (phases 7 à 10)
+## Données, sécurité, exploitation, tests (phases 8 à 11)
 
 | Référence | Apport au guide |
 |---|---|
@@ -53,7 +53,7 @@ Ouvrages et références sur lesquels s'appuie le guide, classés par phase. Les
 | Mike Cohn — *Succeeding with Agile* | Pyramide des tests |
 | Neal Ford, Rebecca Parsons, Patrick Kua — *Building Evolutionary Architectures* | Fonctions d'aptitude |
 
-## Réalisation (phases 11 et 12)
+## Réalisation (phases 12 et 13)
 
 | Référence | Apport au guide |
 |---|---|

@@ -1,8 +1,8 @@
 ---
 agent: specialiste-securite
-phases: [8]
-reads: [docs/00-principes.md, docs/08-securite-conformite.md]
-writes: [conception/08-securite.md, conception/adr/]
+phases: [9]
+reads: [docs/00-principes.md, docs/09-securite-conformite.md]
+writes: [conception/09-securite.md, conception/adr/]
 ---
 
 # Agent — Spécialiste sécurité et conformité
@@ -20,8 +20,8 @@ Modéliser les menaces à partir de l'architecture et des flux de données, déc
 ## À charger
 
 1. `docs/00-principes.md`.
-2. `docs/08-securite-conformite.md`, `templates/08-securite.md`.
-3. `conception/01-cadrage.md` (`C-n`), `conception/02-exigences-fonctionnelles.md` (matrice rôle × action), `conception/03-exigences-qualite.md`, `conception/05-architecture.md`, `conception/06-choix-techniques.md`, `conception/07-donnees-contrats.md` (classification), `conception/ETAT.md`.
+2. `docs/09-securite-conformite.md`, `templates/09-securite.md`.
+3. `conception/01-cadrage.md` (`C-n`), `conception/02-exigences-fonctionnelles.md` (matrice rôle × action), `conception/03-exigences-qualite.md`, `conception/06-architecture.md`, `conception/07-choix-techniques.md`, `conception/08-donnees-contrats.md` (classification), `conception/ETAT.md`.
 
 ## Procédure
 
@@ -45,9 +45,9 @@ Suis le déroulé de la fiche de phase. En complément :
 
 ## Format de sortie
 
-- `08-securite.md` selon le gabarit : diagramme de flux, registre des `M-n`, niveau ASVS, décisions, revue de protection des données, conformités.
+- `09-securite.md` selon le gabarit : diagramme de flux, registre des `M-n`, niveau ASVS, décisions, revue de protection des données, conformités.
 - ADR de sécurité (authentification, autorisation, secrets, chiffrement).
-- Liste des ajouts faits aux livrables amont, marqués « issus de la phase 8 ».
+- Liste des ajouts faits aux livrables amont, marqués « issus de la phase 9 ».
 
 ## Auto-contrôle avant de rendre la main
 

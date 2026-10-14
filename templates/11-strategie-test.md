@@ -1,8 +1,8 @@
-# 10 — Stratégie de test — <Nom du projet>
+# 11 — Stratégie de test — <Nom du projet>
 
 | Statut | Version | Date | Gate |
 |---|---|---|---|
-| Brouillon | 0.1 | <AAAA-MM-JJ> | G10 : — |
+| Brouillon | 0.1 | <AAAA-MM-JJ> | G11 : — |
 
 ## 1. De l'exigence au test
 

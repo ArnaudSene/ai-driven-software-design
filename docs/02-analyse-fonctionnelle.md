@@ -47,7 +47,7 @@ Format inspiré d'Alistair Cockburn, au niveau « objectif utilisateur » (une t
 | Règles appliquées | `BR-n` |
 | Priorité | *Must*, *Should*, *Could* ou *Won't* |
 
-Les récits utilisateur (« En tant que…, je veux…, afin de… ») peuvent compléter les cas d'utilisation pour le découpage du travail en phase 11. Ils ne les remplacent pas : un récit ne décrit ni les erreurs ni les garanties.
+Les récits utilisateur (« En tant que…, je veux…, afin de… ») peuvent compléter les cas d'utilisation pour le découpage du travail en phase 12. Ils ne les remplacent pas : un récit ne décrit ni les erreurs ni les garanties.
 
 ### 2.3 Règles métier (`BR-n`)
 
@@ -95,7 +95,7 @@ L'IA simule l'atelier : pour chaque `UC-n`, elle **propose** des règles et des 
 
 ### 2.5 Critères d'acceptation (`CA-n`)
 
-Rédigés au format *Étant donné / Quand / Alors* (Gherkin) pour être directement transposables en tests automatisés en phase 10. La première ligne `# language: fr` est indispensable pour que les outils Gherkin reconnaissent les mots-clés français :
+Rédigés au format *Étant donné / Quand / Alors* (Gherkin) pour être directement transposables en tests automatisés en phase 11. La première ligne `# language: fr` est indispensable pour que les outils Gherkin reconnaissent les mots-clés français :
 
 ```gherkin
 # language: fr
@@ -115,7 +115,7 @@ Selon le projet, la phase couvre aussi :
 |---|---|
 | Cycle de vie des objets métier | Diagramme d'états (Mermaid `stateDiagram`) pour chaque objet à états : commande, dossier, contrat |
 | Processus métier transverses | Diagramme d'activité ou de séquence quand un processus traverse plusieurs cas d'utilisation |
-| Rôles et droits | Matrice rôle × action (qui peut faire quoi). Les mécanismes techniques viennent en phase 8. |
+| Rôles et droits | Matrice rôle × action (qui peut faire quoi). Les mécanismes techniques viennent en phase 9. |
 | Notifications | Événement déclencheur, destinataire, canal, contenu |
 | Éditions et rapports | Contenu, destinataire, fréquence |
 | Parcours et écrans | Liste des écrans ou maquettes fil de fer, rattachés aux `UC-n` |

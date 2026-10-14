@@ -1,8 +1,8 @@
-# 08 — Sécurité et conformité — <Nom du projet>
+# 09 — Sécurité et conformité — <Nom du projet>
 
 | Statut | Version | Date | Gate |
 |---|---|---|---|
-| Brouillon | 0.1 | <AAAA-MM-JJ> | G8 : — |
+| Brouillon | 0.1 | <AAAA-MM-JJ> | G9 : — |
 
 ## 1. Diagramme de flux de données et frontières de confiance
 

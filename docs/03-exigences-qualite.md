@@ -16,7 +16,7 @@
 
 Deux systèmes qui offrent exactement les mêmes fonctions peuvent exiger des architectures radicalement différentes. Ce qui les distingue, ce sont les **attributs qualité** : performance, disponibilité, sécurité, facilité de modification…
 
-**Ce sont eux, et non les fonctionnalités, qui dictent l'architecture.** Une architecture choisie sans exigences qualité explicites est choisie par habitude ou par effet de mode. Cette phase est donc le principal intrant des phases 5 à 9.
+**Ce sont eux, et non les fonctionnalités, qui dictent l'architecture.** Une architecture choisie sans exigences qualité explicites est choisie par habitude ou par effet de mode. Cette phase est donc le principal intrant des phases 6 à 10.
 
 ## 2. Concepts et méthodes
 
@@ -93,7 +93,7 @@ On classe chaque `QS-n` selon deux axes, notés H/M/B (haut, moyen, bas) :
 - **importance métier**, fixée par le décideur ;
 - **difficulté technique**, estimée par l'agent.
 
-Les scénarios (H, H) et (H, M) sont **architecturalement significatifs** : la phase 5 doit répondre explicitement à chacun d'eux par un ADR (Architecture Decision Record, registre de décision d'architecture) ou un choix de style documenté.
+Les scénarios (H, H) et (H, M) sont **architecturalement significatifs** : la phase 6 doit répondre explicitement à chacun d'eux par un ADR (Architecture Decision Record, registre de décision d'architecture) ou un choix de style documenté.
 
 ### 2.5 Exigences transverses souvent oubliées
 

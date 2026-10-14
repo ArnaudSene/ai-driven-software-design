@@ -1,4 +1,4 @@
-# Phase 12 — Évolution de la conception
+# Phase 13 — Évolution de la conception
 
 | Clé | Valeur |
 |---|---|
@@ -15,7 +15,7 @@
 
 Une conception qui n'est pas maintenue devient **fausse**, et une documentation fausse est pire qu'une absence de documentation : elle trompe les humains comme les agents IA (intelligence artificielle), qui la suivront à la lettre.
 
-La phase 12 commence avec la première ligne de code et ne s'arrête qu'au retrait du système.
+La phase 13 commence avec la première ligne de code et ne s'arrête qu'au retrait du système.
 
 ## 2. Concepts et méthodes
 
@@ -31,8 +31,8 @@ La phase 12 commence avec la première ligne de code et ne s'arrête qu'au retra
 | Incident de production | Analyse ; vérification des `QS-n`, `SLO-n` et `M-n` concernés ; mise à jour si l'exigence ou la mesure était fausse |
 | `SLO-n` régulièrement manqué ou toujours largement tenu | Revoir le `QS-n` d'origine avec le décideur |
 | Mesure des `OB-n` après mise en production | Retour en phase 1 si l'objectif n'est pas atteint : le problème était-il bien compris ? |
-| Nouvelle vulnérabilité ou nouvelle obligation légale | Phase 8, puis impacts |
-| Fin de support d'une technologie | Phase 6, nouvel ADR |
+| Nouvelle vulnérabilité ou nouvelle obligation légale | Phase 9, puis impacts |
+| Fin de support d'une technologie | Phase 7, nouvel ADR |
 
 ### 2.2 Procédure de changement
 

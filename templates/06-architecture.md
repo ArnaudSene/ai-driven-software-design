@@ -1,11 +1,11 @@
-# 05 — Architecture — <Nom du projet>
+# 06 — Architecture — <Nom du projet>
 
 <!-- Structure arc42. Les sections alimentées par d'autres phases renvoient aux
      livrables correspondants au lieu de les recopier. -->
 
 | Statut | Version | Date | Gate |
 |---|---|---|---|
-| Brouillon | 0.1 | <AAAA-MM-JJ> | G5 : — |
+| Brouillon | 0.1 | <AAAA-MM-JJ> | G6 : — |
 
 ## 1. Introduction et objectifs
 
@@ -71,7 +71,7 @@ sequenceDiagram
 
 ## 7. Vue de déploiement
 
-<!-- Remplie en phase 9. -->
+<!-- Remplie en phase 10. -->
 
 ## 8. Concepts transverses
 

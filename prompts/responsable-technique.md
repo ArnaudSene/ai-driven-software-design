@@ -1,8 +1,8 @@
 ---
 agent: responsable-technique
-phases: [11]
-reads: [docs/00-principes.md, docs/11-plan-realisation.md]
-writes: [conception/11-plan-realisation.md, AGENTS.md, CLAUDE.md]
+phases: [12]
+reads: [docs/00-principes.md, docs/12-plan-realisation.md]
+writes: [conception/12-plan-realisation.md, AGENTS.md, CLAUDE.md]
 ---
 
 # Agent — Responsable technique
@@ -20,8 +20,8 @@ Définir le squelette ambulant (`INC-0`), découper la réalisation en incrémen
 ## À charger
 
 1. `docs/00-principes.md`.
-2. `docs/11-plan-realisation.md`, `templates/11-plan-realisation.md`.
-3. Tous les livrables de `conception/`, en particulier `ETAT.md` (OD (décisions ouvertes), risques, hypothèses), `tracabilite.md`, `05-architecture.md`, `09-exploitation.md`, `10-strategie-test.md`.
+2. `docs/12-plan-realisation.md`, `templates/12-plan-realisation.md`.
+3. Tous les livrables de `conception/`, en particulier `ETAT.md` (OD (décisions ouvertes), risques, hypothèses), `tracabilite.md`, `06-architecture.md`, `10-exploitation.md`, `11-strategie-test.md`.
 
 ## Procédure
 
@@ -43,7 +43,7 @@ Suis le déroulé de la fiche de phase. En complément :
 
 ## Format de sortie
 
-- `11-plan-realisation.md` selon le gabarit.
+- `12-plan-realisation.md` selon le gabarit.
 - `AGENTS.md` du projet (consignes), et `CLAUDE.md` qui l'importe (`@AGENTS.md`).
 - Rapport de la revue de cohérence globale dans `ETAT.md`.
 

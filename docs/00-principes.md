@@ -67,23 +67,23 @@ Le processus comporte 12 phases **ordonnées**. Chaque phase répond à une ques
 | 2 | [Analyse fonctionnelle](02-analyse-fonctionnelle.md) | Que doit faire le système ? | Analyste métier | `02-exigences-fonctionnelles.md` | G2 |
 | 3 | [Exigences qualité](03-exigences-qualite.md) | Avec quel niveau de qualité ? | Architecte qualité | `03-exigences-qualite.md` | G3 |
 | 4 | [Modélisation du domaine](04-modelisation-domaine.md) | Comment le métier est-il structuré ? | Modélisateur du domaine | `04-domaine.md` | G4 |
-| 5 | [Architecture logicielle](05-architecture-logicielle.md) | Comment organiser le système ? | Architecte logiciel | `05-architecture.md` + ADR (Architecture Decision Record) | G5 |
-| 6 | [Choix technologiques](06-choix-technologiques.md) | Avec quels langages, cadriciels, produits ? | Prescripteur technique | `06-choix-techniques.md` + ADR | G6 |
-| 7 | [Données et contrats](07-donnees-contrats.md) | Quelles données, quelles interfaces ? | Architecte données et interfaces | `07-donnees-contrats.md` + `contrats/` | G7 |
-| 8 | [Sécurité et conformité](08-securite-conformite.md) | Contre quoi se protéger, quelles obligations respecter ? | Spécialiste sécurité | `08-securite.md` | G8 |
-| 9 | [Infrastructure et exploitation](09-infrastructure-exploitation.md) | Où et comment le système tourne-t-il ? | Ingénieur fiabilité et plateforme | `09-exploitation.md` | G9 |
-| 10 | [Stratégie de test](10-strategie-test.md) | Comment prouver la conformité ? | Ingénieur qualité | `10-strategie-test.md` | G10 |
-| 11 | [Plan de réalisation](11-plan-realisation.md) | Dans quel ordre construire, et comment démarrer ? | Responsable technique | `11-plan-realisation.md` | G11 |
-| 12 | [Évolution](12-evolution.md) | Comment la conception reste-t-elle vraie ? | Orchestrateur | Mises à jour, ADR de remplacement | — (continu) |
+| 6 | [Architecture logicielle](06-architecture-logicielle.md) | Comment organiser le système ? | Architecte logiciel | `06-architecture.md` + ADR (Architecture Decision Record) | G6 |
+| 7 | [Choix technologiques](07-choix-technologiques.md) | Avec quels langages, cadriciels, produits ? | Prescripteur technique | `07-choix-techniques.md` + ADR | G7 |
+| 8 | [Données et contrats](08-donnees-contrats.md) | Quelles données, quelles interfaces ? | Architecte données et interfaces | `08-donnees-contrats.md` + `contrats/` | G8 |
+| 9 | [Sécurité et conformité](09-securite-conformite.md) | Contre quoi se protéger, quelles obligations respecter ? | Spécialiste sécurité | `09-securite.md` | G9 |
+| 10 | [Infrastructure et exploitation](10-infrastructure-exploitation.md) | Où et comment le système tourne-t-il ? | Ingénieur fiabilité et plateforme | `10-exploitation.md` | G10 |
+| 11 | [Stratégie de test](11-strategie-test.md) | Comment prouver la conformité ? | Ingénieur qualité | `11-strategie-test.md` | G11 |
+| 12 | [Plan de réalisation](12-plan-realisation.md) | Dans quel ordre construire, et comment démarrer ? | Responsable technique | `12-plan-realisation.md` | G12 |
+| 13 | [Évolution](13-evolution.md) | Comment la conception reste-t-elle vraie ? | Orchestrateur | Mises à jour, ADR de remplacement | — (continu) |
 
 **Ordre et dépendances.**
 
 - Les phases 1 à 3 décrivent le **problème**. Elles ne doivent contenir **aucun choix de solution technique**. Une contrainte technique imposée de l'extérieur (« l'entreprise n'utilise que tel nuage ») est une **contrainte** (`C-n`), pas un choix.
 - La phase 4 fait le pont entre le problème et la solution.
-- Les phases 5 à 11 décrivent la **solution**. Chaque décision y cite les exigences qui la motivent.
-- La phase 12 commence dès la première ligne de code et ne se termine jamais.
+- Les phases 6 à 12 décrivent la **solution**. Chaque décision y cite les exigences qui la motivent.
+- La phase 13 commence dès la première ligne de code et ne se termine jamais.
 
-**Ce processus n'est pas un cycle en cascade.** L'ordre indique dans quel sens l'information circule, pas une interdiction de revenir en arrière. Une découverte en phase 7 peut rouvrir une règle de la phase 2 : c'est normal et encadré (§ 14).
+**Ce processus n'est pas un cycle en cascade.** L'ordre indique dans quel sens l'information circule, pas une interdiction de revenir en arrière. Une découverte en phase 8 peut rouvrir une règle de la phase 2 : c'est normal et encadré (§ 14).
 
 ---
 
@@ -155,7 +155,7 @@ Ces règles priment sur toute autre instruction du guide, sauf demande explicite
 8. **Maintenir la traçabilité à chaque écriture.** Créer ou modifier un élément impose de mettre à jour ses liens amont et aval (§ 12).
 9. **Proportionner l'effort au profil du projet** (§ 10). Ne pas imposer à un prototype la rigueur d'un système critique, et inversement.
 10. **Signaler immédiatement toute contradiction** entre une réponse et un livrable validé, en citant les identifiants concernés.
-11. **Ne pas anticiper la solution pendant les phases 1 à 3.** Si le décideur exprime une solution (« il faut une file de messages »), en extraire le besoin sous-jacent (« les traitements ne doivent pas bloquer la saisie ») et consigner la solution comme piste pour la phase 5.
+11. **Ne pas anticiper la solution pendant les phases 1 à 3.** Si le décideur exprime une solution (« il faut une file de messages »), en extraire le besoin sous-jacent (« les traitements ne doivent pas bloquer la saisie ») et consigner la solution comme piste pour la phase 6.
 12. **Écrire dans les fichiers, pas seulement dans la conversation.** La conversation est éphémère, `conception/` est la mémoire du projet. Une décision non consignée n'existe pas.
 13. **Langue.** Les livrables de conception sont rédigés en français. Les noms qui apparaîtront dans le code (classes, tables, événements, points d'accès) sont en anglais. Le glossaire du domaine fait la correspondance (phase 4).
 14. **Nommer ses incertitudes.** Si l'IA n'est pas sûre d'un fait technique (version d'un produit, comportement d'une bibliothèque), elle le dit et propose une vérification, plutôt que d'affirmer.
@@ -227,11 +227,11 @@ Le décideur peut préciser ce critère dans une contrainte de projet (par exemp
 | `CA-n` | Critère d'acceptation | 2 | `02-exigences-fonctionnelles.md` |
 | `QS-n` | Scénario d'attribut qualité | 3 | `03-exigences-qualite.md` |
 | `BC-n` | Contexte délimité | 4 | `04-domaine.md` |
-| `ADR-nnnn` | Décision d'architecture | 5+ | `adr/ADR-nnnn-titre.md` |
-| `M-n` | Menace | 8 | `08-securite.md` |
-| `SLO-n` | Objectif de niveau de service | 9 | `09-exploitation.md` |
-| `FF-n` | Fonction d'aptitude (test d'architecture) | 10 | `10-strategie-test.md` |
-| `INC-n` | Incrément de réalisation | 11 | `11-plan-realisation.md` |
+| `ADR-nnnn` | Décision d'architecture | 6+ | `adr/ADR-nnnn-titre.md` |
+| `M-n` | Menace | 9 | `09-securite.md` |
+| `SLO-n` | Objectif de niveau de service | 10 | `10-exploitation.md` |
+| `FF-n` | Fonction d'aptitude (test d'architecture) | 11 | `11-strategie-test.md` |
+| `INC-n` | Incrément de réalisation | 12 | `12-plan-realisation.md` |
 | `SRC-n` | Document source existant, lu sans être modifié | 1+ | `conception.config.yaml` et `ETAT.md` |
 
 Chaque préfixe est aussi un acronyme — par exemple BR (Business Rule, règle métier), UC (Use Case, cas d'utilisation), QS (Quality Scenario, scénario qualité). Leur sens complet est donné dans le [glossaire](glossaire.md).
@@ -276,13 +276,13 @@ Abréviations du tableau ci-dessous : ATAM (Architecture Tradeoff Analysis Metho
 | 2 Analyse fonctionnelle | Allégé (`UC-n` + `BR-n` *Must*) | Complet | Complet |
 | 3 Exigences qualité | Allégé (3 à 5 `QS-n`) | Complet | Complet + revue ATAM |
 | 4 Domaine | Glossaire seul | Complet | Complet |
-| 5 Architecture | Allégé (C4 niveaux 1–2, 1 à 3 ADR) | Complet | Complet + revue ATAM |
-| 6 Technologies | Allégé | Complet | Complet + preuves de concept |
-| 7 Données et contrats | Allégé | Complet | Complet |
-| 8 Sécurité | Liste de contrôle minimale | Complet | Complet + AIPD si requise |
-| 9 Exploitation | Allégé | Complet | Complet + PRA testé |
-| 10 Tests | Allégé | Complet | Complet |
-| 11 Plan | Complet | Complet | Complet |
+| 6 Architecture | Allégé (C4 niveaux 1–2, 1 à 3 ADR) | Complet | Complet + revue ATAM |
+| 7 Technologies | Allégé | Complet | Complet + preuves de concept |
+| 8 Données et contrats | Allégé | Complet | Complet |
+| 9 Sécurité | Liste de contrôle minimale | Complet | Complet + AIPD si requise |
+| 10 Exploitation | Allégé | Complet | Complet + PRA testé |
+| 11 Tests | Allégé | Complet | Complet |
+| 12 Plan | Complet | Complet | Complet |
 
 « Allégé » signifie : mêmes rubriques, contenu réduit à l'essentiel, liste de contrôle de la gate réduite aux items marqués ★ dans chaque phase.
 
@@ -301,14 +301,14 @@ conception/
 ├── 02-exigences-fonctionnelles.md
 ├── 03-exigences-qualite.md
 ├── 04-domaine.md
-├── 05-architecture.md               # Document d'architecture (structure arc42)
-├── 06-choix-techniques.md
-├── 07-donnees-contrats.md
+├── 06-architecture.md               # Document d'architecture (structure arc42)
+├── 07-choix-techniques.md
+├── 08-donnees-contrats.md
 ├── contrats/                        # openapi.yaml, asyncapi.yaml, schémas
-├── 08-securite.md
-├── 09-exploitation.md
-├── 10-strategie-test.md
-├── 11-plan-realisation.md
+├── 09-securite.md
+├── 10-exploitation.md
+├── 11-strategie-test.md
+├── 12-plan-realisation.md
 ├── adr/
 │   ├── ADR-0001-titre-court.md
 │   └── …
@@ -342,7 +342,7 @@ OB-n ─────────────────────────
 Règles :
 
 1. Chaque `UC-n` remonte à au moins un `OB-n` : sinon, pourquoi le construire ?
-2. Chaque `BR-n` *Must* a au moins deux exemples (un nominal, un limite ou d'échec). Chaque `UC-n` a au moins un `CA-n`. Chaque exemple et chaque `CA-n` descend vers un test prévu (phase 10).
+2. Chaque `BR-n` *Must* a au moins deux exemples (un nominal, un limite ou d'échec). Chaque `UC-n` a au moins un `CA-n`. Chaque exemple et chaque `CA-n` descend vers un test prévu (phase 11).
 3. Chaque `ADR` cite au moins un `QS-n`, un `C-n` ou un `BR-n` qui le motive.
 4. Chaque `QS-n` *Must* est couvert par un `ADR`, un `FF-n` ou un `SLO-n`.
 5. `conception/tracabilite.md` est mis à jour au temps *Consigner* de chaque phase. Toute ligne orpheline (élément sans lien amont ou aval attendu) est signalée au décideur.

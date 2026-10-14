@@ -63,14 +63,14 @@ Les règles complètes sont dans [`docs/00-principes.md`](docs/00-principes.md).
 | 2 Analyse fonctionnelle | `docs/02-analyse-fonctionnelle.md` | `prompts/analyste-metier.md` | `templates/02-exigences-fonctionnelles.md` | `02-exigences-fonctionnelles.md` | G2 |
 | 3 Exigences qualité | `docs/03-exigences-qualite.md` | `prompts/architecte-qualite.md` | `templates/03-exigences-qualite.md` | `03-exigences-qualite.md` | G3 |
 | 4 Domaine | `docs/04-modelisation-domaine.md` | `prompts/modelisateur-domaine.md` | `templates/04-domaine.md` | `04-domaine.md` | G4 |
-| 5 Architecture | `docs/05-architecture-logicielle.md` | `prompts/architecte-logiciel.md` | `templates/05-architecture.md`, `templates/adr.md` | `05-architecture.md`, `adr/` | G5 |
-| 6 Technologies | `docs/06-choix-technologiques.md` | `prompts/prescripteur-technique.md` | `templates/06-choix-techniques.md`, `templates/adr.md` | `06-choix-techniques.md`, `adr/` | G6 |
-| 7 Données et contrats | `docs/07-donnees-contrats.md` | `prompts/architecte-donnees-interfaces.md` | `templates/07-donnees-contrats.md` | `07-donnees-contrats.md`, `contrats/` | G7 |
-| 8 Sécurité | `docs/08-securite-conformite.md` | `prompts/specialiste-securite.md` | `templates/08-securite.md` | `08-securite.md` | G8 |
-| 9 Exploitation | `docs/09-infrastructure-exploitation.md` | `prompts/ingenieur-fiabilite-plateforme.md` | `templates/09-exploitation.md` | `09-exploitation.md` | G9 |
-| 10 Tests | `docs/10-strategie-test.md` | `prompts/ingenieur-qualite.md` | `templates/10-strategie-test.md` | `10-strategie-test.md` | G10 |
-| 11 Plan | `docs/11-plan-realisation.md` | `prompts/responsable-technique.md` | `templates/11-plan-realisation.md` | `11-plan-realisation.md`, `AGENTS.md` et `CLAUDE.md` du projet | G11 |
-| 12 Évolution | `docs/12-evolution.md` | Spécialiste de la phase touchée | — | Livrables révisés | — |
+| 6 Architecture | `docs/06-architecture-logicielle.md` | `prompts/architecte-logiciel.md` | `templates/06-architecture.md`, `templates/adr.md` | `06-architecture.md`, `adr/` | G6 |
+| 7 Technologies | `docs/07-choix-technologiques.md` | `prompts/prescripteur-technique.md` | `templates/07-choix-techniques.md`, `templates/adr.md` | `07-choix-techniques.md`, `adr/` | G7 |
+| 8 Données et contrats | `docs/08-donnees-contrats.md` | `prompts/architecte-donnees-interfaces.md` | `templates/08-donnees-contrats.md` | `08-donnees-contrats.md`, `contrats/` | G8 |
+| 9 Sécurité | `docs/09-securite-conformite.md` | `prompts/specialiste-securite.md` | `templates/09-securite.md` | `09-securite.md` | G9 |
+| 10 Exploitation | `docs/10-infrastructure-exploitation.md` | `prompts/ingenieur-fiabilite-plateforme.md` | `templates/10-exploitation.md` | `10-exploitation.md` | G10 |
+| 11 Tests | `docs/11-strategie-test.md` | `prompts/ingenieur-qualite.md` | `templates/11-strategie-test.md` | `11-strategie-test.md` | G11 |
+| 12 Plan | `docs/12-plan-realisation.md` | `prompts/responsable-technique.md` | `templates/12-plan-realisation.md` | `12-plan-realisation.md`, `AGENTS.md` et `CLAUDE.md` du projet | G12 |
+| 13 Évolution | `docs/13-evolution.md` | Spécialiste de la phase touchée | — | Livrables révisés | — |
 | Toutes les gates | — | `prompts/relecteur-critique.md` | — | Rapport de revue dans le journal | — |
 
 Chemins relatifs à `GUIDE_DIR`. Glossaire des acronymes du guide : `docs/glossaire.md`.

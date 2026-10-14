@@ -14,13 +14,13 @@
 
 ## 1. Pourquoi cette phase
 
-Elle fait le pont entre le problème (phases 1 à 3) et la solution (phases 5 à 11). Elle répond à trois questions qui conditionnent toute l'architecture :
+Elle fait le pont entre le problème (phases 1 à 3) et la solution (phases 6 à 12). Elle répond à trois questions qui conditionnent toute l'architecture :
 
 1. **Quels mots** utilise-t-on, avec quel sens exact ? (langage omniprésent)
 2. **Où sont les frontières** naturelles du métier ? (contextes délimités)
 3. **Où investir** l'effort de conception ? (classification des sous-domaines)
 
-La méthode est celle du DDD (Domain-Driven Design, conception pilotée par le domaine) d'Eric Evans, dans sa partie **stratégique**. La partie tactique (agrégats, entités, objets valeur) est amorcée ici et détaillée en phases 5 et 7.
+La méthode est celle du DDD (Domain-Driven Design, conception pilotée par le domaine) d'Eric Evans, dans sa partie **stratégique**. La partie tactique (agrégats, entités, objets valeur) est amorcée ici et détaillée en phases 6 et 8.
 
 ## 2. Concepts et méthodes
 
@@ -126,7 +126,7 @@ Sans entrer dans le détail technique, l'agent identifie pour chaque contexte *C
 | **Objet valeur** | Objet défini par ses seules valeurs, immuable (montant, créneau horaire, adresse). | Les `BR-n` de validation de format ou de calcul s'y logent naturellement. |
 | **Événement du domaine** | Fait métier passé, significatif pour le métier. | Issus de l'Event Storming ; nommés en anglais au passé dans le code (`BookingConfirmed`). |
 
-Règle de conception : une `BR-n` qui peut être vraie **à terme** (quelques secondes ou minutes plus tard) plutôt qu'immédiatement n'a pas besoin d'être dans le même agrégat. Cette distinction prépare les choix de cohérence de la phase 5.
+Règle de conception : une `BR-n` qui peut être vraie **à terme** (quelques secondes ou minutes plus tard) plutôt qu'immédiatement n'a pas besoin d'être dans le même agrégat. Cette distinction prépare les choix de cohérence de la phase 6.
 
 ## 3. Déroulé de l'atelier
 

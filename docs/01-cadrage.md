@@ -64,7 +64,7 @@ Un **diagramme de contexte métier** montre le système comme une boîte noire e
 
 Une contrainte est une limite **imposée** à l'équipe, qu'elle n'a pas le pouvoir de négocier : budget, délai, obligation légale, technologie imposée par l'entreprise, compétences disponibles, hébergement obligatoire dans un pays, système existant à conserver.
 
-Une contrainte se distingue d'un choix : « nous devons utiliser le nuage de l'entreprise » est une contrainte, « nous préférons tel langage » est un choix qui sera instruit en phase 6.
+Une contrainte se distingue d'un choix : « nous devons utiliser le nuage de l'entreprise » est une contrainte, « nous préférons tel langage » est un choix qui sera instruit en phase 7.
 
 ### 2.6 Hypothèses et risques initiaux
 
@@ -157,5 +157,5 @@ Les items marqués ★ suffisent en profil allégé.
 | Objectif-fonctionnalité | « Objectif : avoir un tableau de bord » | Demander « pour changer quoi ? » jusqu'à atteindre un effet mesurable. |
 | Partie prenante oubliée | Le support ou le juridique découvre le projet à la mise en production | Parcourir les quatre couches de l'oignon. |
 | Périmètre implicite | Aucun hors-périmètre écrit | Exiger au moins trois exclusions explicites. |
-| Solution déguisée en besoin | « Le besoin est d'avoir des microservices » | Appliquer la règle d'or 11 : extraire le besoin, noter la piste pour la phase 5. |
+| Solution déguisée en besoin | « Le besoin est d'avoir des microservices » | Appliquer la règle d'or 11 : extraire le besoin, noter la piste pour la phase 6. |
 | Chiffre inventé | Une cible « raisonnable » proposée par l'IA et jamais validée | Appliquer la règle d'or 1 : [seuil à fixer] + OD. |

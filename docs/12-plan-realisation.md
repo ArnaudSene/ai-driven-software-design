@@ -1,14 +1,14 @@
-# Phase 11 — Plan de réalisation et squelette ambulant
+# Phase 12 — Plan de réalisation et squelette ambulant
 
 | Clé | Valeur |
 |---|---|
 | Question centrale | Dans quel ordre construire, et comment démarrer sans risque ? |
 | Agent | [`prompts/responsable-technique.md`](../prompts/responsable-technique.md) |
 | Entrées | Toutes les phases validées, registres `OD-n` et `R-n` de `ETAT.md` |
-| Sorties | `conception/11-plan-realisation.md`, consignes de développement pour les agents de code, revue de cohérence globale |
+| Sorties | `conception/12-plan-realisation.md`, consignes de développement pour les agents de code, revue de cohérence globale |
 | Identifiants créés | `INC-n` |
-| Gabarit | [`templates/11-plan-realisation.md`](../templates/11-plan-realisation.md) |
-| Gate | G11 — fin de la conception initiale |
+| Gabarit | [`templates/12-plan-realisation.md`](../templates/12-plan-realisation.md) |
+| Gate | G12 — fin de la conception initiale |
 
 ---
 
@@ -41,7 +41,7 @@ Contenu type de `INC-0` :
 | Sécurité | Authentification réelle, même avec un seul rôle |
 | Migration de schéma | Première migration versionnée |
 
-Le squelette **valide les ADR** (Architecture Decision Records) les plus risqués au prix le plus bas. S'il révèle un problème, on revient en phase 5 ou 6 (§ 14 des principes) : c'est exactement son rôle.
+Le squelette **valide les ADR** (Architecture Decision Records) les plus risqués au prix le plus bas. S'il révèle un problème, on revient en phase 6 ou 7 (§ 14 des principes) : c'est exactement son rôle.
 
 ### 2.2 Découpage en incréments (`INC-n`)
 
@@ -65,7 +65,7 @@ Fiche d'incrément :
 | Contenu | `UC-n`, `BR-n`, `CA-n`, `FF-n` et `SLO-n` concernés |
 | Risques réduits | `R-n`, `H-n` vérifiées |
 | Prérequis | Incréments, `OD-n` à trancher avant de démarrer |
-| Critère de fin | DoD (Definition of Done, définition de « terminé ») de la phase 10 + critère propre à l'incrément |
+| Critère de fin | DoD (Definition of Done, définition de « terminé ») de la phase 11 + critère propre à l'incrément |
 
 ### 2.3 Du cas d'utilisation aux tâches
 
@@ -87,7 +87,7 @@ La conception se traduit en règles de travail, écrites dans le dépôt du code
 
 ### 2.5 Revue de cohérence globale
 
-Avant G11, le relecteur critique conduit une revue transverse :
+Avant G12, le relecteur critique conduit une revue transverse :
 
 | Contrôle | Méthode |
 |---|---|
@@ -107,7 +107,7 @@ Avant G11, le relecteur critique conduit une revue transverse :
 | 4 | Délimite le MVP. | Tranche. |
 | 5 | Rédige les consignes de développement (`AGENTS.md` / `CLAUDE.md` du projet). | Relit. |
 | 6 | Conduit la revue de cohérence globale avec le relecteur critique. | Arbitre les écarts. |
-| 7 | Met `ETAT.md` au statut « conception initiale close » et bascule en phase 12. | Valide G11. |
+| 7 | Met `ETAT.md` au statut « conception initiale close » et bascule en phase 13. | Valide G12. |
 
 ## 4. Banque de questions
 
@@ -121,11 +121,11 @@ Avant G11, le relecteur critique conduit une revue transverse :
 
 | Fichier | Contenu minimal |
 |---|---|
-| `11-plan-realisation.md` | `INC-0`, `INC-n` ordonnés, MVP, découpage en récits des premiers incréments, résultat de la revue de cohérence |
+| `12-plan-realisation.md` | `INC-0`, `INC-n` ordonnés, MVP, découpage en récits des premiers incréments, résultat de la revue de cohérence |
 | `AGENTS.md` / `CLAUDE.md` (racine du projet) | Consignes de développement |
 | `ETAT.md` | Conception initiale close, OD et risques restants avec échéances |
 
-## 6. Liste de contrôle de la gate G11
+## 6. Liste de contrôle de la gate G12
 
 - [ ] ★ `INC-0` traverse toutes les couches et la chaîne de livraison.
 - [ ] ★ Chaque `UC-n` *Must* est affecté à un incrément.
@@ -143,4 +143,4 @@ Avant G11, le relecteur critique conduit une revue transverse :
 | Découpage horizontal | « Incrément 1 : la base ; incrément 2 : l'API ; incrément 3 : l'interface » | Tranches verticales qui apportent chacune une valeur. |
 | Plaisir d'abord | Les fonctions faciles et visibles en premier, les risques à la fin | Le risque passe avant la valeur dans l'ordonnancement. |
 | Squelette oublié | Fonctionnalités développées avant que la chaîne de livraison existe | `INC-0` d'abord, toujours. |
-| Conception abandonnée | `conception/` jamais relu une fois le code commencé | Consignes de développement et phase 12. |
+| Conception abandonnée | `conception/` jamais relu une fois le code commencé | Consignes de développement et phase 13. |

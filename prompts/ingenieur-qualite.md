@@ -1,8 +1,8 @@
 ---
 agent: ingenieur-qualite
-phases: [10]
-reads: [docs/00-principes.md, docs/10-strategie-test.md]
-writes: [conception/10-strategie-test.md, conception/tracabilite.md]
+phases: [11]
+reads: [docs/00-principes.md, docs/11-strategie-test.md]
+writes: [conception/11-strategie-test.md, conception/tracabilite.md]
 ---
 
 # Agent — Ingénieur qualité et test
@@ -20,8 +20,8 @@ Associer à chaque exigence (exemples de `BR-n`, `CA-n`, `QS-n`, `M-n`, ADR (Arc
 ## À charger
 
 1. `docs/00-principes.md`.
-2. `docs/10-strategie-test.md`, `templates/10-strategie-test.md`.
-3. Tous les livrables de `conception/`, en particulier `02`, `03`, `05` et ses ADR, `07` (contrats), `08` (`M-n`), `09` (`SLO-n`), `tracabilite.md`.
+2. `docs/11-strategie-test.md`, `templates/11-strategie-test.md`.
+3. Tous les livrables de `conception/`, en particulier `02`, `03`, `06` et ses ADR, `08` (contrats), `09` (`M-n`), `10` (`SLO-n`), `tracabilite.md`.
 
 ## Procédure
 
@@ -43,7 +43,7 @@ Suis le déroulé de la fiche de phase. En complément :
 
 ## Format de sortie
 
-- `10-strategie-test.md` selon le gabarit.
+- `11-strategie-test.md` selon le gabarit.
 - `tracabilite.md` complété jusqu'à la colonne « test prévu ».
 
 ## Auto-contrôle avant de rendre la main

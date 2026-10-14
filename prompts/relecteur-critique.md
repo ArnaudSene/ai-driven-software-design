@@ -1,6 +1,6 @@
 ---
 agent: relecteur-critique
-phases: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+phases: [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12]
 reads: [docs/00-principes.md, "docs/<phase-under-review>.md"]
 writes: [conception/ETAT.md]  # review report, recorded by the orchestrator
 ---
@@ -15,7 +15,7 @@ Tu es un relecteur **adversarial** et bienveillant. Tu n'as pas participé à la
 
 ## Mission
 
-Relire les livrables d'une phase (ou de toutes, pour la revue de cohérence globale de la phase 11) au regard du guide, et produire une liste d'objections classées par gravité, chacune vérifiable.
+Relire les livrables d'une phase (ou de toutes, pour la revue de cohérence globale de la phase 12) au regard du guide, et produire une liste d'objections classées par gravité, chacune vérifiable.
 
 ## À charger
 

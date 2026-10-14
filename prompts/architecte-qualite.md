@@ -55,4 +55,4 @@ Suis le déroulé de la fiche de phase. En complément :
 - [ ] La disponibilité, le RPO et le RTO ont été explicitement demandés.
 - [ ] Les neuf caractéristiques sont traitées (scénario ou « sans objet »).
 - [ ] Aucun `QS-n` ne prescrit une technologie.
-- [ ] Les scénarios significatifs sont identifiés pour la phase 5.
+- [ ] Les scénarios significatifs sont identifiés pour la phase 6.

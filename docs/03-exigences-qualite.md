@@ -49,7 +49,7 @@ Formalisme du SEI (Software Engineering Institute, Université Carnegie Mellon),
 | **Réponse** | Que doit faire le système ? | enregistre chaque réservation et la confirme |
 | **Mesure de la réponse** | Comment vérifie-t-on ? | 95 % des confirmations en moins de [seuil à fixer : 300 ms ?], aucune double réservation |
 
-Chaque `QS-n` porte en plus les champs communs de [00-principes § 7.1](00-principes.md#71-structure-dune-règle) : Source (d'où vient l'exigence), Justification, Priorité, et le lien vers les `OB-n`, `C-n` ou `BR-n` qui la motivent.
+Chaque `QS-n` porte en plus les champs communs de [00-principes § 7.1](00-principes.md#71-structure-dune-règle) : Source (d'où vient l'exigence), Justification, Priorité, et le lien vers les `BO-n`, `C-n` ou `BR-n` qui la motivent.
 
 Exemple complet :
 
@@ -63,9 +63,9 @@ Exemple complet :
 - **Artefact** : données de réservation et de paiement
 - **Réponse** : le service est restauré à partir des sauvegardes
 - **Mesure** : perte de données ≤ [seuil à fixer] minutes (RPO) ; service rétabli en ≤ [seuil à fixer] heures (RTO)
-- **Justification** : une réservation perdue est un client lésé et un litige (OB-2).
+- **Justification** : une réservation perdue est un client lésé et un litige (BO-2).
 - **Priorité** : Must — la perte serait silencieuse jusqu'à la réclamation du client.
-- **Liens** : OB-2, BR-3, C-5
+- **Liens** : BO-2, BR-3, C-5
 - **OD** : OD-9 (valeurs RPO/RTO à arbitrer contre le coût de l'infrastructure)
 ```
 

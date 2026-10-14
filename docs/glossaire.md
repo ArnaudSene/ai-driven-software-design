@@ -11,6 +11,7 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | Acronyme | Forme développée | Définition |
 |---|---|---|
 | **ABAC** | Attribute-Based Access Control | Contrôle d'accès fondé sur les attributs de l'utilisateur, de la ressource et du contexte. |
+| **AC** | Acceptance Criterion | Critère d'acceptation : condition, exprimée en *Étant donné / Quand / Alors*, à laquelle un cas d'utilisation est considéré comme livré. Préfixe `AC-n`. |
 | **ACL** | Anti-Corruption Layer | Couche anticorruption : traduit le modèle d'un système externe pour protéger le modèle du domaine. *Ne pas confondre avec Access Control List, non employé dans ce guide.* |
 | **ADR** | Architecture Decision Record | Registre de décision d'architecture : document court qui consigne une décision, son contexte, les options et les conséquences. |
 | **AIPD** | Analyse d'impact relative à la protection des données | Étude exigée par le RGPD pour les traitements à risque élevé pour les personnes. |
@@ -21,9 +22,9 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **BC** | Bounded Context | Contexte délimité : frontière à l'intérieur de laquelle un modèle et son langage sont cohérents. Préfixe `BC-n`. |
 | **BDD** | Behavior-Driven Development | Développement piloté par le comportement : spécifications sous forme d'exemples exécutables. |
 | **BFF** | Backend for Frontend | Patron qui donne à chaque interface utilisateur son propre service d'accès aux données, quand leurs besoins divergent (Sam Newman). |
+| **BO** | Business Objective | Objectif métier : changement mesurable attendu dans le monde réel. Préfixe `BO-n`. |
 | **BR** | Business Rule | Règle métier. Préfixe `BR-n`. |
 | **C4** | Context, Containers, Components, Code | Modèle de diagrammes d'architecture de Simon Brown, en quatre niveaux de zoom. |
-| **CA** | Critère d'acceptation | Condition, exprimée en *Étant donné / Quand / Alors*, à laquelle un cas d'utilisation est considéré comme livré. Préfixe `CA-n`. |
 | **CD** | Continuous Delivery / Continuous Deployment | Livraison continue (chaque version est prête à être déployée) ou déploiement continu (chaque version est déployée automatiquement). |
 | **CI** | Continuous Integration | Intégration continue : chaque modification est automatiquement compilée et testée. |
 | **CNIL** | Commission nationale de l'informatique et des libertés | Autorité française de protection des données personnelles. |
@@ -59,7 +60,6 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **MoSCoW** | Must, Should, Could, Won't | Méthode de priorisation : doit, devrait, pourrait, pas cette fois. |
 | **MVP** | Minimum Viable Product | Produit minimum viable : plus petite version qui permet d'apprendre si le produit atteint ses objectifs. |
 | **NIS** | Network and Information Security | Directive européenne (version 2) sur la sécurité des réseaux et des systèmes d'information. |
-| **OB** | Objectif métier | Changement mesurable attendu dans le monde réel. Préfixe `OB-n`. |
 | **OD** | Open Decision | Décision ouverte : question en attente d'arbitrage par le décideur. Préfixe `OD-n`. |
 | **OHS** | Open Host Service | Service hôte ouvert : interface stable exposée à tous les consommateurs d'un contexte. |
 | **OIDC** | OpenID Connect | Protocole d'authentification fédérée fondé sur OAuth 2. |
@@ -69,7 +69,6 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **PCI DSS** | Payment Card Industry Data Security Standard | Norme de sécurité des données des cartes de paiement. |
 | **PL** | Published Language | Langage publié : format d'échange documenté et partagé entre contextes. |
 | **PoC** | Proof of Concept | Preuve de concept : prototype jetable qui répond à une question technique. |
-| **PP** | Partie prenante | Personne ou organisation concernée par le système. Préfixe `PP-n`. |
 | **PRA** | Plan de reprise d'activité | Procédure de redémarrage du service après un sinistre. |
 | **QS** | Quality Scenario | Scénario d'attribut qualité à six parties (source, stimulus, environnement, artefact, réponse, mesure). Préfixe `QS-n`. |
 | **RACI** | Responsible, Accountable, Consulted, Informed | Matrice de responsabilités : réalise, approuve, est consulté, est informé. |
@@ -87,6 +86,7 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 | **SCA** | Software Composition Analysis | Analyse des dépendances tierces (vulnérabilités, licences). |
 | **SEI** | Software Engineering Institute | Institut de l'Université Carnegie Mellon, auteur des scénarios qualité et de l'ATAM. |
 | **SGBD** | Système de gestion de base de données | Logiciel qui stocke et interroge des données. |
+| **SH** | Stakeholder | Partie prenante : personne ou organisation concernée par le système. Préfixe `SH-n`. |
 | **SLA** | Service Level Agreement | Accord de niveau de service contractuel. |
 | **SLI** | Service Level Indicator | Indicateur de niveau de service, mesuré du point de vue de l'utilisateur. |
 | **SLO** | Service Level Objective | Objectif de niveau de service. Préfixe `SLO-n`. |
@@ -109,12 +109,12 @@ Règle de rédaction appliquée à tout le dépôt : **à la première occurrenc
 
 ## 2. Préfixes d'identifiants à une lettre
 
-| Préfixe | Signification |
-|---|---|
-| `C-n` | Contrainte |
-| `H-n` | Hypothèse |
-| `M-n` | Menace |
-| `R-n` | Risque |
+| Préfixe | Terme anglais | Signification |
+|---|---|---|
+| `C-n` | Constraint | Contrainte |
+| `H-n` | Hypothesis | Hypothèse |
+| `R-n` | Risk | Risque |
+| `T-n` | Threat | Menace |
 
 Le registre complet des préfixes est dans [00-principes § 8](00-principes.md#8-identifiants).
 

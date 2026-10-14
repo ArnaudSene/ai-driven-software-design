@@ -6,7 +6,7 @@
 | Agent | [`prompts/analyste-metier.md`](../prompts/analyste-metier.md) |
 | Entrées | Idée ou demande initiale, documents existants déclarés comme sources `SRC-n` (cahier des charges, analyse fonctionnelle, maquettes, courriels, études) |
 | Sorties | `conception/01-cadrage.md`, `conception/ETAT.md` initialisé, `conception/glossaire.md` amorcé |
-| Identifiants créés | `PP-n`, `OB-n`, `C-n`, premiers `H-n`, `R-n`, `OD-n` |
+| Identifiants créés | `SH-n`, `BO-n`, `C-n`, premiers `H-n`, `R-n`, `OD-n` |
 | Gabarit | [`templates/01-cadrage.md`](../templates/01-cadrage.md) |
 | Gate | G1 |
 
@@ -28,7 +28,7 @@ Une phrase qui tient dans un ascenseur, selon le gabarit de Geoffrey Moore :
 
 Si le décideur ne parvient pas à remplir ce gabarit, le projet n'est pas encore mûr pour la suite. C'est une information précieuse, pas un échec.
 
-### 2.2 Parties prenantes (`PP-n`)
+### 2.2 Parties prenantes (`SH-n`)
 
 Toute personne ou organisation qui **utilise** le système, est **affectée** par lui, le **finance**, l'**exploite** ou peut s'**opposer** à lui. Le modèle en oignon de Volere aide à n'oublier personne :
 
@@ -41,13 +41,13 @@ Toute personne ou organisation qui **utilise** le système, est **affectée** pa
 
 Pour chaque partie prenante on note son rôle, son intérêt, son influence, et le **représentant** qu'on peut interroger.
 
-### 2.3 Objectifs métier mesurables (`OB-n`)
+### 2.3 Objectifs métier mesurables (`BO-n`)
 
 Un objectif décrit un **changement observable dans le monde réel**, pas une fonctionnalité. Chacun porte un indicateur, une valeur de départ, une cible et une échéance.
 
 | Mauvais | Bon |
 |---|---|
-| « Avoir un portail de déclaration en ligne » | `OB-1` : réduire le délai moyen de traitement d'une déclaration de sinistre de 10 jours à 3 jours, d'ici 6 mois après l'ouverture. *(valeurs illustratives)* |
+| « Avoir un portail de déclaration en ligne » | `BO-1` : réduire le délai moyen de traitement d'une déclaration de sinistre de 10 jours à 3 jours, d'ici 6 mois après l'ouverture. *(valeurs illustratives)* |
 | « Être rapide » | Ce n'est pas un objectif métier. C'est un attribut qualité, traité en phase 3. |
 
 Si le décideur ne connaît pas la valeur de départ, on écrit **[seuil à fixer]** et on ouvre une OD (décision ouverte) avec pour action de la mesurer.
@@ -95,8 +95,8 @@ L'esquisse dimensionne la phase 5 (conception de l'interaction). Si le système 
 | 1 | Crée `conception/` à partir des gabarits, initialise `ETAT.md` (phase 1, temps *Charger*). | — |
 | 2 | Lit tous les documents fournis et en fait un résumé factuel : faits, zones floues, contradictions. | Fournit les documents, corrige le résumé. |
 | 3 | Pose les questions sur le problème et la vision (§ 4, bloc A). Propose un énoncé de vision. | Répond, reformule la vision. |
-| 4 | Fait l'inventaire des parties prenantes (bloc B) et propose une liste `PP-n`, puis esquisse le contexte d'usage de chaque groupe d'utilisateurs (§ 2.8). | Complète et nomme les représentants. |
-| 5 | Transforme les attentes exprimées en objectifs `OB-n` mesurables (bloc C). | Fixe les cibles ou les laisse [seuil à fixer]. |
+| 4 | Fait l'inventaire des parties prenantes (bloc B) et propose une liste `SH-n`, puis esquisse le contexte d'usage de chaque groupe d'utilisateurs (§ 2.8). | Complète et nomme les représentants. |
+| 5 | Transforme les attentes exprimées en objectifs `BO-n` mesurables (bloc C). | Fixe les cibles ou les laisse [seuil à fixer]. |
 | 6 | Délimite le périmètre et dessine le diagramme de contexte (bloc D). | Tranche ce qui entre et ce qui sort. |
 | 7 | Recense les contraintes, l'existant, les hypothèses et les risques (blocs E et F). | Confirme. |
 | 8 | Recommande un profil de projet, justifié par les réponses. | Choisit le profil. |
@@ -146,7 +146,7 @@ L'IA choisit dans cette banque les questions encore sans réponse et les pose pa
 
 | Fichier | Contenu minimal |
 |---|---|
-| `01-cadrage.md` | Vision, `PP-n`, contexte d'usage, `OB-n`, périmètre (dans, hors, plus tard), diagramme de contexte, `C-n`, existant, profil choisi et sa justification |
+| `01-cadrage.md` | Vision, `SH-n`, contexte d'usage, `BO-n`, périmètre (dans, hors, plus tard), diagramme de contexte, `C-n`, existant, profil choisi et sa justification |
 | `ETAT.md` | Phase courante, profil, registres `H-n`, `R-n`, `OD-n`, journal |
 | `glossaire.md` | Premiers termes métier (terme, définition, synonymes à proscrire) |
 
@@ -155,10 +155,10 @@ L'IA choisit dans cette banque les questions encore sans réponse et les pose pa
 Les items marqués ★ suffisent en profil allégé.
 
 - [ ] ★ L'énoncé de vision est rempli et approuvé par le décideur.
-- [ ] ★ Chaque `OB-n` a un indicateur, une cible et une échéance, ou un [seuil à fixer] rattaché à une OD.
+- [ ] ★ Chaque `BO-n` a un indicateur, une cible et une échéance, ou un [seuil à fixer] rattaché à une OD.
 - [ ] ★ Le hors-périmètre est explicite (au moins 3 éléments).
 - [ ] ★ Le profil du projet est choisi et justifié.
-- [ ] Chaque `PP-n` a un rôle, un intérêt, une influence et un représentant (ou « à identifier »).
+- [ ] Chaque `SH-n` a un rôle, un intérêt, une influence et un représentant (ou « à identifier »).
 - [ ] Le contexte d'usage de chaque groupe d'utilisateurs finaux est esquissé, ou l'absence d'utilisateur final est écrite.
 - [ ] Le diagramme de contexte montre tous les acteurs et systèmes externes cités.
 - [ ] Les contraintes légales ont été explicitement interrogées, même si la réponse est « aucune ».

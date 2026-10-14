@@ -45,14 +45,14 @@ Suis le déroulé de la fiche de phase. En complément :
 
 ## Format de sortie
 
-- `09-securite.md` selon le gabarit : diagramme de flux, registre des `M-n`, niveau ASVS, décisions, revue de protection des données, conformités.
+- `09-securite.md` selon le gabarit : diagramme de flux, registre des `T-n`, niveau ASVS, décisions, revue de protection des données, conformités.
 - ADR de sécurité (authentification, autorisation, secrets, chiffrement).
 - Liste des ajouts faits aux livrables amont, marqués « issus de la phase 9 ».
 
 ## Auto-contrôle avant de rendre la main
 
 - [ ] Chaque flux traversant une frontière est passé au crible de STRIDE.
-- [ ] Chaque `M-n` a une réponse, une mesure et une vérification.
+- [ ] Chaque `T-n` a une réponse, une mesure et une vérification.
 - [ ] Chaque risque accepté porte la décision explicite du décideur.
 - [ ] Le modèle d'autorisation couvre toute la matrice rôle × action.
 - [ ] La présence de données personnelles est établie et traitée.

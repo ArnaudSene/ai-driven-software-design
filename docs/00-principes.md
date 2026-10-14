@@ -148,7 +148,7 @@ Ces règles priment sur toute autre instruction du guide, sauf demande explicite
 
 1. **Ne jamais inventer une donnée métier.** Un seuil, un montant, un délai, une règle de gestion ou un volume viennent du décideur ou d'une source citée. À défaut, écrire **[seuil à fixer]** ou ouvrir une OD. Une valeur plausible mais inventée est la pire des erreurs : elle a l'air vraie. Les valeurs chiffrées des exemples de ce guide sont purement illustratives : elles ne doivent jamais être reprises dans un projet.
 2. **Séparer les faits, les hypothèses et les propositions.** Un fait a une source. Une hypothèse porte un identifiant `H-n` et le statut *À vérifier*. Une proposition de l'IA est marquée *Proposition IA* jusqu'à validation.
-3. **Tout élément a une source** : partie prenante (`PP-n`), document, entretien, loi, ou « décideur, session du <date> ».
+3. **Tout élément a une source** : partie prenante (`SH-n`), document, entretien, loi, ou « décideur, session du <date> ».
 4. **Questionner par lots courts** (§ 5.1), triés par impact décroissant. On suit l'ordre des blocs de la banque de questions de la phase, mais une question à fort impact d'un bloc ultérieur (obligation légale, contrainte imposée) peut être avancée.
 5. **Aucune gate sans validation explicite.** « Ça me semble bien » n'est pas une validation de gate ; « je valide G3 » en est une. En cas de doute, l'IA demande confirmation.
 6. **Une décision structurante, un ADR** (Architecture Decision Record, registre de décision d'architecture). Est structurante une décision coûteuse à défaire.
@@ -176,7 +176,7 @@ Chaque règle métier (`BR-n`) et chaque scénario qualité (`QS-n`) porte les c
 | **Règle** | Énoncé unique, affirmatif, sans « et » qui cacherait deux règles. |
 | **Critère de conformité** | Condition mesurable qui permet d'écrire un test échouant de façon **déterministe** quand la règle est violée. |
 | **Exemples** | Au moins un exemple nominal et un exemple limite ou d'échec, sous forme *Étant donné / Quand / Alors*. |
-| **Source** | D'où vient la règle (`PP-n`, document, loi, décideur à une date). |
+| **Source** | D'où vient la règle (`SH-n`, document, loi, décideur à une date). |
 | **Justification** | Pourquoi la règle existe. Sans justification, personne n'osera jamais la modifier ni la supprimer. |
 | **Priorité** | *Must*, *Should*, *Could* ou *Won't* (§ 7.3). |
 
@@ -237,26 +237,26 @@ Règles :
 
 | Préfixe | Objet | Terme anglais | Créé en phase | Fichier |
 |---|---|---|---|---|
-| `PP-n` | Partie prenante | Stakeholder *(sigle tiré du français)* | 1 | `01-cadrage.md` |
-| `OB-n` | Objectif métier mesurable | Business Objective | 1 | `01-cadrage.md` |
+| `SH-n` | Partie prenante | Stakeholder | 1 | `01-cadrage.md` |
+| `BO-n` | Objectif métier mesurable | Business Objective | 1 | `01-cadrage.md` |
 | `C-n` | Contrainte (imposée, non négociable par l'équipe) | Constraint | 1+ | `01-cadrage.md` |
-| `H-n` | Hypothèse | Assumption *(sigle tiré du français)* | toutes | `ETAT.md` (registre) |
+| `H-n` | Hypothèse | Hypothesis | toutes | `ETAT.md` (registre) |
 | `R-n` | Risque | Risk | toutes | `ETAT.md` (registre) |
 | `OD-n` | Décision ouverte | Open Decision | toutes | `ETAT.md` (registre) |
 | `UC-n` | Cas d'utilisation | Use Case | 2 | `02-exigences-fonctionnelles.md` |
 | `BR-n` | Règle métier | Business Rule | 2 | `02-exigences-fonctionnelles.md` |
-| `CA-n` | Critère d'acceptation | Acceptance Criterion *(sigle tiré du français)* | 2 | `02-exigences-fonctionnelles.md` |
+| `AC-n` | Critère d'acceptation | Acceptance Criterion | 2 | `02-exigences-fonctionnelles.md` |
 | `IR-n` | Exigence d'interaction | Interaction Requirement | 2 | `02-exigences-fonctionnelles.md` |
 | `QS-n` | Scénario d'attribut qualité | Quality Scenario | 3 | `03-exigences-qualite.md` |
 | `BC-n` | Contexte délimité | Bounded Context | 4 | `04-domaine.md` |
 | `ADR-nnnn` | Décision d'architecture | Architecture Decision Record | 6+ | `adr/ADR-nnnn-titre.md` |
-| `M-n` | Menace | Threat *(sigle tiré du français)* | 9 | `09-securite.md` |
+| `T-n` | Menace | Threat | 9 | `09-securite.md` |
 | `SLO-n` | Objectif de niveau de service | Service Level Objective | 10 | `10-exploitation.md` |
 | `FF-n` | Fonction d'aptitude (test d'architecture) | Fitness Function | 11 | `11-strategie-test.md` |
 | `INC-n` | Incrément de réalisation | Increment | 12 | `12-plan-realisation.md` |
 | `SRC-n` | Document source existant, lu sans être modifié | Source | 1+ | `conception.config.yaml` et `ETAT.md` |
 
-Chaque préfixe est aussi un acronyme — par exemple BR (Business Rule, règle métier), UC (Use Case, cas d'utilisation), QS (Quality Scenario, scénario qualité) — dont le sens complet est donné dans le [glossaire](glossaire.md). La colonne « Terme anglais » donne le terme à employer dans le code (règle d'or 13). Quatre sigles viennent du français et ne correspondent pas à leur terme anglais : `PP`, `H`, `CA` et `M`.
+Chaque préfixe est aussi un acronyme — par exemple BR (Business Rule, règle métier), UC (Use Case, cas d'utilisation), QS (Quality Scenario, scénario qualité) — dont le sens complet est donné dans le [glossaire](glossaire.md). Tous les préfixes sont des sigles de leur terme anglais ; la colonne « Terme anglais » donne aussi le terme à employer dans le code (règle d'or 13).
 
 ### 8.2 Règles de format
 
@@ -351,7 +351,7 @@ Les diagrammes **devraient** être écrits sous forme de texte (Mermaid de préf
 ```
 Problème                          Solution                                  Preuve
 ────────                          ────────                                  ──────
-OB-n ─► UC-n ─► CA-n ─────────────────────────────────────────────────────► test d'acceptation
+BO-n ─► UC-n ─► AC-n ─────────────────────────────────────────────────────► test d'acceptation
           │
           ├───► IR-n ─► écran (phase 5) ──────────────────────────────────► test de parcours
           │
@@ -359,19 +359,19 @@ OB-n ─► UC-n ─► CA-n ─────────────────
                   │
                   └───────────────► ADR-nnnn ─► composant / module ─► code
 
-OB-n, C-n ─► QS-n ─────────────► ADR-nnnn ─► FF-n (test d'architecture)
+BO-n, C-n ─► QS-n ─────────────► ADR-nnnn ─► FF-n (test d'architecture)
                  └─────────────► SLO-n (supervision en production)
 
-M-n (menace) ──────────────────► mesure ─► ADR / BR-n / test de sécurité
+T-n (menace) ──────────────────► mesure ─► ADR / BR-n / test de sécurité
 BC-n ──────────────────────────► module ou service
 glossaire du domaine ──────────► noms dans le code
-OB-n ──────────────────────────────────────────────────────────────────────► indicateur mesuré en production
+BO-n ──────────────────────────────────────────────────────────────────────► indicateur mesuré en production
 ```
 
 Règles :
 
-1. Chaque `UC-n` remonte à au moins un `OB-n` : sinon, pourquoi le construire ?
-2. Chaque `BR-n` *Must* a au moins deux exemples (un nominal, un limite ou d'échec). Chaque `UC-n` a au moins un `CA-n`. Chaque exemple et chaque `CA-n` descend vers un test prévu (phase 11).
+1. Chaque `UC-n` remonte à au moins un `BO-n` : sinon, pourquoi le construire ?
+2. Chaque `BR-n` *Must* a au moins deux exemples (un nominal, un limite ou d'échec). Chaque `UC-n` a au moins un `AC-n`. Chaque exemple et chaque `AC-n` descend vers un test prévu (phase 11).
 3. Chaque `ADR` cite au moins un `QS-n`, un `C-n` ou un `BR-n` qui le motive.
 4. Chaque `QS-n` *Must* est couvert par un `ADR`, un `FF-n` ou un `SLO-n`.
 5. `conception/tracabilite.md` est mis à jour au temps *Consigner* de chaque phase. Toute ligne orpheline (élément sans lien amont ou aval attendu) est signalée au décideur.

@@ -44,7 +44,7 @@
 - **Mesure de la réponse** : <valeur chiffrée ou [seuil à fixer]>
 - **Justification** :
 - **Priorité** : Must / Should / Could / Won't
-- **Liens** : OB-n, C-n, BR-n, IR-n
+- **Liens** : BO-n, C-n, BR-n, IR-n
 - **OD** (décision ouverte) : OD-n
 
 ## 4. Arbre d'utilité

@@ -14,22 +14,22 @@
 
 | Id | Partie prenante | Couche (produit, système, organisation, environnement) | Intérêt | Influence | Représentant |
 |---|---|---|---|---|---|
-| PP-1 | | | | Haute / Moyenne / Basse | |
+| SH-1 | | | | Haute / Moyenne / Basse | |
 
 ### Contexte d'usage (esquisse)
 
 <!-- Pour chaque groupe d'utilisateurs finaux (ISO (International Organization for Standardization) / IEC (International Electrotechnical Commission) 25063, § 4.2).
      Sans utilisateur final, l'écrire : la phase 5 se réduira à l'ergonomie de l'API (Application Programming Interface) ou de la ligne de commande. -->
 
-| Groupe d'utilisateurs (PP) | Caractéristiques | Objectifs | Tâches principales | Environnement d'usage |
+| Groupe d'utilisateurs (SH) | Caractéristiques | Objectifs | Tâches principales | Environnement d'usage |
 |---|---|---|---|---|
-| PP-n | | | | |
+| SH-n | | | | |
 
 ## 3. Objectifs métier
 
 | Id | Objectif | Indicateur | Valeur de départ | Cible | Échéance | Source |
 |---|---|---|---|---|---|---|
-| OB-1 | | | [seuil à fixer] | | | |
+| BO-1 | | | [seuil à fixer] | | | |
 
 ## 4. Périmètre
 

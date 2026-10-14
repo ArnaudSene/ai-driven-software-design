@@ -16,13 +16,13 @@ Priorité : *Must* si le relâchement produit une erreur irrattrapable ou silenc
 
 | Acteur | Partie prenante | Description |
 |---|---|---|
-| | PP-n | |
+| | SH-n | |
 
 ## 3. Inventaire des cas d'utilisation
 
 | Id | Titre | Acteur principal | Objectif métier | Priorité | Contexte (phase 4) |
 |---|---|---|---|---|---|
-| UC-1 | | | OB-n | Must | |
+| UC-1 | | | BO-n | Must | |
 
 ## 4. Cas d'utilisation
 
@@ -32,12 +32,12 @@ Priorité : *Must* si le relâchement produit une erreur irrattrapable ou silenc
 |---|---|
 | Acteur principal | |
 | Objectif | |
-| Objectif métier | OB-n |
+| Objectif métier | BO-n |
 | Préconditions | |
 | Garanties en cas de succès | |
 | Garanties minimales | |
 | Règles appliquées | BR-n |
-| Critères d'acceptation | CA-n |
+| Critères d'acceptation | AC-n |
 | Priorité | |
 
 **Scénario nominal**
@@ -56,7 +56,7 @@ Priorité : *Must* si le relâchement produit une erreur irrattrapable ou silenc
 - **Exemples** :
   - BR-1.E1 (nominal) — Étant donné …, quand …, alors …
   - BR-1.E2 (limite) — Étant donné …, quand …, alors …
-- **Source** : <PP-n, document, loi, décideur à une date>
+- **Source** : <SH-n, document, loi, décideur à une date>
 - **Justification** : <pourquoi la règle existe>
 - **Priorité** : <Must / Should / Could / Won't — conséquence du relâchement>
 - **Cas d'utilisation** : UC-n
@@ -82,7 +82,7 @@ Priorité : *Must* si le relâchement produit une erreur irrattrapable ou silenc
 
 ```gherkin
 # language: fr
-# CA-1 — vérifie UC-1, BR-1
+# AC-1 — vérifie UC-1, BR-1
 Étant donné …
 Quand …
 Alors …

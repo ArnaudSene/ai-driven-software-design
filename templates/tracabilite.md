@@ -8,9 +8,9 @@
 
 ## 1. Exigences fonctionnelles
 
-| Objectif (OB) | Cas d'utilisation (UC) | Règle (BR) / exemple | Critère (CA) | Contexte (BC) | Décision (ADR) | Test prévu (type) | Test réel | Incrément |
+| Objectif (BO) | Cas d'utilisation (UC) | Règle (BR) / exemple | Critère (AC) | Contexte (BC) | Décision (ADR) | Test prévu (type) | Test réel | Incrément |
 |---|---|---|---|---|---|---|---|---|
-| OB-n (exemple) | UC-n | BR-n.Ek | CA-n | BC-n | | Unitaire domaine | | INC-n |
+| BO-n (exemple) | UC-n | BR-n.Ek | AC-n | BC-n | | Unitaire domaine | | INC-n |
 
 ## 2. Exigences d'interaction
 
@@ -20,15 +20,15 @@
 
 ## 3. Exigences qualité
 
-| Scénario (QS) | Priorité | Origine (OB, C, BR, IR) | ADR | Fonction d'aptitude (FF) | Objectif de service (SLO) | Test prévu | Statut |
+| Scénario (QS) | Priorité | Origine (BO, C, BR, IR) | ADR | Fonction d'aptitude (FF) | Objectif de service (SLO) | Test prévu | Statut |
 |---|---|---|---|---|---|---|---|
 | QS-n (exemple) | Must | | | | | | |
 
 ## 4. Menaces
 
-| Menace (M) | Mesure | ADR / BR / QS | Vérification | Statut |
+| Menace (T) | Mesure | ADR / BR / QS | Vérification | Statut |
 |---|---|---|---|---|
-| M-n (exemple) | | | | Ouverte |
+| T-n (exemple) | | | | Ouverte |
 
 ## 5. Orphelins détectés
 

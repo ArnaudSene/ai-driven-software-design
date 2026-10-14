@@ -6,7 +6,7 @@
 | Agent | [`prompts/specialiste-securite.md`](../prompts/specialiste-securite.md) |
 | Entrées | `01-cadrage.md` (`C-n` légales), `02` (matrice rôle × action), `03` (`QS-n` de sécurité), `06` (C4 (Context, Containers, Components, Code) de niveau 2), `07`, `08` (classification des données, contrats) |
 | Sorties | `conception/09-securite.md`, ADR (Architecture Decision Record) de sécurité, `BR-n` et `QS-n` complémentaires |
-| Identifiants créés | `M-n` |
+| Identifiants créés | `T-n` |
 | Gabarit | [`templates/09-securite.md`](../templates/09-securite.md) |
 | Gate | G9 |
 
@@ -40,7 +40,7 @@ STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of serv
 | **D**enial of service | Déni de service | Disponibilité | Peut-on épuiser une ressource ou bloquer le service ? |
 | **E**levation of privilege | Élévation de privilège | Autorisation | Un utilisateur peut-il faire ce que son rôle n'autorise pas ? |
 
-### 2.2 Fiche de menace (`M-n`)
+### 2.2 Fiche de menace (`T-n`)
 
 | Rubrique | Contenu |
 |---|---|
@@ -118,8 +118,8 @@ L'agent **ne donne pas d'avis juridique** : il signale les obligations probables
 | Étape | L'agent | Le décideur |
 |---|---|---|
 | 1 | Construit le diagramme de flux de données et marque les frontières de confiance. | Valide. |
-| 2 | Applique STRIDE à chaque élément et chaque flux traversant une frontière ; rédige les `M-n`. | Évalue l'impact métier. |
-| 3 | Propose une réponse et une mesure pour chaque `M-n`. | Accepte ou refuse ; signe les risques acceptés. |
+| 2 | Applique STRIDE à chaque élément et chaque flux traversant une frontière ; rédige les `T-n`. | Évalue l'impact métier. |
+| 3 | Propose une réponse et une mesure pour chaque `T-n`. | Accepte ou refuse ; signe les risques acceptés. |
 | 4 | Fixe le niveau ASVS et en extrait les exigences applicables sous forme de `QS-n` ou de `BR-n`. | Valide. |
 | 5 | Fait trancher les décisions de sécurité (§ 2.4) et rédige les ADR. | Arbitre. |
 | 6 | Conduit la revue de protection des données personnelles (§ 2.5). | Répond ; consulte le juriste si nécessaire. |
@@ -142,7 +142,7 @@ L'agent **ne donne pas d'avis juridique** : il signale les obligations probables
 
 | Fichier | Contenu minimal |
 |---|---|
-| `09-securite.md` | Diagramme de flux et frontières de confiance, registre des `M-n`, niveau ASVS, décisions de sécurité, revue de protection des données, conformités |
+| `09-securite.md` | Diagramme de flux et frontières de confiance, registre des `T-n`, niveau ASVS, décisions de sécurité, revue de protection des données, conformités |
 | `adr/` | Authentification, autorisation, gestion des secrets, chiffrement |
 | `02`, `03`, `01` | `BR-n`, `QS-n` et `C-n` ajoutées, marquées « issues de la phase 9 » |
 
@@ -153,7 +153,7 @@ L'agent **ne donne pas d'avis juridique** : il signale les obligations probables
 - [ ] ★ La gestion des secrets est décidée ; aucun secret n'est prévu dans le code ou la configuration versionnée.
 - [ ] ★ La présence de données personnelles est établie et, le cas échéant, la revue RGPD est faite.
 - [ ] Chaque flux traversant une frontière a été passé au crible de STRIDE.
-- [ ] Chaque `M-n` a une réponse ; chaque risque accepté porte la décision explicite du décideur.
+- [ ] Chaque `T-n` a une réponse ; chaque risque accepté porte la décision explicite du décideur.
 - [ ] Chaque mesure a une vérification prévue (test, analyse, revue).
 - [ ] Le niveau ASVS est fixé et ses exigences applicables sont reprises.
 - [ ] La journalisation de sécurité et la gestion des incidents sont définies.

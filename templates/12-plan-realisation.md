@@ -25,7 +25,7 @@
 
 ## 3. Incréments
 
-| Id | Titre | Objectif (OB-n) | Contenu (UC-n, BR-n, CA-n) | Risques réduits | Prérequis (incréments, décisions ouvertes (OD)) | Critère de fin |
+| Id | Titre | Objectif (BO-n) | Contenu (UC-n, BR-n, AC-n) | Risques réduits | Prérequis (incréments, décisions ouvertes (OD)) | Critère de fin |
 |---|---|---|---|---|---|---|
 | INC-1 | | | | | | Définition de « terminé » + … |
 
@@ -35,7 +35,7 @@
 
 | Élément du carnet | Réalise | Incrément |
 |---|---|---|
-| | UC-n, BR-n, CA-n | INC-1 |
+| | UC-n, BR-n, AC-n | INC-1 |
 
 ## 5. Consignes de développement
 
@@ -47,7 +47,7 @@ Structure attendue de `AGENTS.md` du projet :
 # Consignes de développement
 
 ## Conception
-- La conception fait foi : `<CONCEPTION_DIR>` (par défaut `conception/`). Avant de coder une fonctionnalité, lire les cas d'utilisation (UC, Use Case), règles métier (BR, Business Rule), critères d'acceptation (CA), décisions d'architecture (ADR, Architecture Decision Record) et fonctions d'aptitude (FF, Fitness Function) concernés.
+- La conception fait foi : `<CONCEPTION_DIR>` (par défaut `conception/`). Avant de coder une fonctionnalité, lire les cas d'utilisation (UC, Use Case), règles métier (BR, Business Rule), critères d'acceptation (AC, Acceptance Criterion), décisions d'architecture (ADR, Architecture Decision Record) et fonctions d'aptitude (FF, Fitness Function) concernés.
 - Toute ambiguïté métier : s'arrêter et demander ; proposer une décision ouverte (OD) dans `conception/ETAT.md`.
 - Tout écart avec une décision d'architecture : proposer un nouvel ADR, ne jamais contourner silencieusement.
 - Ne jamais coder en dur une valeur marquée [seuil à fixer] : la rendre configurable et le signaler.
@@ -60,7 +60,7 @@ Structure attendue de `AGENTS.md` du projet :
 - Règles de dépendance : <résumé> ; vérifiées par <FF-n>.
 
 ## Traçabilité
-- Tests : le nom ou l'étiquette cite l'identifiant vérifié (BR-7.E2, CA-11).
+- Tests : le nom ou l'étiquette cite l'identifiant vérifié (BR-7.E2, AC-11).
 - Commits et demandes de fusion : citer les identifiants réalisés.
 
 ## Conventions

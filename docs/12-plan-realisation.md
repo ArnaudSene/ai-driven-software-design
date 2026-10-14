@@ -46,12 +46,12 @@ Le squelette **valide les ADR** (Architecture Decision Records) les plus risqué
 
 ### 2.2 Découpage en incréments (`INC-n`)
 
-Chaque incrément est une **tranche verticale** : il livre un ou plusieurs `UC-n` complets, avec leurs `BR-n`, leurs `CA-n` et leurs tests, de l'interface à la base.
+Chaque incrément est une **tranche verticale** : il livre un ou plusieurs `UC-n` complets, avec leurs `BR-n`, leurs `AC-n` et leurs tests, de l'interface à la base.
 
 Critères d'ordonnancement, dans cet ordre :
 
 1. **Risque** : ce qui peut invalider l'architecture ou le projet d'abord (intégration avec un tiers mal connu, `QS-n` difficile, règle métier floue).
-2. **Valeur** : les `UC-n` *Must* qui servent les `OB-n` principaux.
+2. **Valeur** : les `UC-n` *Must* qui servent les `BO-n` principaux.
 3. **Dépendances** : ce qui débloque le reste.
 4. **Apprentissage** : ce qui permet de vérifier tôt une hypothèse `H-n` auprès des utilisateurs.
 
@@ -62,8 +62,8 @@ Fiche d'incrément :
 | Rubrique | Contenu |
 |---|---|
 | Identifiant et titre | `INC-3` Annulation et avoirs |
-| Objectif | Valeur apportée, `OB-n` servi |
-| Contenu | `UC-n`, `BR-n`, `CA-n`, `IR-n`, `FF-n` et `SLO-n` concernés |
+| Objectif | Valeur apportée, `BO-n` servi |
+| Contenu | `UC-n`, `BR-n`, `AC-n`, `IR-n`, `FF-n` et `SLO-n` concernés |
 | Risques réduits | `R-n`, `H-n` vérifiées |
 | Prérequis | Incréments, `OD-n` à trancher avant de démarrer |
 | Critère de fin | DoD (Definition of Done, définition de « terminé ») de la phase 11 + critère propre à l'incrément |
@@ -78,10 +78,10 @@ Techniques de découpage d'un cas trop gros : par scénario (nominal d'abord, ex
 
 La conception se traduit en règles de travail, écrites dans le dépôt du code pour que les développeurs **et les agents de code** les appliquent. L'agent rédige un fichier de consignes (`AGENTS.md` et, pour Claude Code, `CLAUDE.md`) à la racine du projet, qui contient au minimum :
 
-1. **Où est la conception** : `conception/`, et quels fichiers lire avant de travailler sur une fonctionnalité (les `BR-n`, `CA-n` et ADR concernés).
+1. **Où est la conception** : `conception/`, et quels fichiers lire avant de travailler sur une fonctionnalité (les `BR-n`, `AC-n` et ADR concernés).
 2. **Langage** : utiliser les noms du glossaire ; ne pas inventer de synonyme.
 3. **Structure** : un module par `BC-n` ; règles de dépendance (renvoi aux `FF-n`).
-4. **Traçabilité** : les tests et les messages de commit citent les identifiants (`BR-7`, `CA-11`) ; les pull requests listent les identifiants réalisés.
+4. **Traçabilité** : les tests et les messages de commit citent les identifiants (`BR-7`, `AC-11`) ; les pull requests listent les identifiants réalisés.
 5. **Écarts** : toute divergence nécessaire avec un ADR ou une règle se traite par une proposition d'ADR ou une OD (décision ouverte), jamais silencieusement dans le code.
 6. **Valeurs métier** : ne jamais coder en dur une valeur marquée [seuil à fixer] ; la rendre configurable et le signaler.
 7. **Conventions** : style de code, conventions de commit, stratégie de branches, revue de code.
@@ -92,7 +92,7 @@ Avant G12, le relecteur critique conduit une revue transverse :
 
 | Contrôle | Méthode |
 |---|---|
-| Éléments orphelins | Parcours de `tracabilite.md` : `UC-n` sans `OB-n`, `BR-n` *Must* sans test, `IR-n` sans écran ni test, `QS-n` *Must* sans ADR, `FF-n` ni `SLO-n`, ADR sans exigence |
+| Éléments orphelins | Parcours de `tracabilite.md` : `UC-n` sans `BO-n`, `BR-n` *Must* sans test, `IR-n` sans écran ni test, `QS-n` *Must* sans ADR, `FF-n` ni `SLO-n`, ADR sans exigence |
 | Contradictions | Entre `BR-n` et ADR, entre `QS-n` et topologie, entre classification des données et mesures de sécurité |
 | OD en attente | Chaque OD ouverte a un responsable, une échéance, et l'incrément qu'elle bloque |
 | Risques | Chaque `R-n` ouvert a une réponse et un incrément qui le traite |

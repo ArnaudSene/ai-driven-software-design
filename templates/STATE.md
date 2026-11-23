@@ -28,7 +28,7 @@
 
 ## 3. Gates
 
-| Gate | Date | Decision | Waivers | Linked OD (open decisions) |
+| Gate | Date | Decision | Waivers | Linked open ODs (open decisions) |
 |---|---|---|---|---|
 | G1 | | | | |
 

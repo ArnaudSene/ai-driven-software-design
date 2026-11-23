@@ -27,7 +27,7 @@ The ISO (International Organization for Standardization) / IEC (International El
 | Characteristic | Useful sub-characteristics | Typical question |
 |---|---|---|
 | Functional suitability | Completeness, correctness, appropriateness | Must calculations be exact to the cent? |
-| Performance efficiency | Response time, capacity, resource utilization | How many simultaneous users? What delay is acceptable? |
+| Performance efficiency | Time behaviour (response time), capacity, resource utilization | How many simultaneous users? What delay is acceptable? |
 | Compatibility | Co-existence, interoperability | Which systems to exchange with, in which formats? |
 | Interaction capability | Learnability, user error protection, inclusivity and user assistance (in 2023, the accessibility of the 2011 version was split into these last two) | Will people with disabilities use it? Can the user follow and interrupt a long operation? |
 | Reliability | Availability, fault tolerance, recoverability | How much downtime is tolerable? How much data can be lost? |

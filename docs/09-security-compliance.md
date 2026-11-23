@@ -26,7 +26,7 @@ A method based on Adam Shostack's four questions:
 
 1. **What are we working on?** A data flow diagram, built from the C4 level 2: processes, stores, flows, external actors and **trust boundaries** (any point where one passes from one trust level to another: Internet → application, application → database, application → third party).
 2. **What can go wrong?** Applying STRIDE (the threat classification detailed below) to each element and to each flow that crosses a boundary.
-3. **What do we do about it?** One measure per threat retained: avoid, reduce, transfer or accept.
+3. **What are we going to do about it?** One measure per threat retained: avoid, reduce, transfer or accept.
 4. **Did we do a good job?** Security review and tests (phase 11).
 
 STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege):
@@ -108,7 +108,7 @@ To be asked about depending on the sector, without claiming to be exhaustive; ea
 |---|---|
 | Health | Hosting that is approved or certified under HDS (*Hébergeur de données de santé*, the French health data hosting certification) in France |
 | Card payment | PCI DSS (Payment Card Industry Data Security Standard): often avoided by delegating card entry to the payment provider |
-| Essential and important services | European NIS (Network and Information Security) 2 directive |
+| Essential and important entities | European NIS (Network and Information Security) 2 directive |
 | Financial sector | European DORA (Digital Operational Resilience Act) regulation |
 | Public services | RGAA (*Référentiel général d'amélioration de l'accessibilité*, the French accessibility standard, based on WCAG (Web Content Accessibility Guidelines)), the government's security standards |
 | Sensitive cloud computing | SecNumCloud qualification issued by the ANSSI (*Agence nationale de la sécurité des systèmes d'information*, the French national cybersecurity agency) |

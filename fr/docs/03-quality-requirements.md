@@ -27,7 +27,7 @@ La norme ISO (International Organization for Standardization) / IEC (Internation
 | Caractéristique | Sous-caractéristiques utiles | Question type |
 |---|---|---|
 | Adéquation fonctionnelle | Complétude, exactitude, pertinence | Les calculs doivent-ils être exacts au centime ? |
-| Efficacité de performance | Temps de réponse, capacité, consommation de ressources | Combien d'utilisateurs simultanés ? Quel délai acceptable ? |
+| Efficacité de performance | Comportement temporel (temps de réponse), capacité, consommation de ressources | Combien d'utilisateurs simultanés ? Quel délai acceptable ? |
 | Compatibilité | Coexistence, interopérabilité | Avec quels systèmes échanger, selon quels formats ? |
 | Capacité d'interaction | Facilité d'apprentissage, protection contre les erreurs, inclusivité et assistance à l'utilisateur (en 2023, l'accessibilité de la version de 2011 a été scindée en ces deux dernières) | Des personnes en situation de handicap l'utiliseront-elles ? L'utilisateur peut-il suivre et interrompre une opération longue ? |
 | Fiabilité | Disponibilité, tolérance aux pannes, récupérabilité | Combien de temps d'interruption est tolérable ? Combien de données peut-on perdre ? |

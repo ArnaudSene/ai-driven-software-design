@@ -26,7 +26,7 @@ Méthode fondée sur les quatre questions d'Adam Shostack :
 
 1. **Sur quoi travaille-t-on ?** Diagramme de flux de données, construit à partir du C4 de niveau 2 : processus, stockages, flux, acteurs externes et **frontières de confiance** (tout point où l'on passe d'un niveau de confiance à un autre : Internet → application, application → base, application → tiers).
 2. **Qu'est-ce qui peut mal tourner ?** Application de STRIDE (classification des menaces détaillée ci-dessous) à chaque élément et à chaque flux qui traverse une frontière.
-3. **Que fait-on contre ?** Une mesure par menace retenue : éviter, réduire, transférer ou accepter.
+3. **Qu'allons-nous faire à ce sujet ?** Une mesure par menace retenue : éviter, réduire, transférer ou accepter.
 4. **A-t-on bien travaillé ?** Revue et tests de sécurité (phase 11).
 
 STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege) :
@@ -108,7 +108,7 @@ L'agent **ne donne pas d'avis juridique** : il signale les obligations probables
 |---|---|
 | Santé | Hébergement agréé ou certifié HDS (hébergeur de données de santé) en France |
 | Paiement par carte | PCI DSS (Payment Card Industry Data Security Standard) : souvent évité en déléguant la saisie de carte au prestataire de paiement |
-| Services essentiels et importants | Directive européenne NIS (Network and Information Security, sécurité des réseaux et des systèmes d'information) 2 |
+| Entités essentielles et importantes | Directive européenne NIS (Network and Information Security, sécurité des réseaux et des systèmes d'information) 2 |
 | Secteur financier | Règlement européen DORA (Digital Operational Resilience Act, résilience opérationnelle numérique) |
 | Services publics | RGAA (Référentiel général d'amélioration de l'accessibilité), référentiels de sécurité de l'administration |
 | Informatique en nuage sensible | Qualification SecNumCloud délivrée par l'ANSSI (Agence nationale de la sécurité des systèmes d'information) |

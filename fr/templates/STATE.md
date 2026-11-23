@@ -28,7 +28,7 @@
 
 ## 3. Gates
 
-| Gate | Date | Décision | Dérogations | OD (décisions ouvertes) rattachées |
+| Gate | Date | Décision | Dérogations | OD (décisions ouvertes) rattachées, non tranchées |
 |---|---|---|---|---|
 | G1 | | | | |
 

@@ -71,7 +71,7 @@ This classification feeds directly into phase 9.
 ### 2.5 Schema evolution
 
 1. Every schema change goes through a **versioned migration**, replayable, kept in the repository.
-2. For a release without downtime, apply the **expand then contract** pattern: add the new structure, write to both, migrate the data, switch reads over, then remove the old structure in a later version.
+2. For a release without downtime, apply the **expand and contract** pattern: add the new structure, write to both, migrate the data, switch reads over, then remove the old structure in a later version.
 3. Migrations of large data volumes are designed to be interrupted and resumed.
 
 ### 2.6 Migrating existing data

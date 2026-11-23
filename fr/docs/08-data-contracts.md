@@ -71,7 +71,7 @@ Cette classification alimente directement la phase 9.
 ### 2.5 Évolution du schéma
 
 1. Toute modification de schéma passe par une **migration versionnée**, rejouable, conservée dans le dépôt.
-2. Pour une mise en production sans interruption, on applique le patron **étendre puis contracter** : ajouter la nouvelle structure, faire écrire les deux, migrer les données, basculer la lecture, puis supprimer l'ancienne structure dans une version ultérieure.
+2. Pour une mise en production sans interruption, on applique le patron **étendre puis contracter** (*expand and contract*) : ajouter la nouvelle structure, faire écrire les deux, migrer les données, basculer la lecture, puis supprimer l'ancienne structure dans une version ultérieure.
 3. Les migrations de données volumineuses sont conçues pour être interrompues et reprises.
 
 ### 2.6 Reprise des données existantes

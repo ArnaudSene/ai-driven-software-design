@@ -70,7 +70,7 @@ Release strategies:
 | Canary | New version on a fraction of the traffic, then widening | High traffic, high regression risk |
 | Feature flags | Code deployed but disabled, activated separately | Decouple deployment from release |
 
-**Rollback** is designed at the same time as deployment, including for schema migrations ("expand then contract" pattern from phase 8).
+**Rollback** is designed at the same time as deployment, including for schema migrations ("expand and contract" pattern from phase 8).
 
 ### 2.5 Observability
 

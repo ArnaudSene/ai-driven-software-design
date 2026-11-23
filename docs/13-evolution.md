@@ -1,100 +1,100 @@
-# Phase 13 — Évolution de la conception
+# Phase 13 — Design evolution
 
-| Clé | Valeur |
+| Key | Value |
 |---|---|
-| Question centrale | Comment la conception reste-t-elle vraie pendant toute la vie du système ? |
-| Agent | Orchestrateur ([`AGENTS.md`](../AGENTS.md)), appuyé du spécialiste concerné par chaque changement |
-| Entrées | `conception/` complet, code, résultats de production |
-| Sorties | Livrables révisés, nouveaux ADR (Architecture Decision Records), journal de `ETAT.md` |
-| Identifiants créés | Tous, selon les changements |
-| Gate | Aucune gate globale ; chaque changement structurant est validé par le décideur |
+| Central question | How does the design stay true throughout the life of the system? |
+| Agent | Orchestrator ([`AGENTS.md`](../AGENTS.md)), supported by the specialist concerned by each change |
+| Inputs | Complete `design/`, code, production results |
+| Outputs | Revised deliverables, new ADR (Architecture Decision Record) entries, `STATE.md` log |
+| Identifiers created | All, depending on the changes |
+| Gate | No global gate; each structural change is approved by the decision-maker |
 
 ---
 
-## 1. Pourquoi cette phase
+## 1. Why this phase
 
-Une conception qui n'est pas maintenue devient **fausse**, et une documentation fausse est pire qu'une absence de documentation : elle trompe les humains comme les agents IA (intelligence artificielle), qui la suivront à la lettre.
+A design that is not maintained becomes **wrong**, and wrong documentation is worse than no documentation: it misleads humans and AI (artificial intelligence) agents alike, who will follow it to the letter.
 
-La phase 13 commence avec la première ligne de code et ne s'arrête qu'au retrait du système.
+Phase 13 starts with the first line of code and only stops when the system is retired.
 
-## 2. Concepts et méthodes
+## 2. Concepts and methods
 
-### 2.1 Déclencheurs de mise à jour
+### 2.1 Update triggers
 
-| Déclencheur | Action |
+| Trigger | Action |
 |---|---|
-| Nouvelle demande métier | Reprise en mode allégé des phases 2 (nouveaux `UC-n` et `BR-n`), puis 3 à 11 selon l'impact |
-| Règle métier découverte pendant le développement | Nouvelle `BR-n` validée par le décideur **avant** d'être codée |
-| Écart nécessaire avec un ADR | Nouvel ADR qui remplace l'ancien ; l'ancien passe à *Remplacé par* |
-| OD (décision ouverte) tranchée | Mise à jour des éléments marqués [seuil à fixer] et des tests associés |
-| Échec d'une fonction d'aptitude (`FF-n`) | Corriger le code, **ou** décider par ADR que la règle change ; jamais désactiver silencieusement |
-| Incident de production | Analyse ; vérification des `QS-n`, `SLO-n` et `T-n` concernés ; mise à jour si l'exigence ou la mesure était fausse |
-| `SLO-n` régulièrement manqué ou toujours largement tenu | Revoir le `QS-n` d'origine avec le décideur |
-| Mesure des `BO-n` après mise en production | Retour en phase 1 si l'objectif n'est pas atteint : le problème était-il bien compris ? |
-| Nouvelle vulnérabilité ou nouvelle obligation légale | Phase 9, puis impacts |
-| Fin de support d'une technologie | Phase 7, nouvel ADR |
-| Retours des utilisateurs, mesures d'usage en production | Phase 5, et phase 2 si une `IR-n` change. La norme ISO (International Organization for Standardization) 9241-210 prévoit ce suivi dans la durée (§ 7.5.6). |
+| New business request | Lightweight rerun of phase 2 (new `UC-n` and `BR-n`), then of phases 3 to 11 depending on the impact |
+| Business rule discovered during development | New `BR-n` approved by the decision-maker **before** it is coded |
+| Necessary deviation from an ADR | New ADR that supersedes the old one; the old one moves to *Superseded by* |
+| OD (open decision) resolved | Update of the elements marked [threshold to be set] and of the associated tests |
+| Failure of a fitness function (`FF-n`) | Fix the code, **or** decide by ADR that the rule changes; never disable it silently |
+| Production incident | Analysis; check of the `QS-n`, `SLO-n` and `T-n` concerned; update if the requirement or the measure was wrong |
+| `SLO-n` regularly missed or always met by a wide margin | Review the original `QS-n` with the decision-maker |
+| Measurement of the `BO-n` after release | Back to phase 1 if the objective is not met: was the problem well understood? |
+| New vulnerability or new legal obligation | Phase 9, then impacts |
+| End of support of a technology | Phase 7, new ADR |
+| User feedback, usage measurements in production | Phase 5, and phase 2 if an `IR-n` changes. The ISO (International Organization for Standardization) 9241-210 standard provides for this follow-up over time (§ 7.5.6). |
 
-### 2.2 Procédure de changement
+### 2.2 Change procedure
 
-Elle applique le § 14 des [principes](00-principes.md#14-retours-en-arrière-et-gestion-du-changement) :
+It applies § 14 of the [principles](00-principles.md#14-going-back-and-change-management):
 
-1. Identifier les éléments touchés.
-2. Parcourir la matrice de traçabilité pour lister l'impact amont et aval.
-3. Faire décider le décideur.
-4. Modifier les livrables (mention de révision datée), écrire les nouveaux ADR, mettre à jour les tests.
-5. Consigner dans le journal de `ETAT.md`.
+1. Identify the elements affected.
+2. Walk through the traceability matrix to list the upstream and downstream impact.
+3. Have the decision-maker decide.
+4. Modify the deliverables (dated revision note), write the new ADRs, update the tests.
+5. Record it in the `STATE.md` log.
 
-### 2.3 Garde-fous automatiques contre la dérive
+### 2.3 Automatic guardrails against drift
 
-La conception reste vraie d'autant plus facilement qu'une partie est **vérifiée par la machine** :
+The design stays true all the more easily when part of it is **verified by the machine**:
 
-| Élément de conception | Garde-fou |
+| Design element | Guardrail |
 |---|---|
-| Règles de dépendance, frontières de modules | `FF-n` bloquantes dans la chaîne |
-| Contrats d'interface | Tests de contrat, comparaison de compatibilité |
-| `BR-n` et `AC-n` | Tests qui citent les identifiants ; matrice de traçabilité générée à partir des étiquettes de test |
-| `QS-n` de performance | Tests de charge périodiques, `SLO-n` en production |
-| Diagrammes | Générés à partir du code ou du modèle quand c'est possible ; sinon, revue à chaque incrément |
+| Dependency rules, module boundaries | Blocking `FF-n` in the pipeline |
+| Interface contracts | Contract tests, compatibility comparison |
+| `BR-n` and `AC-n` | Tests that cite the identifiers; traceability matrix generated from the test tags |
+| Performance `QS-n` | Periodic load tests, `SLO-n` in production |
+| Diagrams | Generated from the code or the model when possible; otherwise, reviewed at each increment |
 
-### 2.4 Travail des agents de code
+### 2.4 Work of the coding agents
 
-Pendant la réalisation, un agent de code qui applique ce guide **doit** :
+During delivery, a coding agent that applies this guide **must**:
 
-1. Avant de coder une fonctionnalité, lire les `UC-n`, `BR-n`, `AC-n`, ADR et `FF-n` qui la concernent.
-2. Utiliser les noms du glossaire.
-3. Écrire d'abord les tests dérivés des exemples et critères d'acceptation.
-4. Citer les identifiants dans les tests, les messages de commit et la description de la pull request.
-5. S'arrêter et demander au décideur au lieu de trancher seul une ambiguïté métier ; proposer une OD (décision ouverte).
-6. Proposer un ADR au lieu de contourner une décision d'architecture.
-7. Signaler toute divergence constatée entre le code existant et la conception.
+1. Before coding a feature, read the `UC-n`, `BR-n`, `AC-n`, ADRs and `FF-n` that concern it.
+2. Use the glossary's names.
+3. Write first the tests derived from the examples and the acceptance criteria.
+4. Cite the identifiers in the tests, the commit messages and the pull request description.
+5. Stop and ask the decision-maker instead of settling a business ambiguity alone; propose an OD (open decision).
+6. Propose an ADR instead of working around an architecture decision.
+7. Flag any divergence observed between the existing code and the design.
 
-### 2.5 Revues périodiques
+### 2.5 Periodic reviews
 
-| Rythme | Revue |
+| Frequency | Review |
 |---|---|
-| À chaque incrément | OD tranchées, `R-n` à jour, traçabilité, glossaire |
-| Chaque trimestre (profils *Produit* et *Critique*) | ADR encore valides ? `QS-n` encore justes au regard de la production ? Dette technique ? |
-| Chaque année | Modèle de menaces, dépendances et fins de support, test du PRA (plan de reprise d'activité) |
+| At each increment | ODs resolved, `R-n` up to date, traceability, glossary |
+| Each quarter (*Product* and *Critical* profiles) | ADRs still valid? `QS-n` still accurate in the light of production? Technical debt? |
+| Each year | Threat model, dependencies and ends of support, test of the DRP (disaster recovery plan) |
 
-### 2.6 Registre de la dette technique
+### 2.6 Technical debt register
 
-La dette technique consciente est consignée comme un `R-n` de type « dette », avec : origine (ADR ou décision qui l'a acceptée), coût estimé de son maintien, déclencheur de remboursement, incrément prévu.
+Deliberate technical debt is recorded as an `R-n` of type "debt", with: origin (ADR or decision that accepted it), estimated cost of keeping it, repayment trigger, planned increment.
 
-## 3. Liste de contrôle d'un changement
+## 3. Change checklist
 
-- [ ] Les éléments touchés et leur impact amont et aval sont listés.
-- [ ] Le décideur a validé le changement.
-- [ ] Les ADR remplacés ne sont pas modifiés ; un nouvel ADR les remplace.
-- [ ] Les tests et les `FF-n` concernés sont mis à jour.
-- [ ] La traçabilité et le glossaire sont à jour.
-- [ ] Le journal de `ETAT.md` contient l'entrée datée.
+- [ ] The elements affected and their upstream and downstream impact are listed.
+- [ ] The decision-maker has approved the change.
+- [ ] The superseded ADRs are not modified; a new ADR supersedes them.
+- [ ] The tests and the `FF-n` concerned are updated.
+- [ ] The traceability and the glossary are up to date.
+- [ ] The `STATE.md` log contains the dated entry.
 
 ## 4. Anti-patterns
 
-| Anti-pattern | Symptôme | Correction |
+| Anti-pattern | Symptom | Correction |
 |---|---|---|
-| Documentation fossile | `conception/` décrit un système qui n'existe plus | Déclencheurs du § 2.1, garde-fous automatiques. |
-| ADR réécrit | L'histoire des décisions est effacée | Un ADR accepté ne se modifie pas : il est remplacé. |
-| Règle codée en douce | Une règle métier apparaît dans le code sans `BR-n` | Règle d'or 1 et consignes de développement. |
-| Fonction d'aptitude désactivée | Test d'architecture commenté « temporairement » | Corriger, ou changer la règle par ADR. |
+| Fossil documentation | `design/` describes a system that no longer exists | Triggers of § 2.1, automatic guardrails. |
+| Rewritten ADR | The history of decisions is erased | An accepted ADR is not modified: it is superseded. |
+| Rule coded on the sly | A business rule appears in the code without a `BR-n` | Golden rule 1 and development guidelines. |
+| Disabled fitness function | Architecture test commented out "temporarily" | Fix it, or change the rule by ADR. |

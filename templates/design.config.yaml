@@ -1,0 +1,29 @@
+# Design session configuration (optional).
+# Place this file at the root of the designed project (PROJECT_DIR).
+# Without it, deliverables go to PROJECT_DIR/design/, in English, and no source
+# is declared.
+# Relative paths are resolved against PROJECT_DIR; absolute paths are allowed.
+# Prefer relative paths and commit this file; do not commit it if it holds
+# machine-specific absolute paths. PROJECT_DIR must be a Git repository.
+
+# Where the deliverables are written (DESIGN_DIR).
+# May point outside the project, e.g. to a dedicated documentation repository.
+output_dir: design
+
+# Language of the deliverables: en (default) or fr. With fr, the agent writes
+# them from the guide's French templates (fr/templates/). Names in the code,
+# identifiers and acceptance criteria (Gherkin) stay in English.
+language: en
+
+# Existing documents the agent may read. They are never modified.
+# Each source gets a stable identifier (SRC-n) used to cite it in deliverables.
+sources:
+  - id: SRC-1
+    title: Functional analysis v2
+    path: ../other-repo/docs/functional-analysis.md   # local file or directory
+  # - id: SRC-2
+  #   title: Business rules spreadsheet
+  #   path: /absolute/path/to/rules.xlsx
+  # - id: SRC-3
+  #   title: Product wiki page
+  #   url: https://example.com/wiki/product            # read-only remote document

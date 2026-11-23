@@ -1,50 +1,50 @@
-# ADR-nnnn — <Titre court à l'affirmative>
+# ADR-nnnn — <Short title, in the affirmative>
 
-<!-- ADR (Architecture Decision Record) : une décision par fichier, une à deux pages.
-     Nom du fichier : adr/ADR-nnnn-titre-en-minuscules.md
-     Un ADR accepté n'est jamais modifié : on écrit un nouvel ADR qui le remplace. -->
+<!-- ADR (Architecture Decision Record): one decision per file, one to two pages.
+     File name: adr/ADR-nnnn-title-in-lowercase.md
+     An accepted ADR is never modified: a new ADR is written to supersede it. -->
 
-| Statut | Date | Décideur | Remplace | Remplacé par |
+| Status | Date | Decision-maker | Supersedes | Superseded by |
 |---|---|---|---|---|
-| Proposé / Accepté / Déprécié / Remplacé | <AAAA-MM-JJ> | | — | — |
+| Proposed / Accepted / Deprecated / Superseded | <YYYY-MM-DD> | | — | — |
 
-## Contexte
+## Context
 
-<!-- Le problème et les forces en présence. Citer les identifiants qui motivent la décision. -->
+<!-- The problem and the forces at play. Cite the identifiers that motivate the decision. -->
 
-Exigences concernées : QS-n, C-n, BR-n.
+Requirements concerned: QS-n, C-n, BR-n.
 
-## Options considérées
+## Options considered
 
-1. **<Option A>** — <description en une phrase>
-2. **<Option B>** — <description en une phrase>
-3. **<Option la plus simple / ne rien faire>**
+1. **<Option A>** — <one-sentence description>
+2. **<Option B>** — <one-sentence description>
+3. **<Simplest option / do nothing>**
 
-## Analyse
+## Analysis
 
-| Critère (exigence) | Option A | Option B | Option C |
+| Criterion (requirement) | Option A | Option B | Option C |
 |---|---|---|---|
-| QS-n : <résumé> | | | |
-| C-n : <résumé> | | | |
-| Compétences de l'équipe | | | |
-| Coût, réversibilité | | | |
+| QS-n: <summary> | | | |
+| C-n: <summary> | | | |
+| Team skills | | | |
+| Cost, reversibility | | | |
 
-<!-- Pour un choix technologique : grille pondérée et compte rendu de preuve de concept. -->
+<!-- For a technology choice: weighted grid and proof-of-concept report. -->
 
-## Décision
+## Decision
 
-Nous retenons **<option>**, parce que <raison principale, en lien avec les exigences>.
+We choose **<option>**, because <main reason, linked to the requirements>.
 
-## Conséquences
+## Consequences
 
-- **Positives** : …
-- **Négatives et compromis** : …
-- **Risques** : R-n
-- **Dette acceptée** : …
+- **Positive**: …
+- **Negative and trade-offs**: …
+- **Risks**: R-n
+- **Accepted debt**: …
 
-## Vérification
+## Verification
 
-<!-- Comment on s'assure que la décision est respectée et qu'elle produit l'effet attendu. -->
+<!-- How we make sure the decision is respected and produces the expected effect. -->
 
-- FF-n : …
-- SLO-n : …
+- FF-n: …
+- SLO-n: …

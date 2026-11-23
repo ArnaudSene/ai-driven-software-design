@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Check acronym usage across the guide.
 
-Two rules are enforced on every Markdown file except the glossary itself:
+The guide exists in two language trees, English at the repository root and
+French under fr/, each with its own glossary: an English acronym is not always
+the French one (AI and IA). Two rules are enforced on every Markdown file of a
+tree except its glossary:
 
-1. Every all-caps token must be declared in docs/glossaire.md (or allow-listed).
+1. Every all-caps token must be declared in that tree's glossary (or
+   allow-listed).
 2. The first prose occurrence (headings excluded) of each glossary acronym
    in a file must be
    expanded, i.e. immediately followed by "(" or written inside parentheses
-   right after its long form, e.g. "intelligence artificielle (IA)".
+   right after its long form, e.g. "artificial intelligence (AI)".
 
 Fenced code blocks, inline code spans and link targets are ignored, as are
 stable identifiers such as BR-12 or ADR-0007.
@@ -19,16 +23,48 @@ from __future__ import annotations
 
 import re
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-GLOSSARY = ROOT / "docs" / "glossaire.md"
-ACRONYM_SECTION = "## 1. Acronymes"
+
+
+@dataclass(frozen=True)
+class Tree:
+    """A language version of the guide: its glossary and its files."""
+
+    name: str
+    root: Path
+    readme: Path
+    acronym_section: str
+
+    @property
+    def glossary(self) -> Path:
+        return self.root / "docs" / "glossary.md"
+
+    def files(self) -> list[Path]:
+        if self.root == ROOT:
+            found = [
+                p for p in ROOT.rglob("*.md")
+                if p.relative_to(ROOT).parts[0] != "fr" and p.name != "README.fr.md"
+            ]
+        else:
+            found = list(self.root.rglob("*.md"))
+            if self.readme.exists():
+                found.append(self.readme)
+        return sorted(p for p in found if ".git" not in p.parts and p != self.glossary)
+
+
+TREES = [
+    Tree("en", ROOT, ROOT / "README.md", "## 1. Acronyms"),
+    Tree("fr", ROOT / "fr", ROOT / "README.fr.md", "## 1. Acronymes"),
+]
 
 # Tokens that look like acronyms but are file names or local numbering.
 ALLOWLIST = {
-    "README", "AGENTS", "CLAUDE", "ETAT", "CONTRIBUTING", "LICENSE", "SKILL",
-    "AAAA", "MM", "JJ",  # date placeholder: AAAA-MM-JJ
+    "README", "AGENTS", "CLAUDE", "STATE", "CONTRIBUTING", "LICENSE", "SKILL",
+    "AAAA", "MM", "JJ",  # French date placeholder: AAAA-MM-JJ
+    "YYYY", "DD",  # English date placeholder: YYYY-MM-DD
 }
 ALLOWLIST_PATTERNS = [
     re.compile(r"^G\d+$"),  # gates: G1..G12
@@ -41,13 +77,13 @@ CAPS_TOKEN = re.compile(r"(?<![\w-])[A-Z][A-Z0-9]+(?![\w])")
 IDENTIFIER_SUFFIX = re.compile(r"-(\d|n\b|x\b|nnnn\b|NNNN\b)")
 
 
-def load_glossary() -> set[str]:
+def load_glossary(tree: Tree) -> set[str]:
     """Read the bold first cells of the glossary's acronym section only."""
     acronyms = set()
     in_section = False
-    for line in GLOSSARY.read_text(encoding="utf-8").splitlines():
+    for line in tree.glossary.read_text(encoding="utf-8").splitlines():
         if line.startswith("## "):
-            in_section = line.startswith(ACRONYM_SECTION)
+            in_section = line.startswith(tree.acronym_section)
             continue
         match = GLOSSARY_ROW.match(line)
         if in_section and match:
@@ -119,20 +155,23 @@ def check_file(path: Path, glossary: set[str]) -> list[str]:
 
 
 def main() -> int:
-    glossary = load_glossary()
-    if not glossary:
-        print(f"No acronym found in {GLOSSARY}", file=sys.stderr)
-        return 1
-
-    errors = []
-    for path in sorted(ROOT.rglob("*.md")):
-        if path == GLOSSARY or ".git" in path.parts:
-            continue
-        errors.extend(check_file(path, glossary))
+    errors, summary = [], []
+    for tree in TREES:
+        if not tree.glossary.exists():
+            print(f"No glossary at {tree.glossary.relative_to(ROOT)}", file=sys.stderr)
+            return 1
+        glossary = load_glossary(tree)
+        if not glossary:
+            print(f"No acronym found in {tree.glossary.relative_to(ROOT)}", file=sys.stderr)
+            return 1
+        files = tree.files()
+        for path in files:
+            errors.extend(check_file(path, glossary))
+        summary.append(f"{tree.name}: {len(files)} files, {len(glossary)} acronyms")
 
     for error in errors:
         print(error)
-    print(f"{len(errors)} violation(s), {len(glossary)} acronyms in glossary.")
+    print(f"{len(errors)} violation(s); {'; '.join(summary)}.")
     return 1 if errors else 0
 
 

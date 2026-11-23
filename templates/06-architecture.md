@@ -1,109 +1,109 @@
-# 06 — Architecture — <Nom du projet>
+# 06 — Architecture — <Project name>
 
-<!-- Structure arc42. Les sections alimentées par d'autres phases renvoient aux
-     livrables correspondants au lieu de les recopier. -->
+<!-- arc42 structure. Sections fed by other phases refer to the
+     corresponding deliverables instead of copying them. -->
 
-| Statut | Version | Date | Gate |
+| Status | Version | Date | Gate |
 |---|---|---|---|
-| Brouillon | 0.1 | <AAAA-MM-JJ> | G6 : — |
+| Draft | 0.1 | <YYYY-MM-DD> | G6: — |
 
-## 1. Introduction et objectifs
+## 1. Introduction and goals
 
-Résumé de la vision (voir `01-cadrage.md`) et des scénarios qualité significatifs (voir `03-exigences-qualite.md`) :
+Summary of the vision (see `01-scoping.md`) and of the significant quality scenarios (see `03-quality-requirements.md`):
 
-| Scénario (QS) | Résumé | Traité par |
+| Scenario (QS) | Summary | Addressed by |
 |---|---|---|
 | QS-n | | ADR-nnnn |
 
-## 2. Contraintes
+## 2. Constraints
 
-Voir `01-cadrage.md` § 5. Contraintes qui pèsent sur l'architecture : C-n, …
+See `01-scoping.md` § 5. Constraints that bear on the architecture: C-n, …
 
-## 3. Contexte et périmètre
+## 3. Context and scope
 
-Diagramme C4 (Context, Containers, Components, Code) de niveau 1 :
-
-```mermaid
-flowchart TB
-    U(["Utilisateur"]) --> S["<Système>"]
-    S --> X["Système externe"]
-```
-
-## 4. Stratégie de solution
-
-| Dimension | Choix | ADR (Architecture Decision Record) |
-|---|---|---|
-| Découpage et déploiement | | ADR-0001 |
-| Organisation interne des modules | | |
-| Communication entre modules | | |
-| Données et cohérence | | |
-| Modélisation par contexte | | |
-
-## 5. Vue des blocs de construction
-
-### 5.1 Conteneurs (C4 niveau 2)
+C4 (Context, Containers, Components, Code) diagram, level 1:
 
 ```mermaid
 flowchart TB
-    WEB["Application web"] --> API["Application serveur"]
-    API --> DB[("Base de données")]
+    U(["User"]) --> S["<System>"]
+    S --> X["External system"]
 ```
 
-### 5.2 Correspondance contextes → modules
+## 4. Solution strategy
 
-| Contexte (BC) | Module ou service | Organisation interne |
+| Dimension | Choice | ADR (Architecture Decision Record) |
 |---|---|---|
-| BC-1 | | Hexagonale / En couches |
+| Decomposition and deployment | | ADR-0001 |
+| Internal organization of modules | | |
+| Communication between modules | | |
+| Data and consistency | | |
+| Modeling per context | | |
 
-### 5.3 Composants des contextes *Cœur* (C4 niveau 3)
+## 5. Building block view
 
-## 6. Vue d'exécution
+### 5.1 Containers (C4 level 2)
 
-### 6.1 UC-n — scénario nominal
+```mermaid
+flowchart TB
+    WEB["Web application"] --> API["Server application"]
+    API --> DB[("Database")]
+```
+
+### 5.2 Mapping of contexts → modules
+
+| Context (BC) | Module or service | Internal organization |
+|---|---|---|
+| BC-1 | | Hexagonal / Layered |
+
+### 5.3 Components of the *Core* contexts (C4 level 3)
+
+## 6. Runtime view
+
+### 6.1 UC-n — nominal scenario
 
 ```mermaid
 sequenceDiagram
-    actor U as Utilisateur
+    actor U as User
     U->>API: …
 ```
 
-### 6.2 Scénario de panne — <dépendance indisponible>
+### 6.2 Failure scenario — <unavailable dependency>
 
-## 7. Vue de déploiement
+## 7. Deployment view
 
-<!-- Remplie en phase 10. -->
+<!-- Filled in during phase 10. -->
 
-## 8. Concepts transverses
+## 8. Cross-cutting concepts
 
-| Concept | Décision | ADR |
+| Concept | Decision | ADR |
 |---|---|---|
-| Gestion des erreurs | | |
-| Transactions et cohérence | | |
-| Idempotence | | |
-| Concurrence | | |
-| Temps et fuseaux horaires | | |
-| Configuration et secrets | | |
-| Journalisation, métriques, traces | | |
+| Error handling | | |
+| Transactions and consistency | | |
+| Idempotency | | |
+| Concurrency | | |
+| Time and time zones | | |
+| Configuration and secrets | | |
+| Logging, metrics, traces | | |
 | Validation | | |
-| Internationalisation | | |
-| Règles de dépendance (vérifiées par FF-n) | | |
+| Internationalization | | |
+| Dependency rules (checked by FF-n) | | |
 
-## 9. Décisions d'architecture
+## 9. Architecture decisions
 
-| ADR | Titre | Statut | Exigences |
+| ADR | Title | Status | Requirements |
 |---|---|---|---|
-| ADR-0001 | | Proposé | QS-n, C-n |
+| ADR-0001 | | Proposed | QS-n, C-n |
 
-## 10. Exigences qualité
+## 10. Quality requirements
 
-Voir `03-exigences-qualite.md`.
+See `03-quality-requirements.md`.
 
-## 11. Risques et dette technique
+## 11. Risks and technical debt
 
-| R | Description | Réponse |
+| R | Description | Response |
 |---|---|---|
 | R-n | | |
 
-## 12. Glossaire
+## 12. Glossary
 
-Voir `glossaire.md`.
+See `glossary.md`.

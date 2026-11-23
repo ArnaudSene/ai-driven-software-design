@@ -1,62 +1,62 @@
-# 05 — Conception de l'interaction — <Nom du projet>
+# 05 — Interaction design — <Project name>
 
-| Statut | Version | Date | Gate |
+| Status | Version | Date | Gate |
 |---|---|---|---|
-| Brouillon | 0.1 | <AAAA-MM-JJ> | G5 : — |
+| Draft | 0.1 | <YYYY-MM-DD> | G5: — |
 
-<!-- Sans utilisateur final (le système ne sert que d'autres systèmes ou des développeurs), ce document se
-     réduit à l'ergonomie de l'API (Application Programming Interface) ou de la
-     ligne de commande : nommage, messages d'erreur, cohérence des commandes. -->
+<!-- Without an end user (the system serves only other systems or developers), this document comes
+     down to the ergonomics of the API (Application Programming Interface) or of the
+     command line: naming, error messages, consistency of commands. -->
 
-## 1. Carte des écrans
+## 1. Screen map
 
-| Écran | Ce qu'on peut y faire | Cas d'utilisation (UC) | Exigences d'interaction (IR) |
+| Screen | What can be done there | Use cases (UC) | Interaction requirements (IR) |
 |---|---|---|---|
-| <Nom de l'écran> | | UC-n | IR-n |
+| <Screen name> | | UC-n | IR-n |
 
 ```mermaid
 flowchart LR
-    A["Écran A"] -->|action| B["Écran B"]
+    A["Screen A"] -->|action| B["Screen B"]
 ```
 
-## 2. Spécification de l'interaction
+## 2. Interaction specification
 
-### UC-n — <Titre>
+### UC-n — <Title>
 
-| Étape | L'utilisateur | Le système affiche | Erreurs possibles |
+| Step | The user | The system displays | Possible errors |
 |---|---|---|---|
 | 1 | | | |
 
-Schéma d'écran : <lien vers `prototypes/` ou schéma en basse fidélité>
+Screen sketch: <link to `prototypes/` or low-fidelity sketch>
 
-## 3. États des écrans
+## 3. Screen states
 
-| Écran | Vide | Chargement | Erreur | Partiel | Périmé | Droits insuffisants | Succès |
+| Screen | Empty | Loading | Error | Partial | Stale | Insufficient permissions | Success |
 |---|---|---|---|---|---|---|---|
 | | | | | | | | |
 
-## 4. Besoins d'interaction significatifs pour l'architecture
+## 4. Architecturally significant interaction needs
 
-| Scénario qualité (QS) | Besoin (scénario du SEI (Software Engineering Institute)) | Interaction décrite | Exigence transmise à la phase 6 |
+| Quality scenario (QS) | Need (scenario from the SEI (Software Engineering Institute)) | Interaction described | Requirement passed on to phase 6 |
 |---|---|---|---|
 | QS-n | | | |
 
-## 5. Besoins par écran
+## 5. Needs per screen
 
-<!-- Entrée de la phase 8 (contrats d'interface). -->
+<!-- Input to phase 8 (interface contracts). -->
 
-| Écran | Données lues | Actions envoyées | Fraîcheur attendue (à l'ouverture, sur demande, sans action de l'utilisateur) |
+| Screen | Data read | Actions sent | Expected freshness (on opening, on request, without user action) |
 |---|---|---|---|
 | | | | |
 
 ## 6. Prototype
 
-| Parcours | Chemin dans `prototypes/` | Validé par le décideur le |
+| Journey | Path in `prototypes/` | Approved by the decision-maker on |
 |---|---|---|
 | UC-n | | |
 
-## 7. Évaluation
+## 7. Evaluation
 
-| Date | Méthode (heuristiques, test avec des utilisateurs) | Constats | Suite donnée |
+| Date | Method (heuristics, testing with users) | Findings | Follow-up |
 |---|---|---|---|
 | | | | |

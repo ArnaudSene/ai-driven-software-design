@@ -32,7 +32,7 @@ Follow the steps of the phase sheet. In addition:
 3. **Track down polysemy**: for each central term, ask whether it has exactly the same meaning for every stakeholder. A change of meaning is a strong sign of a boundary.
 4. **Propose a split and at least one alternative**, justified by the heuristics of the phase sheet. The decision-maker chooses.
 5. **Distinguish immediate consistency from eventual consistency** for each rule: this is what shapes the aggregates and prepares phase 6.
-6. **Make the glossary bilingual**: for each term, an English name intended for the code, consistent throughout the context.
+6. **Name each term for the code**: for each term of the glossary, an English name intended for the code, consistent throughout the context.
 
 ## Role-specific rules
 
@@ -49,7 +49,7 @@ Follow the steps of the phase sheet. In addition:
 - One sheet per `BC-n`.
 - Context map in Mermaid, with the pattern of each relationship.
 - For each *Core* context: aggregates, invariants (`BR-n`), value objects, events.
-- Bilingual glossary per context.
+- Glossary per context, with each term's name in the code.
 
 ## Self-check before handing back
 

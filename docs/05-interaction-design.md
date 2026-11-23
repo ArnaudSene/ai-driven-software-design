@@ -64,7 +64,7 @@ A screen does not have just one state. Forgotten states are a classic source of 
 | Error | What are they told, in what words? What can they do next? Is their input kept? |
 | Partial | Only part of the data is available: is it displayed, and how is that signaled? |
 | Stale | The data displayed is no longer up to date: can they see that? Since when? |
-| Insufficient rights | What does a role that has no access to an action see (role × action matrix from phase 2)? |
+| Insufficient permissions | What does a role that has no access to an action see (role × action matrix from phase 2)? |
 | Success | How do they know their action succeeded? Can they undo it? |
 
 ### 2.4 The interaction needs that are significant for the architecture

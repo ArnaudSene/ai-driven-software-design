@@ -60,7 +60,7 @@ Suis le déroulé de l'atelier (§ 3) de la fiche de phase. En complément :
 - Livrables conformes aux gabarits, identifiants selon le § 8 des principes.
 - Chaque `BR-n` porte les six champs : Règle, Critère de conformité, Exemples, Source, Justification, Priorité.
 - Exemples nommés `BR-n.Ek`, au format *Étant donné / Quand / Alors*, avec des valeurs concrètes.
-- `AC-n` en Gherkin, chacun citant les `UC-n` et `BR-n` vérifiés.
+- `AC-n` en Gherkin anglais (règle d'or 13), chacun citant les `UC-n` et `BR-n` vérifiés.
 - `IR-n` aux mêmes champs que les `BR-n`, chacune citant son `UC-n`, sans aucune apparence d'écran.
 
 ## Auto-contrôle avant de rendre la main

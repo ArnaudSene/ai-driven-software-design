@@ -12,7 +12,7 @@ output_dir: design
 
 # Language of the deliverables: en (default) or fr. With fr, the agent writes
 # them from the guide's French templates (fr/templates/). Names in the code,
-# identifiers and Gherkin scenarios run by a tool stay in English.
+# identifiers and acceptance criteria (Gherkin) stay in English.
 language: en
 
 # Existing documents the agent may read. They are never modified.

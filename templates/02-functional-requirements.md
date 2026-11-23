@@ -80,7 +80,7 @@ Priority: *Must* if relaxing the rule produces an unrecoverable or silent error;
 
 ## 7. Acceptance criteria
 
-<!-- Run by a BDD (Behavior-Driven Development) tool, a scenario is written in English (golden rule 13). Kept as a document, it follows the language of the deliverables; in a language other than English, its first line is `# language: <code>`. -->
+<!-- Acceptance criteria are written in English Gherkin, whatever the language of the deliverables (golden rule 13), as below. -->
 
 ```gherkin
 # AC-1 — verifies UC-1, BR-1

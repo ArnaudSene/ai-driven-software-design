@@ -5,7 +5,7 @@
 | Question centrale | Comment le métier est-il structuré, et où tracer les frontières ? |
 | Agent | [`prompts/domain-modeler.md`](../prompts/domain-modeler.md) |
 | Entrées | Phases 1 à 3 validées, `glossary.md` |
-| Sorties | `design/04-domain.md`, `glossary.md` bilingue, `diagrams/` |
+| Sorties | `design/04-domain.md`, `glossary.md` (chaque terme et son nom dans le code), `diagrams/` |
 | Identifiants créés | `BC-n` |
 | Gabarit | [`templates/04-domain.md`](../templates/04-domain.md) |
 | Gate | G4 |
@@ -49,7 +49,7 @@ Chaque point chaud devient une OD (décision ouverte). Chaque politique renvoie 
 
 Un vocabulaire **unique et partagé** par le métier, la documentation et le code, **à l'intérieur d'un contexte délimité**. Le même mot peut légitimement avoir deux sens dans deux contextes différents (« Client » pour la facturation et pour le support), mais jamais deux sens dans le même contexte.
 
-Le glossaire du projet est bilingue, conformément à la règle d'or 13 :
+Le glossaire du projet donne à chaque terme son nom anglais dans le code, conformément à la règle d'or 13 :
 
 | Terme | Contexte | Définition | Nom dans le code | Synonymes proscrits |
 |---|---|---|---|---|
@@ -138,7 +138,7 @@ Règle de conception : une `BR-n` qui peut être vraie **à terme** (quelques se
 | 4 | Propose un découpage en `BC-n` avec la fiche de chacun, et justifie chaque frontière par les heuristiques du § 2.4. | Critique le découpage. |
 | 5 | Dessine la carte des contextes. | Valide. |
 | 6 | Identifie agrégats, invariants et événements pour chaque contexte *Cœur*. | Confirme les invariants. |
-| 7 | Rend le glossaire bilingue : nom anglais dans le code pour chaque terme. | Valide les traductions. |
+| 7 | Donne à chaque terme du glossaire son nom anglais dans le code. | Valide les noms. |
 | 8 | Passe la liste de contrôle et invoque le relecteur critique. | Valide G4. |
 
 ## 4. Banque de questions
@@ -155,7 +155,7 @@ Règle de conception : une `BR-n` qui peut être vraie **à terme** (quelques se
 | Fichier | Contenu minimal |
 |---|---|
 | `04-domain.md` | Frise d'événements, sous-domaines, fiches `BC-n`, carte des contextes, agrégats et invariants des contextes *Cœur* |
-| `glossary.md` | Glossaire bilingue par contexte, synonymes proscrits |
+| `glossary.md` | Glossaire par contexte : chaque terme, son nom dans le code, synonymes proscrits |
 | `diagrams/` | Carte des contextes et frise au format Mermaid |
 
 ## 6. Liste de contrôle de la gate G4

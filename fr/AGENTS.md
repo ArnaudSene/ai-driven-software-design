@@ -17,7 +17,7 @@ Trois emplacements, plus d'éventuelles sources, sont en jeu :
 | `DESIGN_DIR` | Répertoire où sont écrits les livrables. Par défaut `PROJECT_DIR/design/` ; configurable, y compris hors du projet (dépôt de documentation dédié). **Partout dans le guide, `design/` désigne `DESIGN_DIR`.** |
 | Sources (`SRC-n`) | Documents existants que l'agent lit sans jamais les modifier : analyse fonctionnelle, spécifications, tableurs, pages web. Ils peuvent se trouver n'importe où (autre dépôt, autre répertoire, adresse web). |
 
-La configuration est lue dans l'ordre suivant ; la première trouvée l'emporte :
+La configuration est lue dans l'ordre suivant ; pour chaque réglage, la première source qui le donne l'emporte :
 
 1. les indications explicites du décideur dans son message (« les livrables vont dans … », « mon analyse est dans … ») ;
 2. le fichier `PROJECT_DIR/design.config.yaml` (gabarit : [`templates/design.config.yaml`](templates/design.config.yaml)) ;
@@ -25,7 +25,7 @@ La configuration est lue dans l'ordre suivant ; la première trouvée l'emporte 
 
 Si le décideur donne ses indications dans le message et qu'elles diffèrent des valeurs par défaut, crée ou mets à jour `design.config.yaml` pour qu'une session ultérieure les retrouve. Les règles de lecture et de citation des sources sont au [§ 16 des principes](docs/00-principles.md#16-reprise-dun-existant).
 
-**Langue.** La clé `language` de `design.config.yaml` donne la langue des livrables : `en`, par défaut, ou `fr`. Avec `fr`, rédige les livrables en français à partir des gabarits de `fr/templates/`, qui portent les mêmes noms de fichiers que `templates/`. Le guide lui-même se lit toujours dans sa version anglaise : `fr/` en est une traduction pour les lecteurs humains. Les noms destinés au code, les identifiants et les scénarios Gherkin exécutés par un outil restent en anglais ([règle d'or 13](docs/00-principles.md#6-règles-dor-de-lagent)).
+**Langue.** La clé `language` de `design.config.yaml` donne la langue des livrables : `en`, par défaut, ou `fr`. Avec `fr`, rédige les livrables en français à partir des gabarits de `fr/templates/`, qui portent les mêmes noms de fichiers que `templates/`, et prends la forme française de chaque terme que le guide donne en anglais dans ces gabarits et dans `fr/docs/glossary.md` : formes développées des acronymes, marqueurs, statuts, temps de la boucle et modes (`[threshold to be set]` s'écrit `[seuil à fixer]`, le mode *Workshop* *Atelier*). Hormis ces deux sources de vocabulaire, le guide se lit toujours dans sa version anglaise : `fr/` en est une traduction pour les lecteurs humains. Les noms destinés au code, les identifiants et les critères d'acceptation (Gherkin) restent en anglais ([règle d'or 13](docs/00-principles.md#6-règles-dor-de-lagent)).
 
 Détermine le mode avant toute autre action :
 
@@ -56,14 +56,14 @@ Les règles complètes sont dans [`docs/00-principles.md`](docs/00-principles.md
 6. **Identifiants stables**, jamais réutilisés ni renumérotés.
 7. **Phases 1 à 3 sans solution technique.**
 8. **Nommer ses incertitudes** et vérifier les faits techniques plutôt que les affirmer.
-9. **Livrables dans la langue du projet (`language`, anglais par défaut), noms destinés au code en anglais.**
+9. **Livrables dans la langue du projet (`language`, anglais par défaut) ; noms destinés au code, identifiants et critères d'acceptation en anglais.**
 10. **Acronymes** : à la première occurrence dans chaque livrable, donner la forme développée entre parenthèses.
 
 ## 3. Table de routage des phases
 
 | Phase | Fiche de méthode | Prompt du spécialiste | Gabarit(s) | Livrable dans `design/` | Gate |
 |---|---|---|---|---|---|
-| 1 Cadrage | `docs/01-scoping.md` | `prompts/business-analyst.md` | `templates/01-scoping.md`, `STATE.md`, `glossary.md`, `traceability.md` | `01-scoping.md` | G1 |
+| 1 Cadrage | `docs/01-scoping.md` | `prompts/business-analyst.md` | `templates/01-scoping.md`, `templates/STATE.md`, `templates/glossary.md`, `templates/traceability.md` | `01-scoping.md` | G1 |
 | 2 Analyse fonctionnelle | `docs/02-functional-analysis.md` | `prompts/business-analyst.md` | `templates/02-functional-requirements.md` | `02-functional-requirements.md` | G2 |
 | 3 Exigences qualité | `docs/03-quality-requirements.md` | `prompts/quality-architect.md` | `templates/03-quality-requirements.md` | `03-quality-requirements.md` | G3 |
 | 4 Domaine | `docs/04-domain-modeling.md` | `prompts/domain-modeler.md` | `templates/04-domain.md` | `04-domain.md` | G4 |
@@ -84,10 +84,11 @@ Chemins relatifs à `GUIDE_DIR` ; avec `language: fr`, les gabarits se lisent da
 
 1. Lis `docs/00-principles.md` en entier.
 2. Détermine `DESIGN_DIR` et les sources (§ 0), puis cherche `DESIGN_DIR/STATE.md`. Vérifie que chaque source déclarée est lisible ; signale immédiatement celles qui ne le sont pas.
+   - **Absent, avec un fichier `conception.config.yaml` à la racine de `PROJECT_DIR` ou un fichier `conception/ETAT.md`** → le projet a été commencé avec la version du guide en français seul : ne repars pas de zéro. Préviens le décideur et propose la migration décrite dans le [README](../README.fr.md#migrer-depuis-le-guide-en-français-seul) ; effectue-la une fois qu'il l'a validée, puis reprends comme ci-dessous.
    - **Absent** → nouveau projet, phase 1 :
-     1. crée `DESIGN_DIR` et copie les gabarits `STATE.md`, `glossary.md`, `traceability.md`, `01-scoping.md` ; supprime les lignes d'exemple des tableaux (signalées par un commentaire) pour ne laisser que les en-têtes ;
+     1. crée `DESIGN_DIR` et copie les gabarits `templates/STATE.md`, `templates/glossary.md`, `templates/traceability.md`, `templates/01-scoping.md` ; supprime les lignes d'exemple des tableaux (signalées par un commentaire) pour ne laisser que les en-têtes ;
      2. initialise `STATE.md` : phase 1, temps *Charger*, mode *Atelier*, profil « à choisir », première entrée du journal ;
-     3. demande au décideur, **seulement si ces éléments manquent dans son message** : une présentation du projet, ses documents existants et leur emplacement, le nom du projet ;
+     3. demande au décideur, **seulement si ces éléments manquent dans son message** : une présentation du projet, ses documents existants et leur emplacement, le nom du projet, et la langue des livrables si aucune `language` n'est fixée et qu'il n'écrit pas en anglais ;
      4. si des sources existent, propose le mode *Proposition* et applique la procédure de reprise d'un existant ([§ 16 des principes](docs/00-principles.md#16-reprise-dun-existant)) ;
      5. enchaîne directement sur le temps *Questionner* : le premier message peut contenir le résumé du temps *Charger* suivi du premier lot de questions.
    - **Présent** → reprise : lis-le. Annonce en 5 lignes au plus : phase et temps de boucle en cours, gates validées, OD ouvertes bloquantes, questions restées sans réponse, prochaine action prévue. Demande confirmation pour poursuivre.

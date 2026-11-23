@@ -67,7 +67,7 @@ Fiche `FF-n` : exigence vérifiée (`QS-n`, ADR), règle, outil, moment d'exécu
 ### 2.4 Tests pilotés par les exigences
 
 - **Le nom ou l'étiquette de chaque test cite l'identifiant qu'il vérifie** : `test_BR_7_E2_late_cancellation_at_exact_limit` ou `@AC-11`. La matrice de traçabilité peut alors être générée à partir du code.
-- Les tests d'acceptation peuvent être écrits en Gherkin et exécutés par un outil de BDD (Behavior-Driven Development, développement piloté par le comportement), en anglais puisqu'ils sont alors du code (règle d'or 13), ou écrits directement dans le langage de test, en gardant la structure *Étant donné / Quand / Alors*.
+- Les tests d'acceptation peuvent être exécutés par un outil de BDD (Behavior-Driven Development, développement piloté par le comportement) directement à partir des `AC-n`, écrits en Gherkin anglais (règle d'or 13), ou écrits directement dans le langage de test, en gardant la structure *Given / When / Then*.
 - Le TDD (Test-Driven Development, développement piloté par les tests) est recommandé pour le domaine des contextes *Cœur* : les exemples des `BR-n` sont déjà les premiers tests.
 - **Tests écrits par une IA (intelligence artificielle)** : ils doivent être dérivés de la spécification (`BR-n.Ek`, `AC-n`), **pas** du code existant. Un test déduit du code confirme le code, y compris ses erreurs.
 

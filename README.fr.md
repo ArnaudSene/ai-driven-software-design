@@ -112,7 +112,8 @@ Ouvrez votre agent (Claude Code, ou tout agent capable de lire et d'écrire des 
 ```text
 Tu vas conduire la conception de ce projet en suivant le guide situé dans
 <chemin-du-guide>. Lis d'abord <chemin-du-guide>/AGENTS.md et applique-le :
-tu es l'orchestrateur, je suis le décideur. Les livrables vont dans ./design/.
+tu es l'orchestrateur, je suis le décideur. Les livrables vont dans ./design/,
+en français.
 Voici mon projet : <description en quelques lignes, et documents disponibles>.
 ```
 
@@ -122,13 +123,13 @@ Si vous avez déjà des documents (analyse fonctionnelle, cahier des charges…)
 Tu vas conduire la conception de ce projet en suivant le guide situé dans
 <chemin-du-guide>. Lis d'abord <chemin-du-guide>/AGENTS.md et applique-le.
 Sources à reprendre (lecture seule) : <chemin ou adresse de chaque document>.
-Les livrables vont dans : <répertoire de destination>.
+Les livrables vont dans : <répertoire de destination>, en français.
 Travaille en mode Proposition : transpose mes documents au format du guide,
 cite-les comme sources, et ne me questionne que sur ce qui manque, est ambigu
 ou contradictoire.
 ```
 
-L'agent enregistre ces emplacements dans `design.config.yaml` à la racine du projet (gabarit : [`templates/design.config.yaml`](fr/templates/design.config.yaml)) pour les retrouver aux sessions suivantes. Vous pouvez aussi écrire ce fichier vous-même avant de lancer la session. Indiquez-y `language: fr` pour que les livrables soient rédigés en français ; les noms dans le code, les identifiants et les scénarios Gherkin exécutés par un outil restent en anglais.
+L'agent enregistre ces emplacements dans `design.config.yaml` à la racine du projet (gabarit : [`templates/design.config.yaml`](fr/templates/design.config.yaml)) pour les retrouver aux sessions suivantes. Vous pouvez aussi écrire ce fichier vous-même avant de lancer la session. Indiquez-y `language: fr` pour que les livrables soient rédigés en français ; les noms dans le code, les identifiants et les critères d'acceptation (Gherkin) restent en anglais.
 
 Pour reprendre plus tard, dans une nouvelle conversation :
 
@@ -151,6 +152,35 @@ L'agent relit `design.config.yaml` s'il existe, puis `STATE.md` dans le réperto
 | « Reviens à la phase 2 » | Applique la procédure de changement et liste les impacts. |
 
 Liste complète : [`AGENTS.md` § 7](fr/AGENTS.md#7-commandes-du-décideur).
+
+## Migrer depuis le guide en français seul
+
+Jusqu'à `v1.0.0`, le guide n'existait qu'en français, de même que les noms qu'il donne aux fichiers. Un projet commencé avec lui reprend avec cette version une fois ses fichiers renommés :
+
+1. Renommez `conception.config.yaml` en `design.config.yaml`, et ajoutez-y `language: fr` pour garder des livrables en français. Si les livrables sont dans l'ancien répertoire par défaut, `conception/`, renommez-le en `design/` ou ajoutez `output_dir: conception`.
+2. Dans le répertoire de conception, renommez les livrables, et mettez à jour les références entre eux :
+
+| Avant | Après |
+|---|---|
+| `ETAT.md` | `STATE.md` |
+| `glossaire.md` | `glossary.md` |
+| `tracabilite.md` | `traceability.md` |
+| `01-cadrage.md` | `01-scoping.md` |
+| `02-exigences-fonctionnelles.md` | `02-functional-requirements.md` |
+| `03-exigences-qualite.md` | `03-quality-requirements.md` |
+| `04-domaine.md` | `04-domain.md` |
+| `07-choix-techniques.md` | `07-technology-choices.md` |
+| `08-donnees-contrats.md` | `08-data-contracts.md` |
+| `09-securite.md` | `09-security.md` |
+| `10-exploitation.md` | `10-operations.md` |
+| `11-strategie-test.md` | `11-test-strategy.md` |
+| `12-plan-realisation.md` | `12-delivery-plan.md` |
+| `contrats/` | `contracts/` |
+| `diagrammes/` | `diagrams/` |
+
+`05-interaction.md`, `06-architecture.md`, `adr/` et `prototypes/` gardent leur nom.
+
+L'agent propose cette migration quand il trouve l'ancienne organisation, et l'effectue une fois que vous l'avez validée. Un projet qui préfère ne pas migrer peut rester sur `v1.0.0`.
 
 ## Contribuer au guide
 

@@ -15,7 +15,7 @@ Three locations, plus any sources, are involved:
 | `DESIGN_DIR` | Directory where the deliverables are written. Defaults to `PROJECT_DIR/design/`; configurable, including outside the project (a dedicated documentation repository). **Throughout the guide, `design/` means `DESIGN_DIR`.** |
 | Sources (`SRC-n`) | Existing documents that the agent reads without ever modifying them: functional analysis, specifications, spreadsheets, web pages. They can be anywhere (another repository, another directory, a web address). |
 
-The configuration is read in the following order; the first one found wins:
+The configuration is read in the following order; for each setting, the first source that gives it wins:
 
 1. the decision-maker's explicit indications in their message ("the deliverables go in …", "my analysis is in …");
 2. the file `PROJECT_DIR/design.config.yaml` (template: [`templates/design.config.yaml`](templates/design.config.yaml));
@@ -23,7 +23,7 @@ The configuration is read in the following order; the first one found wins:
 
 If the decision-maker gives their indications in the message and they differ from the default values, create or update `design.config.yaml` so that a later session finds them again. The rules for reading and citing sources are in [§ 16 of the principles](docs/00-principles.md#16-working-from-existing-material).
 
-**Language.** The `language` key of `design.config.yaml` gives the language of the deliverables: `en`, the default, or `fr`. With `fr`, write the deliverables in French from the templates in `fr/templates/`, which have the same file names as `templates/`. The guide itself is always read in this English version: `fr/` is a translation for human readers. Names meant for the code, identifiers and Gherkin scenarios run by a tool stay in English ([golden rule 13](docs/00-principles.md#6-the-agents-golden-rules)).
+**Language.** The `language` key of `design.config.yaml` gives the language of the deliverables: `en`, the default, or `fr`. With `fr`, write the deliverables in French from the templates in `fr/templates/`, which have the same file names as `templates/`, and take the French form of every term this guide gives in English from those templates and from `fr/docs/glossary.md`: acronym expansions, markers, statuses, loop steps and modes (`[threshold to be set]` is written `[seuil à fixer]`, the *Workshop* mode *Atelier*). Apart from those two sources of vocabulary, the guide is always read in this English version: `fr/` is a translation for human readers. Names meant for the code, identifiers and acceptance criteria (Gherkin) stay in English ([golden rule 13](docs/00-principles.md#6-the-agents-golden-rules)).
 
 Determine the mode before any other action:
 
@@ -54,14 +54,14 @@ The complete rules are in [`docs/00-principles.md`](docs/00-principles.md). The 
 6. **Stable identifiers**, never reused or renumbered.
 7. **Phases 1 to 3 without a technical solution.**
 8. **Name your uncertainties**, and verify technical facts rather than assert them.
-9. **Deliverables in the project's language (`language`, English by default), names meant for the code in English.**
+9. **Deliverables in the project's language (`language`, English by default); names meant for the code, identifiers and acceptance criteria in English.**
 10. **Acronyms**: at the first occurrence in each deliverable, give the expanded form in parentheses.
 
 ## 3. Phase routing table
 
 | Phase | Method sheet | Specialist prompt | Template(s) | Deliverable in `design/` | Gate |
 |---|---|---|---|---|---|
-| 1 Scoping | `docs/01-scoping.md` | `prompts/business-analyst.md` | `templates/01-scoping.md`, `STATE.md`, `glossary.md`, `traceability.md` | `01-scoping.md` | G1 |
+| 1 Scoping | `docs/01-scoping.md` | `prompts/business-analyst.md` | `templates/01-scoping.md`, `templates/STATE.md`, `templates/glossary.md`, `templates/traceability.md` | `01-scoping.md` | G1 |
 | 2 Functional analysis | `docs/02-functional-analysis.md` | `prompts/business-analyst.md` | `templates/02-functional-requirements.md` | `02-functional-requirements.md` | G2 |
 | 3 Quality requirements | `docs/03-quality-requirements.md` | `prompts/quality-architect.md` | `templates/03-quality-requirements.md` | `03-quality-requirements.md` | G3 |
 | 4 Domain | `docs/04-domain-modeling.md` | `prompts/domain-modeler.md` | `templates/04-domain.md` | `04-domain.md` | G4 |
@@ -82,10 +82,11 @@ Paths are relative to `GUIDE_DIR`; with `language: fr`, the templates are read f
 
 1. Read `docs/00-principles.md` in full.
 2. Determine `DESIGN_DIR` and the sources (§ 0), then look for `DESIGN_DIR/STATE.md`. Check that each declared source is readable; report at once those that are not.
+   - **Absent, with a `conception.config.yaml` file at the root of `PROJECT_DIR` or a `conception/ETAT.md` file** → the project was started with the French-only version of the guide: do not start over. Tell the decision-maker and propose the migration described in the [README](README.md#upgrading-from-the-french-only-guide); carry it out once they approve it, then resume as below.
    - **Absent** → new project, phase 1:
-     1. create `DESIGN_DIR` and copy the templates `STATE.md`, `glossary.md`, `traceability.md`, `01-scoping.md`; delete the example rows of the tables (flagged by a comment) so that only the headers remain;
+     1. create `DESIGN_DIR` and copy the templates `templates/STATE.md`, `templates/glossary.md`, `templates/traceability.md`, `templates/01-scoping.md`; delete the example rows of the tables (flagged by a comment) so that only the headers remain;
      2. initialize `STATE.md`: phase 1, step *Load*, mode *Workshop*, profile "to be chosen", first log entry;
-     3. ask the decision-maker, **only if these elements are missing from their message**, for: a presentation of the project, its existing documents and their location, the project's name;
+     3. ask the decision-maker, **only if these elements are missing from their message**, for: a presentation of the project, its existing documents and their location, the project's name, and the language of the deliverables when no `language` is set and they write in a language other than English;
      4. if sources exist, propose *Proposal* mode and apply the procedure for working from existing material ([§ 16 of the principles](docs/00-principles.md#16-working-from-existing-material));
      5. go straight on to the *Question* step: the first message can contain the summary of the *Load* step followed by the first batch of questions.
    - **Present** → resumption: read it. Announce in 5 lines at most: the current phase and loop step, the approved gates, the blocking open ODs, the questions left unanswered, the next planned action. Ask for confirmation before continuing.

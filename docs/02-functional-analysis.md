@@ -95,7 +95,7 @@ The AI simulates the workshop: for each `UC-n`, it **proposes** rules and concre
 
 ### 2.5 Acceptance criteria (`AC-n`)
 
-Written in the *Given / When / Then* format (Gherkin) so that they can be carried directly into automated tests in phase 11. Their language follows golden rule 13. Run by a BDD (Behavior-Driven Development) tool, a scenario is code and is written in English, as below. Kept as a document, it follows the language of the deliverables; in a language other than English, its first line is the `# language: <code>` directive (for example `# language: fr`), without which Gherkin tools do not recognize the keywords:
+Written in the *Given / When / Then* format (Gherkin) so that they can be carried directly into automated tests in phase 11. Following golden rule 13, they are written in English whatever the language of the deliverables, so that a BDD (Behavior-Driven Development) tool can run them as they are:
 
 ```gherkin
 # AC-11 — verifies UC-3, BR-7

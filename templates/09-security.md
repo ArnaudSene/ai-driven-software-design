@@ -25,7 +25,7 @@ flowchart LR
 
 <!-- STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege) categories. -->
 
-| Id | Element or flow | Category | Scenario | Likelihood | Impact | Response | Countermeasure | Verification | Status |
+| Id | Element or flow | Category | Scenario | Likelihood | Impact | Response | Measure | Verification | Status |
 |---|---|---|---|---|---|---|---|---|---|
 | T-1 | | | | | | | ADR (Architecture Decision Record) / BR-n / QS-n | | Open |
 

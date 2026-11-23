@@ -67,7 +67,7 @@ A fitness function (Neal Ford, Rebecca Parsons, Patrick Kua — *Building Evolut
 ### 2.4 Requirement-driven tests
 
 - **The name or tag of each test cites the identifier it verifies**: `test_BR_7_E2_late_cancellation_at_exact_limit` or `@AC-11`. The traceability matrix can then be generated from the code.
-- Acceptance tests can be written in Gherkin and run by a BDD (Behavior-Driven Development) tool, in English since they are then code (golden rule 13), or written directly in the test language, keeping the *Given / When / Then* structure.
+- Acceptance tests can be run by a BDD (Behavior-Driven Development) tool directly from the `AC-n`, which are written in English Gherkin (golden rule 13), or written directly in the test language, keeping the *Given / When / Then* structure.
 - TDD (Test-Driven Development) is recommended for the domain of the *Core* contexts: the examples of the `BR-n` are already the first tests.
 - **Tests written by an AI (artificial intelligence)**: they must be derived from the specification (`BR-n.Ek`, `AC-n`), **not** from the existing code. A test inferred from the code confirms the code, errors included.
 

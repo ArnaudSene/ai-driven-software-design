@@ -28,12 +28,12 @@ Works and references on which the guide relies, grouped by phase. Links and edit
 
 | Reference | Contribution to the guide |
 |---|---|
-| ISO (International Organization for Standardization) 9241-210:2019 — [human-centered design of interactive systems](https://www.iso.org/standard/77520.html) | Human-centered design activities; testing with users (§ 7.5.4); follow-up over time (§ 7.5.6) |
+| ISO (International Organization for Standardization) 9241-210:2019 — [human-centred design for interactive systems](https://www.iso.org/standard/77520.html) | Human-centered design activities; testing with users (§ 7.5.4); follow-up over time (§ 7.5.6) |
 | ISO 9241-11:2018 — [usability, definitions and concepts](https://www.iso.org/standard/63500.html) | Effectiveness, efficiency, satisfaction (phase 3) |
 | ISO/TR (Technical Report) 25060:2023 — framework of the common usability formats | Specification of the user-system interaction and of the interface (phase 5) |
 | ISO/IEC (International Electrotechnical Commission) 25063:2014 — [description of the context of use](https://www.iso.org/standard/35789.html), under revision | Sketch of the context of use (phase 1); evaluation from the earliest stages of the project |
 | ISO/IEC 25064:2013 — [user needs report](https://www.iso.org/standard/35790.html) | Place of interaction design during architecture design |
-| ISO 25065:2019 — [user requirements specification](https://www.iso.org/standard/72189.html) | Interaction requirements (`IR-n`) and quality-in-use requirements (`QS-n`) |
+| ISO 25065:2019 — [user requirements specification](https://www.iso.org/standard/72189.html) | Interaction requirements (`IR-n`) and use-related quality requirements (`QS-n`) |
 | ISO 25062:2025 — [usability evaluation report](https://www.iso.org/standard/84255.html) | Format of evaluation reports (phase 11) |
 | [WCAG (Web Content Accessibility Guidelines) 2.2](https://www.w3.org/TR/WCAG22/), 2023 recommendation | Accessibility levels (phase 3), audit (phase 11) |
 | Len Bass, Bonnie E. John, Jesse Kates — [*Achieving Usability Through Software Architecture*](https://www.sei.cmu.edu/library/achieving-usability-through-software-architecture/), SEI (Software Engineering Institute) technical report, 2001 | Twenty-six usability needs that require support from the architecture (phases 3, 5 and 6) |
@@ -69,7 +69,7 @@ Works and references on which the guide relies, grouped by phase. Links and edit
 |---|---|
 | Chris Richardson — *Microservices Patterns* | Saga, transactional *outbox* |
 | CQRS (Command Query Responsibility Segregation): Udi Dahan — [*Clarified CQRS*](https://udidahan.com/2009/12/09/clarified-cqrs/) (article, 2009); Martin Fowler — [*CQRS*](https://martinfowler.com/bliki/CQRS.html) (article, 2011) | Read models tailored to the screens, and their limits (phase 8) |
-| RFC (Request For Comments) 9457 — problem details for HTTP (Hypertext Transfer Protocol) interfaces | Uniform error format for interfaces |
+| RFC (Request For Comments) 9457 — problem details for HTTP (Hypertext Transfer Protocol) APIs (Application Programming Interfaces) | Uniform error format for interfaces |
 | Adam Shostack — *Threat Modeling: Designing for Security* | Four questions, STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege) |
 | OWASP (Open Worldwide Application Security Project) — ASVS (Application Security Verification Standard), Top 10 | Levels of security requirements |
 | CNIL (*Commission nationale de l'informatique et des libertés*, the French data protection authority) — GDPR (General Data Protection Regulation) practical guides | Protection of personal data |

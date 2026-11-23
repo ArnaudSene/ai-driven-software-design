@@ -80,7 +80,7 @@ Priorité : *Must* si le relâchement produit une erreur irrattrapable ou silenc
 
 ## 7. Critères d'acceptation
 
-<!-- Exécuté par un outil de BDD (Behavior-Driven Development, développement piloté par le comportement), un scénario s'écrit en anglais (règle d'or 13), comme ci-dessous. Gardé comme document, il suit la langue des livrables ; dans une autre langue que l'anglais, sa première ligne est `# language: <code>`. -->
+<!-- Les critères d'acceptation s'écrivent en Gherkin anglais, quelle que soit la langue des livrables (règle d'or 13), comme ci-dessous. -->
 
 ```gherkin
 # AC-1 — verifies UC-1, BR-1

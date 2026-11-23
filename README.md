@@ -128,7 +128,7 @@ cite them as sources, and only ask me about what is missing, ambiguous
 or contradictory.
 ```
 
-The agent records these locations in `design.config.yaml` at the root of the project (template: [`templates/design.config.yaml`](templates/design.config.yaml)) so that it finds them again in later sessions. You can also write this file yourself before starting the session. Set `language: fr` in it to have the deliverables written in French; names in the code, identifiers and Gherkin scenarios run by a tool stay in English.
+The agent records these locations in `design.config.yaml` at the root of the project (template: [`templates/design.config.yaml`](templates/design.config.yaml)) so that it finds them again in later sessions. You can also write this file yourself before starting the session. Set `language: fr` in it to have the deliverables written in French; names in the code, identifiers and acceptance criteria (Gherkin) stay in English.
 
 To resume later, in a new conversation:
 
@@ -151,6 +151,35 @@ The agent rereads `design.config.yaml` if it exists, then `STATE.md` in the desi
 | "Go back to phase 2" | Applies the change procedure and lists the impacts. |
 
 Full list: [`AGENTS.md` § 7](AGENTS.md#7-decision-maker-commands).
+
+## Upgrading from the French-only guide
+
+Up to `v1.0.0`, the guide existed only in French, and so did the names it gives to files. A project started with it resumes with this version once its files carry the new names:
+
+1. Rename `conception.config.yaml` to `design.config.yaml`, and add `language: fr` to it to keep French deliverables. If the deliverables are in the former default directory, `conception/`, rename it to `design/` or add `output_dir: conception`.
+2. In the design directory, rename the deliverables, and update the references between them:
+
+| Before | After |
+|---|---|
+| `ETAT.md` | `STATE.md` |
+| `glossaire.md` | `glossary.md` |
+| `tracabilite.md` | `traceability.md` |
+| `01-cadrage.md` | `01-scoping.md` |
+| `02-exigences-fonctionnelles.md` | `02-functional-requirements.md` |
+| `03-exigences-qualite.md` | `03-quality-requirements.md` |
+| `04-domaine.md` | `04-domain.md` |
+| `07-choix-techniques.md` | `07-technology-choices.md` |
+| `08-donnees-contrats.md` | `08-data-contracts.md` |
+| `09-securite.md` | `09-security.md` |
+| `10-exploitation.md` | `10-operations.md` |
+| `11-strategie-test.md` | `11-test-strategy.md` |
+| `12-plan-realisation.md` | `12-delivery-plan.md` |
+| `contrats/` | `contracts/` |
+| `diagrammes/` | `diagrams/` |
+
+`05-interaction.md`, `06-architecture.md`, `adr/` and `prototypes/` keep their names.
+
+The agent proposes this migration when it finds the former layout, and carries it out once you approve it. A project that would rather not migrate can keep using `v1.0.0`.
 
 ## Contributing to the guide
 

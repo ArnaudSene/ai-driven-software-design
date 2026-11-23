@@ -26,7 +26,7 @@
 
 ## 4. Threats
 
-| Threat (T) | Countermeasure | ADR / BR / QS | Verification | Status |
+| Threat (T) | Measure | ADR / BR / QS | Verification | Status |
 |---|---|---|---|---|
 | T-n (example) | | | | Open |
 

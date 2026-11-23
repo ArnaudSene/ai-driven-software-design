@@ -95,7 +95,7 @@ L'IA simule l'atelier : pour chaque `UC-n`, elle **propose** des règles et des 
 
 ### 2.5 Critères d'acceptation (`AC-n`)
 
-Rédigés au format *Étant donné / Quand / Alors* (Gherkin) pour être directement transposables en tests automatisés en phase 11. Leur langue suit la règle d'or 13. Exécuté par un outil de BDD (Behavior-Driven Development, développement piloté par le comportement), un scénario est du code et s'écrit en anglais, comme ci-dessous. Gardé comme document, il suit la langue des livrables ; dans une autre langue que l'anglais, sa première ligne est la directive `# language: <code>` (par exemple `# language: fr`), sans laquelle les outils Gherkin ne reconnaissent pas les mots-clés :
+Rédigés au format *Given / When / Then* (Gherkin) pour être directement transposables en tests automatisés en phase 11. Selon la règle d'or 13, ils s'écrivent en anglais quelle que soit la langue des livrables, pour qu'un outil de BDD (Behavior-Driven Development, développement piloté par le comportement) puisse les exécuter tels quels :
 
 ```gherkin
 # AC-11 — verifies UC-3, BR-7

@@ -158,7 +158,7 @@ These rules take precedence over any other instruction in the guide, unless the 
 10. **Report any contradiction immediately** between an answer and an approved deliverable, citing the identifiers concerned.
 11. **Do not anticipate the solution during phases 1 to 3.** If the decision-maker expresses a solution ("we need a message queue"), extract the underlying need from it ("processing must not block data entry") and record the solution as a lead for phase 6, or for phase 5 if it describes a screen ("a button to stop the calculation" becomes "the user must be able to interrupt a calculation in progress").
 12. **Write in the files, not only in the conversation.** The conversation is ephemeral; `design/` is the project's memory. A decision that is not recorded does not exist.
-13. **Language.** Design deliverables are written in the project's language, which `design.config.yaml` declares (`language`: English by default, or French). Names that will appear in the code (classes, tables, events, endpoints) and identifiers are in English, whatever that language. A Gherkin scenario run by a BDD (Behavior-Driven Development) tool is code, so it is written in English; a scenario kept as a document follows the language of the deliverables. The domain glossary maps the terms of the deliverables to the names in the code (phase 4).
+13. **Language.** Design deliverables are written in the project's language, which `design.config.yaml` declares (`language`: English by default, or French). Names that will appear in the code (classes, tables, events, endpoints), identifiers and acceptance criteria (`AC-n`, in Gherkin) are in English, whatever that language: a criterion then exists in one version only, which a BDD (Behavior-Driven Development) tool can run without rewriting it. The domain glossary maps the terms of the deliverables to the names in the code (phase 4).
 14. **Name your uncertainties.** If the AI is not sure of a technical fact (a product's version, a library's behavior), it says so and proposes a verification, rather than asserting.
 
 ---
@@ -216,7 +216,7 @@ An interaction requirement says what the user **must be able to do or see** to a
 | Kind (ISO 25065) | In the guide | Example |
 |---|---|---|
 | User-system interaction requirement | `IR-n`, phase 2 | **While** a calculation is in progress, the user **must be able to** interrupt it. |
-| Quality-in-use requirement (effectiveness, efficiency, satisfaction) | Interaction capability `QS-n`, phase 3 | The tested users complete a booking without help in less than [threshold to be set] minutes. |
+| Use-related quality requirement (effectiveness, efficiency, satisfaction) | Interaction capability `QS-n`, phase 3 | The tested users complete a booking without help in less than [threshold to be set] minutes. |
 
 An `IR-n` carries the fields of § 7.1, the rule becoming the **requirement**, plus the `UC-n` it serves. Its fit criterion is verified by a journey test (phase 11).
 

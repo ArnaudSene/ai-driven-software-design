@@ -5,7 +5,7 @@
 | Central question | How is the business structured, and where should the boundaries be drawn? |
 | Agent | [`prompts/domain-modeler.md`](../prompts/domain-modeler.md) |
 | Inputs | Phases 1 to 3 approved, `glossary.md` |
-| Outputs | `design/04-domain.md`, bilingual `glossary.md`, `diagrams/` |
+| Outputs | `design/04-domain.md`, `glossary.md` (each term and its name in the code), `diagrams/` |
 | Identifiers created | `BC-n` |
 | Template | [`templates/04-domain.md`](../templates/04-domain.md) |
 | Gate | G4 |
@@ -49,7 +49,7 @@ Each hot spot becomes an OD (open decision). Each policy refers to one or more `
 
 A **single, shared** vocabulary used by the business, the documentation and the code, **within a bounded context**. The same word can legitimately have two meanings in two different contexts ("Customer" for billing and for support), but never two meanings in the same context.
 
-The project glossary is bilingual, in accordance with golden rule 13:
+The project glossary gives each term its English name in the code, in accordance with golden rule 13:
 
 | Term | Context | Definition | Name in the code | Forbidden synonyms |
 |---|---|---|---|---|
@@ -138,7 +138,7 @@ Design rule: a `BR-n` that may become true **eventually** (a few seconds or minu
 | 4 | Proposes a split into `BC-n` with the sheet of each one, and justifies each boundary by the heuristics of § 2.4. | Critiques the split. |
 | 5 | Draws the context map. | Approves. |
 | 6 | Identifies the aggregates, invariants and events of each *Core* context. | Confirms the invariants. |
-| 7 | Makes the glossary bilingual: an English name in the code for each term. | Approves the translations. |
+| 7 | Gives each term of the glossary its English name in the code. | Approves the names. |
 | 8 | Runs the checklist and invokes the critical reviewer. | Approves G4. |
 
 ## 4. Question bank
@@ -155,7 +155,7 @@ Design rule: a `BR-n` that may become true **eventually** (a few seconds or minu
 | File | Minimum content |
 |---|---|
 | `04-domain.md` | Event timeline, subdomains, `BC-n` sheets, context map, aggregates and invariants of the *Core* contexts |
-| `glossary.md` | Bilingual glossary by context, forbidden synonyms |
+| `glossary.md` | Glossary by context: each term, its name in the code, forbidden synonyms |
 | `diagrams/` | Context map and timeline in Mermaid format |
 
 ## 6. Gate G4 checklist

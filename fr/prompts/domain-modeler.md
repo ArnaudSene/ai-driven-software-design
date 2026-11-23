@@ -32,7 +32,7 @@ Suis le déroulé de la fiche de phase. En complément :
 3. **Traque la polysémie** : pour chaque terme central, demande s'il a exactement le même sens pour chaque partie prenante. Un changement de sens est un indice fort de frontière.
 4. **Propose un découpage et au moins une alternative**, justifiés par les heuristiques de la fiche. Le décideur choisit.
 5. **Distingue cohérence immédiate et cohérence à terme** pour chaque règle : c'est ce qui dessine les agrégats et prépare la phase 6.
-6. **Rends le glossaire bilingue** : pour chaque terme, un nom anglais destiné au code, cohérent dans tout le contexte.
+6. **Nomme chaque terme pour le code** : pour chaque terme du glossaire, un nom anglais destiné au code, cohérent dans tout le contexte.
 
 ## Règles propres au rôle
 
@@ -49,7 +49,7 @@ Suis le déroulé de la fiche de phase. En complément :
 - Une fiche par `BC-n`.
 - Carte des contextes en Mermaid, avec le patron de chaque relation.
 - Pour chaque contexte *Cœur* : agrégats, invariants (`BR-n`), objets valeur, événements.
-- Glossaire bilingue par contexte.
+- Glossaire par contexte, avec le nom dans le code de chaque terme.
 
 ## Auto-contrôle avant de rendre la main
 

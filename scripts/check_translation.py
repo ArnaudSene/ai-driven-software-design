@@ -3,7 +3,9 @@
 
 English, at the repository root, is the authoritative version; fr/ holds its
 French translation under the same file names (README.md is translated as
-README.fr.md, beside it). The manifest fr/translated-from.sha256 records, for
+README.fr.md, beside it). Every Markdown and YAML file outside fr/ and
+scripts/ is translated, except CLAUDE.md, which only imports AGENTS.md. The
+manifest fr/translated-from.sha256 records, for
 each English file, the SHA-256 of the version its translation was last brought
 up to date with. It uses the sha256sum format, so `shasum -a 256 -c
 fr/translated-from.sha256`, run from the repository root, lists the English
@@ -15,7 +17,8 @@ The check fails when:
 2. an English file is missing from the manifest;
 3. an English file no longer matches its recorded hash: it changed, and its
    translation has not been brought up to date since;
-4. the manifest names a file that does not exist, or has a malformed line.
+4. the manifest names a file that does not exist, names one twice, or has a
+   malformed line.
 
 Once a translation is brought up to date, record it:
 
@@ -36,26 +39,29 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FRENCH = ROOT / "fr"
 MANIFEST = FRENCH / "translated-from.sha256"
-TRANSLATED_DIRS = ("docs", "prompts", "templates")
-TRANSLATED_FILES = ("AGENTS.md", "README.md")
+SUFFIXES = {".md", ".yaml", ".yml"}
+UNTRANSLATED_DIRS = {"fr", "scripts"}
+UNTRANSLATED_FILES = {"CLAUDE.md", "README.fr.md"}
 ENTRY = re.compile(r"^([0-9a-f]{64})  (\S.*)$")
 
 
-def visible_files(directory: Path) -> list[Path]:
-    """Files under a directory, without hidden files or Python caches."""
+def guide_files(directory: Path) -> list[Path]:
+    """Markdown and YAML files under a directory, without hidden paths."""
     return [
         p for p in directory.rglob("*")
-        if p.is_file()
-        and not any(part.startswith(".") or part == "__pycache__"
-                    for part in p.relative_to(ROOT).parts)
+        if p.is_file() and p.suffix in SUFFIXES
+        and not any(part.startswith(".") for part in p.relative_to(ROOT).parts)
     ]
 
 
 def english_files() -> list[str]:
     """The English files that have a translation, relative to the root."""
-    found = [name for name in TRANSLATED_FILES if (ROOT / name).is_file()]
-    for name in TRANSLATED_DIRS:
-        found += [p.relative_to(ROOT).as_posix() for p in visible_files(ROOT / name)]
+    found = []
+    for path in guide_files(ROOT):
+        relative = path.relative_to(ROOT)
+        if relative.parts[0] in UNTRANSLATED_DIRS or relative.as_posix() in UNTRANSLATED_FILES:
+            continue
+        found.append(relative.as_posix())
     return sorted(found)
 
 
@@ -69,7 +75,7 @@ def english_of(french: str) -> str:
 
 def french_files() -> list[str]:
     """The French files, relative to the root, without the manifest."""
-    found = [p.relative_to(ROOT).as_posix() for p in visible_files(FRENCH) if p != MANIFEST]
+    found = [p.relative_to(ROOT).as_posix() for p in guide_files(FRENCH)]
     if (ROOT / "README.fr.md").is_file():
         found.append("README.fr.md")
     return sorted(found)
@@ -89,6 +95,9 @@ def read_manifest(errors: list[str]) -> dict[str, str]:
         entry = ENTRY.match(line)
         if not entry:
             errors.append(f"{rel}:{number}: malformed line, expected '<sha256>  <English path>'")
+            continue
+        if entry.group(2) in recorded:
+            errors.append(f"{rel}:{number}: second entry for {entry.group(2)}; keep one line per file")
             continue
         recorded[entry.group(2)] = entry.group(1)
     return recorded

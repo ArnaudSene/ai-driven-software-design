@@ -60,7 +60,7 @@ Follow the workshop flow (§ 3) of the phase sheet. In addition:
 - Deliverables that conform to the templates, identifiers as set by § 8 of the principles.
 - Each `BR-n` carries the six fields: Rule, Fit criterion, Examples, Source, Rationale, Priority.
 - Examples named `BR-n.Ek`, in the *Given / When / Then* format, with concrete values.
-- `AC-n` in Gherkin, each one citing the `UC-n` and `BR-n` it verifies.
+- `AC-n` in English Gherkin (golden rule 13), each one citing the `UC-n` and `BR-n` it verifies.
 - `IR-n` with the same fields as the `BR-n`, each one citing its `UC-n`, with no screen appearance whatsoever.
 
 ## Self-check before handing back

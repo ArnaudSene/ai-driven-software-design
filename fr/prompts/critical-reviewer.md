@@ -7,7 +7,7 @@ writes: [design/STATE.md]  # review report, recorded by the orchestrator
 
 # Agent — Relecteur critique
 
-> Chemins : `docs/`, `prompts/` et `templates/` sont relatifs à `GUIDE_DIR` (répertoire du guide) ; `design/` désigne `DESIGN_DIR` (répertoire des livrables, `PROJECT_DIR/design/` par défaut) ; les sources `SRC-n` sont en lecture seule. Voir [`AGENTS.md` § 0](../AGENTS.md#0-situer-le-contexte).
+> Chemins : `docs/`, `prompts/` et `templates/` sont relatifs à `GUIDE_DIR` (répertoire du guide) ; `design/` désigne `DESIGN_DIR` (répertoire des livrables, `PROJECT_DIR/design/` par défaut) ; les sources `SRC-n` sont en lecture seule. Les livrables sont rédigés dans la langue que donne `language` dans `design.config.yaml` (`en` par défaut) ; avec `fr`, les gabarits sont ceux de `fr/templates/`. Voir [`AGENTS.md` § 0](../AGENTS.md#0-situer-le-contexte).
 
 ## Identité
 

@@ -95,16 +95,15 @@ L'IA simule l'atelier : pour chaque `UC-n`, elle **propose** des règles et des 
 
 ### 2.5 Critères d'acceptation (`AC-n`)
 
-Rédigés au format *Étant donné / Quand / Alors* (Gherkin) pour être directement transposables en tests automatisés en phase 11. La première ligne `# language: fr` est indispensable pour que les outils Gherkin reconnaissent les mots-clés français :
+Rédigés au format *Étant donné / Quand / Alors* (Gherkin) pour être directement transposables en tests automatisés en phase 11. Leur langue suit la règle d'or 13. Exécuté par un outil de BDD (Behavior-Driven Development, développement piloté par le comportement), un scénario est du code et s'écrit en anglais, comme ci-dessous. Gardé comme document, il suit la langue des livrables ; dans une autre langue que l'anglais, sa première ligne est la directive `# language: <code>` (par exemple `# language: fr`), sans laquelle les outils Gherkin ne reconnaissent pas les mots-clés :
 
 ```gherkin
-# language: fr
-# AC-11 — vérifie UC-3, BR-7
-Étant donné une réservation confirmée pour le 10/03 à 14:00
-  Et nous sommes le 07/03 à 10:00
-Quand le client annule la réservation
-Alors un avoir de 45,00 € est émis
-  Et le créneau du 10/03 à 14:00 est de nouveau disponible
+# AC-11 — verifies UC-3, BR-7
+Given a booking confirmed for March 10 at 14:00
+  And it is March 7 at 10:00
+When the customer cancels the booking
+Then a credit note of €45.00 is issued
+  And the slot on March 10 at 14:00 is available again
 ```
 
 ### 2.6 Compléments fonctionnels

@@ -158,7 +158,7 @@ Ces règles priment sur toute autre instruction du guide, sauf demande explicite
 10. **Signaler immédiatement toute contradiction** entre une réponse et un livrable validé, en citant les identifiants concernés.
 11. **Ne pas anticiper la solution pendant les phases 1 à 3.** Si le décideur exprime une solution (« il faut une file de messages »), en extraire le besoin sous-jacent (« les traitements ne doivent pas bloquer la saisie ») et consigner la solution comme piste pour la phase 6, ou pour la phase 5 si elle décrit un écran (« un bouton pour arrêter le calcul » devient « l'utilisateur doit pouvoir interrompre un calcul en cours »).
 12. **Écrire dans les fichiers, pas seulement dans la conversation.** La conversation est éphémère, `design/` est la mémoire du projet. Une décision non consignée n'existe pas.
-13. **Langue.** Les livrables de conception sont rédigés en français. Les noms qui apparaîtront dans le code (classes, tables, événements, points d'accès) sont en anglais. Le glossaire du domaine fait la correspondance (phase 4).
+13. **Langue.** Les livrables de conception sont rédigés dans la langue du projet, que déclare `design.config.yaml` (`language` : l'anglais par défaut, ou le français). Les noms qui apparaîtront dans le code (classes, tables, événements, points d'accès) et les identifiants sont en anglais, quelle que soit cette langue. Un scénario Gherkin exécuté par un outil de BDD (Behavior-Driven Development, développement piloté par le comportement) est du code : il s'écrit donc en anglais ; un scénario gardé comme document suit la langue des livrables. Le glossaire du domaine fait la correspondance entre les termes des livrables et les noms dans le code (phase 4).
 14. **Nommer ses incertitudes.** Si l'IA n'est pas sûre d'un fait technique (version d'un produit, comportement d'une bibliothèque), elle le dit et propose une vérification, plutôt que d'affirmer.
 
 ---
@@ -320,7 +320,7 @@ Tous les livrables sont écrits dans le répertoire de conception, `DESIGN_DIR`.
 ```
 design/
 ├── STATE.md                          # État du processus : phase, gates, registres OD/H/R, journal
-├── glossary.md                     # Langage du domaine (français ↔ nom anglais dans le code) + acronymes
+├── glossary.md                     # Langage du domaine (terme des livrables ↔ nom anglais dans le code) + acronymes
 ├── traceability.md                   # Matrice de traçabilité
 ├── 01-scoping.md
 ├── 02-functional-requirements.md

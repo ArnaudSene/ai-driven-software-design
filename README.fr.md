@@ -1,5 +1,7 @@
 # Conception logicielle pilotée par l'IA
 
+[English](README.md) · **Français**
+
 Un guide complet pour **concevoir une application de A à Z en dialogue avec une IA (intelligence artificielle)** : du besoin métier jusqu'au premier incrément de code, en passant par les exigences qualité, le domaine, l'interaction avec l'utilisateur, l'architecture, les technologies, les données, la sécurité, l'exploitation et les tests.
 
 Le guide est à la fois :
@@ -65,15 +67,18 @@ Détails : [`docs/00-principles.md`](fr/docs/00-principles.md).
 .
 ├── AGENTS.md             # Point d'entrée de l'agent : orchestrateur, routage, commandes
 ├── CLAUDE.md             # Import de AGENTS.md pour Claude Code
-├── docs/
-│   ├── 00-principles.md   # Normatif : rôles, boucle, règles d'or, identifiants, gates
+├── README.md             # Présentation en anglais (en français : ce fichier, README.fr.md)
+├── docs/                 # Le guide, en anglais : la version qui fait foi
+│   ├── 00-principles.md  # Normatif : rôles, boucle, règles d'or, identifiants, gates
 │   ├── 01 … 13-*.md      # Une fiche de méthode par phase
-│   ├── glossary.md      # Acronymes et termes
-│   └── bibliography.md  # Ouvrages et références
+│   ├── glossary.md       # Acronymes et termes
+│   └── bibliography.md   # Ouvrages et références
 ├── prompts/              # Un prompt par spécialiste + relecteur critique
 ├── templates/            # Gabarits des livrables écrits dans design/
+├── fr/                   # Traduction française pour les lecteurs humains : même structure, mêmes noms de fichiers
 └── scripts/
-    └── check_acronyms.py # Vérifie le glossaire et l'expansion des acronymes
+    ├── check_acronyms.py # Vérifie le glossaire et l'expansion des acronymes, dans chaque langue
+    └── check_links.py    # Vérifie les liens, les ancres et les chemins du guide, dans chaque langue
 ```
 
 Dans le projet conçu, l'agent produit :
@@ -122,7 +127,7 @@ cite-les comme sources, et ne me questionne que sur ce qui manque, est ambigu
 ou contradictoire.
 ```
 
-L'agent enregistre ces emplacements dans `design.config.yaml` à la racine du projet (gabarit : [`templates/design.config.yaml`](fr/templates/design.config.yaml)) pour les retrouver aux sessions suivantes. Vous pouvez aussi écrire ce fichier vous-même avant de lancer la session.
+L'agent enregistre ces emplacements dans `design.config.yaml` à la racine du projet (gabarit : [`templates/design.config.yaml`](fr/templates/design.config.yaml)) pour les retrouver aux sessions suivantes. Vous pouvez aussi écrire ce fichier vous-même avant de lancer la session. Indiquez-y `language: fr` pour que les livrables soient rédigés en français ; les noms dans le code, les identifiants et les scénarios Gherkin exécutés par un outil restent en anglais.
 
 Pour reprendre plus tard, dans une nouvelle conversation :
 
@@ -148,12 +153,13 @@ Liste complète : [`AGENTS.md` § 7](fr/AGENTS.md#7-commandes-du-décideur).
 
 ## Contribuer au guide
 
-- Le guide est rédigé en français ; les scripts sont en anglais.
-- À la première occurrence d'un acronyme dans chaque fichier, sa forme développée est donnée entre parenthèses, et tout acronyme figure dans le [glossaire](fr/docs/glossary.md).
+- Le guide est rédigé en anglais, version qui fait foi. `fr/` en porte la traduction française, pour les lecteurs humains, avec les mêmes noms de fichiers ; une modification se fait d'abord en anglais, puis est reportée dans la traduction dans la même demande de fusion. Les scripts sont en anglais.
+- À la première occurrence d'un acronyme dans chaque fichier, sa forme développée est donnée entre parenthèses, et tout acronyme figure dans le glossaire de sa langue ([anglais](docs/glossary.md), [français](fr/docs/glossary.md)).
 - Avant de proposer une modification :
 
 ```bash
 python3 scripts/check_acronyms.py
+python3 scripts/check_links.py
 ```
 
 ## Références

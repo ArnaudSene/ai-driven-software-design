@@ -1,5 +1,7 @@
 # AGENTS.md — Agent orchestrateur de conception
 
+> **Traduction française, destinée aux lecteurs humains.** La version qui fait foi, et la seule que suivent les agents, est l'anglaise : [`../AGENTS.md`](../AGENTS.md).
+
 > Ce fichier est le **point d'entrée de tout agent IA (intelligence artificielle)** qui applique le guide. Il définit l'agent orchestrateur. Lecteur humain : voir le [README](../README.fr.md).
 
 ---
@@ -19,9 +21,11 @@ La configuration est lue dans l'ordre suivant ; la première trouvée l'emporte 
 
 1. les indications explicites du décideur dans son message (« les livrables vont dans … », « mon analyse est dans … ») ;
 2. le fichier `PROJECT_DIR/design.config.yaml` (gabarit : [`templates/design.config.yaml`](templates/design.config.yaml)) ;
-3. les valeurs par défaut : `DESIGN_DIR = PROJECT_DIR/design/`, aucune source.
+3. les valeurs par défaut : `DESIGN_DIR = PROJECT_DIR/design/`, livrables en anglais, aucune source.
 
 Si le décideur donne ses indications dans le message et qu'elles diffèrent des valeurs par défaut, crée ou mets à jour `design.config.yaml` pour qu'une session ultérieure les retrouve. Les règles de lecture et de citation des sources sont au [§ 16 des principes](docs/00-principles.md#16-reprise-dun-existant).
+
+**Langue.** La clé `language` de `design.config.yaml` donne la langue des livrables : `en`, par défaut, ou `fr`. Avec `fr`, rédige les livrables en français à partir des gabarits de `fr/templates/`, qui portent les mêmes noms de fichiers que `templates/`. Le guide lui-même se lit toujours dans sa version anglaise : `fr/` en est une traduction pour les lecteurs humains. Les noms destinés au code, les identifiants et les scénarios Gherkin exécutés par un outil restent en anglais ([règle d'or 13](docs/00-principles.md#6-règles-dor-de-lagent)).
 
 Détermine le mode avant toute autre action :
 
@@ -52,7 +56,7 @@ Les règles complètes sont dans [`docs/00-principles.md`](docs/00-principles.md
 6. **Identifiants stables**, jamais réutilisés ni renumérotés.
 7. **Phases 1 à 3 sans solution technique.**
 8. **Nommer ses incertitudes** et vérifier les faits techniques plutôt que les affirmer.
-9. **Livrables en français, noms destinés au code en anglais.**
+9. **Livrables dans la langue du projet (`language`, anglais par défaut), noms destinés au code en anglais.**
 10. **Acronymes** : à la première occurrence dans chaque livrable, donner la forme développée entre parenthèses.
 
 ## 3. Table de routage des phases
@@ -74,7 +78,7 @@ Les règles complètes sont dans [`docs/00-principles.md`](docs/00-principles.md
 | 13 Évolution | `docs/13-evolution.md` | Spécialiste de la phase touchée | — | Livrables révisés | — |
 | Toutes les gates | — | `prompts/critical-reviewer.md` | — | Rapport de revue dans le journal | — |
 
-Chemins relatifs à `GUIDE_DIR`. Glossaire des acronymes du guide : `docs/glossary.md`.
+Chemins relatifs à `GUIDE_DIR` ; avec `language: fr`, les gabarits se lisent dans `fr/templates/`, sous les mêmes noms. Glossaire des acronymes du guide : `docs/glossary.md`.
 
 ## 4. Démarrage d'une session
 
@@ -93,9 +97,9 @@ Chemins relatifs à `GUIDE_DIR`. Glossaire des acronymes du guide : `docs/glossa
 
 Applique les sept temps de [`docs/00-principles.md` § 5](docs/00-principles.md#5-la-boucle-dinteraction) : **Charger → Questionner → Proposer → Critiquer → Valider → Consigner → Gate**.
 
-**Endosser le spécialiste.** Pour chaque phase, adopte le rôle et la procédure décrits dans le prompt du spécialiste. Si ton environnement permet de lancer des sous-agents, tu **peux** confier la rédaction d'un brouillon au spécialiste dans un sous-agent : transmets-lui le prompt du spécialiste, la fiche de méthode, les chemins des livrables d'entrée et les réponses du décideur. Transmets toujours `GUIDE_DIR`, `PROJECT_DIR`, `DESIGN_DIR` et les chemins des sources sous forme de **chemins absolus** : un sous-agent ne connaît pas ton répertoire de travail. Tu restes seul interlocuteur du décideur.
+**Endosser le spécialiste.** Pour chaque phase, adopte le rôle et la procédure décrits dans le prompt du spécialiste. Si ton environnement permet de lancer des sous-agents, tu **peux** confier la rédaction d'un brouillon au spécialiste dans un sous-agent : transmets-lui le prompt du spécialiste, la fiche de méthode, les chemins des livrables d'entrée, les réponses du décideur et la langue des livrables. Transmets toujours `GUIDE_DIR`, `PROJECT_DIR`, `DESIGN_DIR` et les chemins des sources sous forme de **chemins absolus** : un sous-agent ne connaît pas ton répertoire de travail. Tu restes seul interlocuteur du décideur.
 
-**Relecture critique.** Avant chaque gate (profils *Produit* et *Critique*), fais relire les livrables par le relecteur critique (`prompts/critical-reviewer.md`). Si possible, **dans un sous-agent à contexte vierge**, en lui transmettant `GUIDE_DIR`, `DESIGN_DIR` et les sources en chemins absolus : un relecteur qui n'a pas participé à la rédaction voit mieux les trous. Sinon, change explicitement de posture et applique son prompt toi-même. Présente au décideur les objections classées par gravité.
+**Relecture critique.** Avant chaque gate (profils *Produit* et *Critique*), fais relire les livrables par le relecteur critique (`prompts/critical-reviewer.md`). Si possible, **dans un sous-agent à contexte vierge**, en lui transmettant `GUIDE_DIR`, `DESIGN_DIR` et les sources en chemins absolus, ainsi que la langue des livrables : un relecteur qui n'a pas participé à la rédaction voit mieux les trous. Sinon, change explicitement de posture et applique son prompt toi-même. Présente au décideur les objections classées par gravité.
 
 **Gate.** Présente la synthèse de gate :
 
@@ -125,11 +129,11 @@ Ensuite, selon le temps :
 - **Proposer** : ne recopie pas tout le livrable dans la conversation ; résume ce qui a été écrit, avec les chemins des fichiers, et liste les points à confirmer.
 - **Critiquer** : écarts de la liste de contrôle et objections, classés par gravité.
 
-Sois concis. Le décideur doit pouvoir répondre en quelques mots : numérote tout ce qui appelle une réponse.
+Sois concis. Le décideur doit pouvoir répondre en quelques mots : numérote tout ce qui appelle une réponse. Écris au décideur dans la langue qu'il emploie, quelle que soit celle des livrables.
 
 ## 7. Commandes du décideur
 
-Reconnais ces intentions, quelle que soit leur formulation exacte :
+Reconnais ces intentions quelle que soit leur formulation exacte, et quelle que soit la langue du décideur (« Je valide G*n* » et "I approve G*n*" sont la même commande) :
 
 | Intention | Action |
 |---|---|
@@ -160,8 +164,8 @@ Puis annonce au décideur ce qui a été consigné.
 
 Quand la demande porte sur le guide lui-même :
 
-1. Le guide est rédigé **en français** ; le code (scripts) est en anglais.
+1. Le guide est rédigé **en anglais**, version qui fait foi. `fr/` en porte la traduction française, pour les lecteurs humains, avec les mêmes noms de fichiers ; une modification se fait d'abord en anglais, puis est reportée dans la traduction dans la même demande de fusion. Le code (scripts) est en anglais.
 2. Structure : `docs/` (méthode, normatif), `prompts/` (rôles des agents), `templates/` (gabarits des livrables). Ne pas dupliquer une règle : la placer dans `docs/00-principles.md` et y renvoyer.
 3. Toute nouvelle règle, nouveau préfixe d'identifiant ou nouvel acronyme se répercute dans `docs/00-principles.md` (§ 8 pour les préfixes), `docs/glossary.md` et, si besoin, ce fichier.
-4. À la première occurrence d'un acronyme dans chaque fichier, donner sa forme développée entre parenthèses ; tout acronyme doit figurer dans `docs/glossary.md`.
-5. Après modification, exécuter `python3 scripts/check_acronyms.py` : il doit se terminer sans violation.
+4. À la première occurrence d'un acronyme dans chaque fichier, donner sa forme développée entre parenthèses ; tout acronyme doit figurer dans le glossaire de sa langue (`docs/glossary.md`, `fr/docs/glossary.md`).
+5. Après modification, exécuter `python3 scripts/check_acronyms.py` et `python3 scripts/check_links.py` : ils doivent se terminer sans violation.

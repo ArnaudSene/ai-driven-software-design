@@ -162,8 +162,8 @@ Then tell the decision-maker what was recorded.
 
 When the request concerns the guide itself:
 
-1. The guide is written **in English**, the authoritative version. `fr/` holds its French translation for human readers, with the same file names; a change is made in English first, then carried into the French translation in the same pull request. The code (scripts) is in English.
+1. The guide is written **in English**, the authoritative version. `fr/` holds its French translation for human readers, with the same file names; a change is made in English first, then carried into the French translation in the same pull request. `python3 scripts/check_translation.py` fails when an English file changed after its translation was last brought up to date; once the translation follows it again, record it with `python3 scripts/check_translation.py --stamp <English path>`. The code (scripts) is in English.
 2. Structure: `docs/` (method, normative), `prompts/` (agent roles), `templates/` (deliverable templates). Do not duplicate a rule: put it in `docs/00-principles.md` and refer to it.
 3. Every new rule, new identifier prefix or new acronym is carried over into `docs/00-principles.md` (§ 8 for prefixes), `docs/glossary.md` and, if needed, this file.
 4. At the first occurrence of an acronym in each file, give its expanded form in parentheses; every acronym must appear in the glossary of its language (`docs/glossary.md`, `fr/docs/glossary.md`).
-5. After a change, run `python3 scripts/check_acronyms.py` and `python3 scripts/check_links.py`: both must finish without any violation.
+5. After a change, run `python3 scripts/check_acronyms.py`, `python3 scripts/check_links.py` and `python3 scripts/check_translation.py`: all three must finish without any violation.

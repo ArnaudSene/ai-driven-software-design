@@ -78,7 +78,8 @@ Détails : [`docs/00-principles.md`](fr/docs/00-principles.md).
 ├── fr/                   # Traduction française pour les lecteurs humains : même structure, mêmes noms de fichiers
 └── scripts/
     ├── check_acronyms.py # Vérifie le glossaire et l'expansion des acronymes, dans chaque langue
-    └── check_links.py    # Vérifie les liens, les ancres et les chemins du guide, dans chaque langue
+    ├── check_links.py    # Vérifie les liens, les ancres et les chemins du guide, dans chaque langue
+    └── check_translation.py # Vérifie que chaque fichier français suit la version anglaise actuelle
 ```
 
 Dans le projet conçu, l'agent produit :
@@ -153,13 +154,14 @@ Liste complète : [`AGENTS.md` § 7](fr/AGENTS.md#7-commandes-du-décideur).
 
 ## Contribuer au guide
 
-- Le guide est rédigé en anglais, version qui fait foi. `fr/` en porte la traduction française, pour les lecteurs humains, avec les mêmes noms de fichiers ; une modification se fait d'abord en anglais, puis est reportée dans la traduction dans la même demande de fusion. Les scripts sont en anglais.
+- Le guide est rédigé en anglais, version qui fait foi. `fr/` en porte la traduction française, pour les lecteurs humains, avec les mêmes noms de fichiers ; une modification se fait d'abord en anglais, puis est reportée dans la traduction dans la même demande de fusion. `python3 scripts/check_translation.py` échoue quand un fichier anglais a changé depuis la dernière mise à jour de sa traduction ; une fois la traduction remise à jour, l'enregistrer avec `python3 scripts/check_translation.py --stamp <chemin anglais>`. Les scripts sont en anglais.
 - À la première occurrence d'un acronyme dans chaque fichier, sa forme développée est donnée entre parenthèses, et tout acronyme figure dans le glossaire de sa langue ([anglais](docs/glossary.md), [français](fr/docs/glossary.md)).
 - Avant de proposer une modification :
 
 ```bash
 python3 scripts/check_acronyms.py
 python3 scripts/check_links.py
+python3 scripts/check_translation.py
 ```
 
 ## Références

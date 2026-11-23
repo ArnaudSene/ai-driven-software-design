@@ -78,7 +78,8 @@ Details: [`docs/00-principles.md`](docs/00-principles.md).
 ├── fr/                   # French translation for human readers: same structure, same file names
 └── scripts/
     ├── check_acronyms.py # Checks the glossary and the expansion of acronyms, in each language
-    └── check_links.py    # Checks links, anchors and guide paths, in each language
+    ├── check_links.py    # Checks links, anchors and guide paths, in each language
+    └── check_translation.py # Checks that each French file follows the current English version
 ```
 
 In the project being designed, the agent produces:
@@ -153,13 +154,14 @@ Full list: [`AGENTS.md` § 7](AGENTS.md#7-decision-maker-commands).
 
 ## Contributing to the guide
 
-- The guide is written in English, the authoritative version. `fr/` holds its French translation for human readers, with the same file names; a change is made in English first, then carried into the translation in the same pull request. The scripts are in English.
+- The guide is written in English, the authoritative version. `fr/` holds its French translation for human readers, with the same file names; a change is made in English first, then carried into the translation in the same pull request. `python3 scripts/check_translation.py` fails when an English file changed after its translation was last brought up to date; once the translation follows it again, record it with `python3 scripts/check_translation.py --stamp <English path>`. The scripts are in English.
 - At the first occurrence of an acronym in each file, its expanded form is given in parentheses, and every acronym appears in the glossary of its language ([English](docs/glossary.md), [French](fr/docs/glossary.md)).
 - Before proposing a change:
 
 ```bash
 python3 scripts/check_acronyms.py
 python3 scripts/check_links.py
+python3 scripts/check_translation.py
 ```
 
 ## References

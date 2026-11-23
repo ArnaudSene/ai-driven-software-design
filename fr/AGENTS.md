@@ -164,8 +164,8 @@ Puis annonce au décideur ce qui a été consigné.
 
 Quand la demande porte sur le guide lui-même :
 
-1. Le guide est rédigé **en anglais**, version qui fait foi. `fr/` en porte la traduction française, pour les lecteurs humains, avec les mêmes noms de fichiers ; une modification se fait d'abord en anglais, puis est reportée dans la traduction dans la même demande de fusion. Le code (scripts) est en anglais.
+1. Le guide est rédigé **en anglais**, version qui fait foi. `fr/` en porte la traduction française, pour les lecteurs humains, avec les mêmes noms de fichiers ; une modification se fait d'abord en anglais, puis est reportée dans la traduction dans la même demande de fusion. `python3 scripts/check_translation.py` échoue quand un fichier anglais a changé depuis la dernière mise à jour de sa traduction ; une fois la traduction remise à jour, l'enregistrer avec `python3 scripts/check_translation.py --stamp <chemin anglais>`. Le code (scripts) est en anglais.
 2. Structure : `docs/` (méthode, normatif), `prompts/` (rôles des agents), `templates/` (gabarits des livrables). Ne pas dupliquer une règle : la placer dans `docs/00-principles.md` et y renvoyer.
 3. Toute nouvelle règle, nouveau préfixe d'identifiant ou nouvel acronyme se répercute dans `docs/00-principles.md` (§ 8 pour les préfixes), `docs/glossary.md` et, si besoin, ce fichier.
 4. À la première occurrence d'un acronyme dans chaque fichier, donner sa forme développée entre parenthèses ; tout acronyme doit figurer dans le glossaire de sa langue (`docs/glossary.md`, `fr/docs/glossary.md`).
-5. Après modification, exécuter `python3 scripts/check_acronyms.py` et `python3 scripts/check_links.py` : ils doivent se terminer sans violation.
+5. Après modification, exécuter `python3 scripts/check_acronyms.py`, `python3 scripts/check_links.py` et `python3 scripts/check_translation.py` : tous trois doivent se terminer sans violation.

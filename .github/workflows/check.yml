@@ -16,3 +16,5 @@ jobs:
         run: python3 scripts/check_acronyms.py
       - name: Check links, anchors and guide paths
         run: python3 scripts/check_links.py
+      - name: Check that the French translation follows the English
+        run: python3 scripts/check_translation.py
